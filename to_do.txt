@@ -1,0 +1,46 @@
+To Do List 
+
+Check through this list before publication, assuming that the mission itself has been completed.
+
+=============================================================
+
+In game:
+
+attributes -> general
+
+> mission title, author, and lobby description
+
+attributes -> multiplayer
+
+> mission type, player counts, summary for lobby screen:
+
+e.g.
+Mission Title | Min-Max Players | Teleport JIP & Respawn
+Mission Title | Min-Max Players | No Respawn | JIP Teleport | X MISSION CRITICAL | Time Limit Parameter
+
+=============================================================
+
+List of parts to do in:
+
+/description.ext
+> Mission name, caption, and image in description.ext
+> Respawn type (1 = none, 3 = base)
+
+/f/common/clientIntro.sqf
+> Mission name
+
+/mission/parameters.hpp
+> Decide on whether this is a DTC and so needs the time limit mission parameter
+
+/mission/briefing
+> Briefing for appropriate side - use alternate "mission" tab if DTC is chosen
+
+/mission/loadout
+> Select loadout
+
+/mission/endings.hpp
+> end1 - mission success
+> end3 - specific fail condition
+> end5, 6 - currently free
+
+
