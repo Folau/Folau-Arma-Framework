@@ -19,7 +19,7 @@ author = "Folau"; // Author
 onLoadName = "US Framework"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
 onLoadMission = """Something witty needs to go in here...""<br/> – Folau"; // Description
 loadScreen = "loadScreen.paa"; // Preview picture
-overviewPicture = "loadScreen.paa" // Lobby Image
+// overviewPicture = "loadScreen.paa" // Lobby Image
 
 class Header
 {

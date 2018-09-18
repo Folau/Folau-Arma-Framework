@@ -68,7 +68,9 @@ player createDiaryRecord ["diary", ["",""]];
 // The following block of code executes only if the player is in a side it
 // automatically includes a file which contains the appropriate briefing data.
 
-switch (_unitSide) do {	
+#include "..\..\mission\briefing\f_briefing.sqf";
+
+/* switch (_unitSide) do {	
 	case west : {
 		#include "..\..\mission\briefing\f_briefing_west.sqf";
 	};
@@ -85,6 +87,6 @@ switch (_unitSide) do {
 		#include "..\..\mission\briefing\f_briefing_zeus.sqf";
 	};
 	default { diag_log text format ["[F3] DEBUG (briefing.sqf): Side %1 is not defined.",_unitSide];	};
-};
+}; */
 
 player createDiaryRecord ["diary", ["",""]];
