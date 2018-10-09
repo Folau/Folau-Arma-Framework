@@ -35,7 +35,7 @@ class f_ParamSpacer_title1
 };
 class f_param_weather
 {
-	title = "Weather (Locked)";
+	title = "Weather";
 	values[] = {0};
 	texts[] = {"Mission Default"};
 	/*
@@ -46,7 +46,7 @@ class f_param_weather
 };
 class f_param_fog
 {
-	title = "Fog (Locked)";
+	title = "Fog";
 	values[] = {0};
 	texts[] = {"Mission Default"};
 	/*
@@ -58,7 +58,7 @@ class f_param_fog
 };
 class f_param_timeOfDay
 {
-	title = "Time of Day (Locked)";
+	title = "Time of Day";
 	values[] = {0};
 	texts[] = {"Mission Default"};
 
@@ -67,23 +67,57 @@ class f_param_timeOfDay
 	*/
 	default = 0;
 };
+
 class f_ParamSpacer_title2
 {
-	title = "---- GAME Options - Immersion ----";
+	title = "---- GAME Options - Medical ----";
 	values[] = {-100};
 	texts[] = {" "};
 	default = -100;
 };
+
+class f_param_medical
+{
+		title = "Medical System";
+		values[] = {6};
+		texts[] = {"Folau Medical"};
+		default = 6;
+};
+
+class f_param_kiaChance
+{
+		title = "High-Damage KIA Chance (Folau Medical)";
+		values[] = {0, 10, 25, 50, 100};
+		texts[] = {"None", "Low", "Normal", "High", "Always"};
+		default = 25;
+};
+
+class f_param_bleedout
+{
+	title = "Bleedout Timer";
+	values[] = {60, 120, 180, 300, 600};
+	texts[] = {"1 Minute", "2 Minutes", "3 Minutes", "5 Minutes", "10 Minutes"};
+	default = 180;
+};
+
 class f_param_CasualtiesCap		// F3 - Casualty Limit - Can override by calling f_fnc_CasualtiesCapCheck.
 {
-	title = "System - Casualty Counter - % of dead units";
+	title = "Casualty Counter - % of dead units";
 	values[] = {0,40,50,60,70,80,90};
 	texts[] = {"Disabled","40%","50%","60%","70%","80%","90%"};
 	default = 70;
-};	
+};
+class f_param_jipTeleport
+{
+		title = "JIP / Respawn Teleport";
+		values[] = {0, 1, 2, 3};
+		texts[] = {"Disable", "AddAction Only", "FlagPole Only", "Both"};
+		default = 1;
+};
+
 class f_param_respawn
 {
-	title = "System - Respawn";
+	title = "Respawn";
 	values[] = {600};
 	texts[] = {"Wave 10 Minutes"};
 
@@ -92,15 +126,24 @@ class f_param_respawn
  */	
 	default = 600;
 };
-class f_param_medical
+
+class f_ParamSpacer_title4
 {
-		title = "System - Medical";
-		values[] = {6};
-		texts[] = {"Farooq (Folau Edit)"};
-		default = 6;
+	title = "---- GAME Options - Difficulty ----";
+	values[] = {-100};
+	texts[] = {" "};
+	default = -100;
 };
-/*class f_ParamSpacer_title3
-/* class f_param_timelimit
+
+class f_param_aiSkill
+{
+	title = "AI Skill";
+	values[] = {4, 5, 6, 7, 8};
+	texts[] = {"Reserve (0.4)", "Regular (0.5)", "Hardened (0.6)", "Veteren (0.7)", "Elite (0.8)"};
+	default = 5;
+};
+
+/* class f_param_defenceTimelimit
 {
 	title = "Defence Duration";
 	values[] = {1800, 2700, 3600}; // 1800, 2700, 3600
@@ -108,17 +151,77 @@ class f_param_medical
 	default = 1800;
 }; */
 
-// Optional below for timed missions - be sure to add to briefing.
-/* {
-	title = "---- GAME Options - Difficulty ----";
+class f_param_kialimit
+{
+	title = "KIA Limit";
+	values[] = {20, 30, 40, 50};
+	texts[] = {"Low (20)", "Normal (30)", "High (40)", "Very High (50)"};
+	default = 30;
+};
+
+class f_param_timelimit
+{
+	title = "Time Limit (leave NONE if not set)";
+	values[] = {1800, 2700, 3600, 0}; // 1800, 2700, 3600
+	texts[] = {"30 Minutes", "45 Minutes", "60 Minutes", "None"};
+	default = 0;
+	
+};
+
+class f_ParamSpacer_title3
+{
+	title = "---- GAME Options - Immersion (Initial Options Advised) ----";
 	values[] = {-100};
 	texts[] = {" "};
 	default = -100;
 };
-class f_param_timelimit
+
+class f_param_artilleryComputer
 {
-	title = "Time Limit";
-	values[] = {1800, 2700, 3600, 59940}; // 1800, 2700, 3600
-	texts[] = {"Dream Team (30 Minutes)", "Hard (45 Minutes)", "Medium (60 Minutes)", "Easy (None)"};
-	default = 3600;
-}; */
+		title = "Artillery Computer";
+		values[] = {0, 1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 0;
+};
+
+class f_param_groupMarkers
+{
+		title = "Group Markers";
+		values[] = {0, 1, 2, 3, 4, 5};
+		texts[] = {"Disable", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats"};
+		default = 1;
+};
+
+class f_param_lawsOfWar
+{
+		title = "Laws of War";
+		values[] = {0, 1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 1;
+};
+
+class f_param_looting
+{
+		title = "Looting Enemy";
+		values[] = {0, 1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 0;
+};
+
+class f_param_shiftClick
+{
+		title = "Shift-Click Waypoints";
+		values[] = {0, 1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 1;
+};
+
+class f_param_thirdPerson
+{
+		title = "Third Person";
+		values[] = {2, 1, 0};
+		texts[] = {"Disabled", "Vehicles Only", "Enabled"};
+		default = 2;
+};
+
+

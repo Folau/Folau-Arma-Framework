@@ -25,6 +25,8 @@ FAR_Player_Actions = {
 FAR_HandleDamage_EH = {
 	params ["_unit","_bodyPart","_amountOfDamage","_killer"];
 	
+	_kia_chance = missionNamespace getVariable["kiaChance",0];
+	
 	if (alive _unit && 
 		_amountOfDamage >= 0.8 && 
 		!(lifeState _unit == "INCAPACITATED") && 
@@ -37,7 +39,7 @@ FAR_HandleDamage_EH = {
 			systemChat "Critical Damage!";
 		};*/
 		
-		if (_amountOfDamage >= 1 && 25 > random 100)
+		if (_amountOfDamage >= 1 && _kia_chance > random 100)
 		then {
 			_unit allowDamage true;
 			_unit setHitPointDamage [_bodyPart, 1];

@@ -20,9 +20,9 @@
 	
 	class End3
 	{
-		title = "Mission Failed";
-		subtitle = "Specific fail condition";
-		description = "Detailed description.";
+		title = "Mission Complete";
+		subtitle = "Partial success - the hostages were killed.";
+		description = "The town was retaken from rebels, however the IDAP hostages were killed.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};

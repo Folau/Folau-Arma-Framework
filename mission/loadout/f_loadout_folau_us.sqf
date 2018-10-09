@@ -167,7 +167,7 @@ _binos2 = "Rangefinder";
 _binos3 = "Laserdesignator";
 
 // Night Vision Goggles (NVGoggles)
-_nvg = "NVGoggles_OPFOR";
+_nvg = "NVGoggles";
 
 // UAV Terminal
 _uavterminal = "B_UavTerminal";	  // BLUFOR - FIA

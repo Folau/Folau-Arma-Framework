@@ -20,7 +20,7 @@ f_radios_settings_personalRadio = ["leaders"];
 //f_radios_settings_riflemanRadio = [];
 
 // Set custom LR Nets if required (LR otherwise determined by 'groups.sqf').
-f_radios_settings_longRangeGroups = ["CO", "1 PLT", "2 PLT", "THUNDER", "AIR", "SUPPORT"]; // "NEUTRAL" is shared in ACRE.
+f_radios_settings_longRangeGroups = ["CO", "1 PLT", "2 PLT", "THUNDER", "AIR", "ARTILLERY", "LOGISTICS"]; // "NEUTRAL" is shared in ACRE.
 
 // ====================================================================================
 // TFAR SPECFIC

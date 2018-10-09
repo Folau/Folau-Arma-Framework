@@ -4,20 +4,28 @@
 // MAKE SURE THE PLAYER INITIALIZES PROPERLY
 if (!hasInterface || isNil "f_sqf_orbat" || missionNamespace getVariable ["f_param_virtualArsenal",0] == 1) exitWith {};
 if (!isDedicated && (isNull player)) then {waitUntil {sleep 0.1; !isNull player};};
+
+_timeUntil = time + 5;
+
 if ("ace_main" in activatedAddons) then {
-	waitUntil{(player getVariable ["f_var_assignGear_done", false]) && (player getVariable ["f_var_ACEclientInitDone", false])};
+	waitUntil{((player getVariable ["f_var_assignGear_done", FALSE]) && (player getVariable ["f_var_ACEclientInitDone", FALSE])) || time > _timeUntil};
 } else {
-	waitUntil{(player getVariable ["f_var_assignGear_done", false])};
+	waitUntil{(player getVariable ["f_var_assignGear_done", FALSE]) || time > _timeUntil};
 };
 
-_text = "<br/><font size='18' color='#FF7F00'>LOADOUT SELECTION</font><br/><br/>
+if !(player getVariable ["f_var_assignGear_done", FALSE]) exitWith { 
+	diag_log text "[F3] WARNING (f_showLoadoutSelect.sqf): Setting 'f_var_assignGear_done' - Not using F3 Gear?";
+	player setVariable ["f_var_assignGear_done", TRUE];
+};
+
+_text = "<br/><font size='18' color='#EA2E2E'>LOADOUT SELECTION</font><br/><br/>
 You may change your gear from the standard load-out using the selections below. The default kit for your unit class is the first item in the list.<br/>
 <br/>
 You may not change equipment in the field!<br/>
 <br/>
-<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[player,true] call f_fnc_tidyGear;"">Night Gear</execute></font><font size='16'>]</font><br/>Quickly prep your kit for a night operation; removes any basic smoke grenades in the inventory.<br/>
+<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[player,TRUE] call f_fnc_tidyGear;"">Night Gear</execute></font><font size='16'>]</font><br/>Quickly prep your kit for a night operation; removes any basic smoke grenades in the inventory.<br/>
 <br/>
-<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[player,false] call f_fnc_tidyGear;"">Daytime Gear</execute></font><font size='16'>]</font><br/>Quickly prep your kit for a day operation; removes any NVG Equipment, flares and chems in the inventory.<br/>
+<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[player,FALSE] call f_fnc_tidyGear;"">Daytime Gear</execute></font><font size='16'>]</font><br/>Quickly prep your kit for a day operation; removes any NVG Equipment, flares and chems in the inventory.<br/>
 <br/>";
 
 if (primaryWeapon player == "") exitWith {};
@@ -35,7 +43,7 @@ private  _stringFilter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01
 _fnc_itemPicture = {
 	params ["_item",["_wide",100]];
 	
-	private _pictureCfg = switch (true) do {
+	private _pictureCfg = switch (TRUE) do {
 			case (getText (configFile >> "CfgWeapons" >> _item >> "picture") != ""):   { getText (configFile >> "CfgWeapons" >> _item >> "picture") };
 			case (getText (configFile >> "CfgMagazines" >> _item >> "picture") != ""): { getText (configFile >> "CfgMagazines" >> _item >> "picture") };
 			case (getText (configFile >> "CfgVehicles" >> _item >> "picture") != ""):  { getText (configFile >> "CfgVehicles" >> _item >> "picture") };
@@ -57,16 +65,16 @@ _fnc_itemText = {
 	if (!(332350 in (getDLCs 1)) && getText (configFile >> "CfgWeapons" >> _item >> "DLC") == "Mark") then {_dlcText = " [DLC]";};
 	if (!(395180 in (getDLCs 1)) && getText (configFile >> "CfgWeapons" >> _item >> "DLC") == "Expansion") then {_dlcText = " [APEX]";};
 	
-	format["<font size='16'>%1</font><font size='16' color='#FF7F00'>%2</font><br/><font color='#777777'>%3</font>",
+	format["<font size='16'>%1</font><font size='16' color='#EA2E2E'>%2</font><br/><font color='#777777'>%3</font>",
 		getText (configFile >> "CfgWeapons" >> _item >> "displayName"),
 		_dlcText,
 		getText (configFile >> "CfgWeapons" >> _item >> "descriptionShort")];
 };
 
-// Returns true if the player is at the starting point, or nearby.
+// Returns TRUE if the player is at the starting point, or nearby.
 f_fnc_inStartLocation = {
 	// Player has 5 minutes set-up time if Co-Op.
-	if (time < 1 || (time < 300 && toUpper (getText ((getMissionConfig "Header") >> "gameType")) == "COOP")) exitWith {true};
+	if (time < 1 || (time < 300 && toUpper (getText ((getMissionConfig "Header") >> "gameType")) == "COOP")) exitWith {TRUE};
 	
 	private _playerRespawn = switch (side group player) do {
 			case west: {"respawn_west"};
@@ -77,10 +85,10 @@ f_fnc_inStartLocation = {
 		
 	private _distance = if (getMarkerColor _playerRespawn != "") then { player distance2D getMarkerPos _playerRespawn; } else { 10 };
 
-	if (_distance < 150) exitWith {true};
+	if (_distance < 150) exitWith {TRUE};
 	
 	systemChat format["[GEAR] Disabled - Too far from start point (%1m)",round _distance];
-	false
+	FALSE
 };
 
 // Adds or removes a chosen item to the maximum allowed value (Grenades etc).
@@ -164,7 +172,7 @@ f_fnc_matchingItem = {
 		_text = _text + _titleStr + _tempText;
 	};
 } forEach [
-	[1, "<br/><font size='18' color='#FF7F00'>PRIMARY WEAPON</font><br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[getArray(configFile >> 'CfgWeapons' >> (primaryWeapon player) >> 'magazines')] call f_fnc_matchingItem"">Current Primary Magazines</execute></font><font size='16'>]</font><br/><br/>",
+	[1, "<br/><font size='18' color='#EA2E2E'>PRIMARY WEAPON</font><br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[getArray(configFile >> 'CfgWeapons' >> (primaryWeapon player) >> 'magazines')] call f_fnc_matchingItem"">Current Primary Magazines</execute></font><font size='16'>]</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' == primaryWeapon player) then {
 				_tempItems = primaryWeaponItems player;
@@ -174,53 +182,54 @@ f_fnc_matchingItem = {
 				{player addPrimaryWeaponItem _x} forEach _tempItems;
 				player selectWeapon primaryWeapon player;
 				systemChat '[GEAR] Equipped weapon %2.';
-				f_var_selectPrimary = false;
+				f_var_selectPrimary = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this weapon.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[301, "<br/><font size='18' color='#FF7F00'>ATTACHMENT - POINTERS</font><br/><br/>",
+	[301, "<br/><font size='18' color='#EA2E2E'>ATTACHMENT - POINTERS</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' in primaryWeaponItems player) then {
 				player addPrimaryWeaponItem '%1';
 				systemChat '[GEAR] Equipped item %2.';
-				f_var_selectPointer = false;
+				f_var_selectPointer = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this item.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[201, "<br/><font size='18' color='#FF7F00'>ATTACHMENT - OPTICS</font><br/><br/>",
+	[201, "<br/><font size='18' color='#EA2E2E'>ATTACHMENT - OPTICS</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' in primaryWeaponItems player) then {
 				player addPrimaryWeaponItem '%1';
 				systemChat '[GEAR] Equipped item %2.';
-				f_var_selectOptic = false;
+				f_var_selectOptic = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this item.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[101, "<br/><font size='18' color='#FF7F00'>ATTACHMENT - MUZZLE</font><br/><br/>",
+	[101, "<br/><font size='18' color='#EA2E2E'>ATTACHMENT - MUZZLE</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' in primaryWeaponItems player) then {
 				player addPrimaryWeaponItem '%1';
 				systemChat '[GEAR] Equipped item %2.';
-				f_var_selectMuzzle = false;
+				f_var_selectMuzzle = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this item.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[302, "<br/><font size='18' color='#FF7F00'>ATTACHMENT - UNDERBARREL</font><br/><br/>",
+	[302, "<br/><font size='18' color='#EA2E2E'>ATTACHMENT - UNDERBARREL</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' in primaryWeaponItems player) then {
 				player addPrimaryWeaponItem '%1';
 				systemChat '[GEAR] Equipped item %2.';
-				f_var_selectUnderBarrel = false;
+				f_var_selectUnderBarrel = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this item.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[4, "<br/><font size='18' color='#FF7F00'>SECONDARY WEAPON</font><br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[getArray(configFile >> 'CfgWeapons' >> (secondaryWeapon player) >> 'magazines')] call f_fnc_matchingItem"">Current Secondary Magazines</execute></font><font size='16'>]</font><br/><br/>",
+	[4, "<br/><font size='18' color='#EA2E2E'>SECONDARY WEAPON</font><br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[getArray(configFile >> 'CfgWeapons' >> (secondaryWeapon player) >> 'magazines')] call f_fnc_matchingItem"">Current Secondary Magazines</execute></font><font size='16'>]</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' == secondaryWeapon player) then {
 				_tempItems = secondaryWeaponItems player;
+				[player,secondaryWeapon player,'%1'] call f_fnc_magazineCheck;
 				player removeWeapon (secondaryWeapon player); 
 				[player, '%1', 1, 1] call BIS_fnc_addWeapon;
 				{player addSecondaryWeaponItem _x} forEach _tempItems;
 				systemChat '[GEAR] Equipped launcher %2.';
-				f_var_selectSecondary = false;
+				f_var_selectSecondary = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this launcher.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[2, "<br/><font size='18' color='#FF7F00'>HANDGUN WEAPON</font><br/><br/>",
+	[2, "<br/><font size='18' color='#EA2E2E'>HANDGUN WEAPON</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' == handgunWeapon player) then {
 				_tempItems = handgunItems player;
@@ -228,15 +237,15 @@ f_fnc_matchingItem = {
 				[player, '%1', 1, 0] call BIS_fnc_addWeapon;
 				{player addHandgunItem _x} forEach _tempItems;
 				systemChat '[GEAR] Equipped handgun %2.';
-				f_var_selectHandgun = false;
+				f_var_selectHandgun = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this handgun.'};
 		};"">Equip</execute></font><font size='16'>] </font>"],
-	[4096, "<br/><font size='18' color='#FF7F00'>OTHER ITEMS</font><br/><br/>",
+	[4096, "<br/><font size='18' color='#EA2E2E'>OTHER ITEMS</font><br/><br/>",
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""if ([] call f_fnc_inStartLocation) then {
 			if !('%1' in (assignedItems player)) then {
 				player addWeapon '%1';
 				systemChat '[GEAR] Equipped item %2.';
-				f_var_selectOther = false;
+				f_var_selectOther = FALSE;
 			} else {systemChat '[GEAR] You have already equipped this item.'};
 		};"">Equip</execute></font><font size='16'>] </font>"]
 	];
@@ -251,7 +260,7 @@ if (f_var_signalGMax > 0) then {
 	{
 		if (count _x > 0) then {
 			{
-					_textGR = _textGR + format["%3<br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',true,f_var_signalGMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',false,f_var_signalGMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/><font color='#777777'>%4</font><br/><br/>",
+					_textGR = _textGR + format["%3<br/><font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',TRUE,f_var_signalGMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',FALSE,f_var_signalGMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/><font color='#777777'>%4</font><br/><br/>",
 					_x,
 					[getText (configFile >> "CfgMagazines" >> _x >> "displayName"),_stringFilter] call BIS_fnc_filterString,
 					[_x,30] call _fnc_itemPicture,
@@ -263,7 +272,7 @@ if (f_var_signalGMax > 0) then {
 
 if (_textGR != "") then {
 	
-	_text = _text + format["<br/><font size='18' color='#FF7F00'>GRENADES (%1 Maximum)</font><br/>Swap out your grenades for a different type, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalGMax] + 
+	_text = _text + format["<br/><font size='18' color='#EA2E2E'>GRENADES (%1 Maximum)</font><br/>Swap out your grenades for a different type, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalGMax] + 
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[f_var_signalGType] call f_fnc_matchingItem"">Current Grenades</execute></font><font size='16'>]</font><br/><br/>" + _textGR;
 };
 
@@ -275,7 +284,7 @@ f_var_signalHType = (_handVar select 0) + (_handVar select 1);
 f_var_signalHMax = {_x in f_var_signalHType } count (magazines player);
 
 if (f_var_signalHMax > 0) then {
-	private _irGrenade = switch (true) do {
+	private _irGrenade = switch (TRUE) do {
 			case ("B_IR_Grenade" in magazines player): {"B_IR_Grenade"};
 			case ("O_IR_Grenade" in magazines player): {"O_IR_Grenade"};
 			case ("I_IR_Grenade" in magazines player): {"I_IR_Grenade"};
@@ -288,7 +297,7 @@ if (f_var_signalHMax > 0) then {
 	{
 		if (count _x > 0) then {
 			{
-					_textTS = _textTS + format["%3 <font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',true,f_var_signalHMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',false,f_var_signalHMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/>",
+					_textTS = _textTS + format["%3 <font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',TRUE,f_var_signalHMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',FALSE,f_var_signalHMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/>",
 					_x,
 					[getText (configFile >> "CfgMagazines" >> _x >> "displayName"),_stringFilter] call BIS_fnc_filterString,
 					[_x,30] call _fnc_itemPicture,
@@ -299,7 +308,7 @@ if (f_var_signalHMax > 0) then {
 };
 
 if (_textTS != "") then {
-	_text = _text + format["<br/><font size='18' color='#FF7F00'>SIGNALLING - HAND-HELD (%1 Maximum)</font><br/>Change your signalling items for more useful ones, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalHMax] + 
+	_text = _text + format["<br/><font size='18' color='#EA2E2E'>SIGNALLING - HAND-HELD (%1 Maximum)</font><br/>Change your signalling items for more useful ones, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalHMax] + 
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[f_var_signalHType] call f_fnc_matchingItem"">Current Hand-Held Items</execute></font><font size='16'>]</font><br/><br/>" + _textTS;
 };
 
@@ -314,7 +323,7 @@ if (f_var_signalLMax > 0) then {
 	{
 		if (count _x > 0) then {
 			{
-					_textGL = _textGL + format["%3 <font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',true,f_var_signalLMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',false,f_var_signalLMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/>",
+					_textGL = _textGL + format["%3 <font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""['%1',TRUE,f_var_signalLMax] call f_fnc_addMagazineItem;"">Add</execute></font><font size='16'>] [</font><font size='16' color='#66B2FF'><execute expression=""['%1',FALSE,f_var_signalLMax] call f_fnc_addMagazineItem;"">Remove</execute></font><font size='16'>] %2</font><br/>",
 					_x,
 					[getText (configFile >> "CfgMagazines" >> _x >> "displayName"),_stringFilter] call BIS_fnc_filterString,
 					[_x,30] call _fnc_itemPicture,
@@ -325,7 +334,7 @@ if (f_var_signalLMax > 0) then {
 };
 
 if (_textGL != "") then {
-	_text = _text + format["<br/><br/><font size='18' color='#FF7F00'>SIGNALLING - GRENADE LAUNCHED (%1 Maximum)</font><br/>Swap out your launcher signalling items for more useful ones, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalLMax] + 
+	_text = _text + format["<br/><br/><font size='18' color='#EA2E2E'>SIGNALLING - GRENADE LAUNCHED (%1 Maximum)</font><br/>Swap out your launcher signalling items for more useful ones, or remove them entirely to reduce your weight.<br/><br/>",f_var_signalLMax] + 
 		"<font size='16'>[</font><font size='16' color='#66B2FF'><execute expression=""[f_var_signalLType] call f_fnc_matchingItem"">Current GL Items</execute></font><font size='16'>]</font><br/><br/>" + _textGL;
 };
 
@@ -359,13 +368,13 @@ if (vest player != "") then { _textUN = _textUN + format["%3 %1 <font size='16' 
 if (backpack player != "") then { _textUN = _textUN + format["%3 %1 <font size='16' color='#777777'>(%2&#37;)</font><br/>",getText (configFile >> "CfgVehicles" >> (backpack player) >> "displayName"), round (100*loadBackpack player),[backpack player,40] call _fnc_itemPicture]; };
 
 if (_textUN != "") then {
-		_text = _text + "<br/><br/><font size='18' color='#FF7F00'>UNIFORM (%FULL)</font><br/><br/>" + _textUN;
+		_text = _text + "<br/><br/><font size='18' color='#EA2E2E'>UNIFORM (%FULL)</font><br/><br/>" + _textUN;
 };
 
 // ========================
 // Misc Items
 // Add lines for all other items
-_text = _text + "<br/><br/><font size='18' color='#FF7F00'>MISC ITEMS (#):</font><br/>";
+_text = _text + "<br/><br/><font size='18' color='#EA2E2E'>MISC ITEMS (#):</font><br/>";
 
 {
 	_x params ["_item","_count"];	

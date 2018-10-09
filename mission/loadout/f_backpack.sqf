@@ -25,21 +25,21 @@ case "fo": {
 // BACKPACK: SECTION IC
 case "sl": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
-	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 2];
+	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 4];
 	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag_tr, 2];
 	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade,2];
 	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenadealt,2];
-	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 2];
+	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 4];
 };
 
 // BACKPACK: SECTION FTL (Rifle Version)
 case "ftlr": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
-	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 2];
+	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 4];
 	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag_tr, 2];
 	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade,2];
 	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenadealt,2];
-	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 2];
+	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 4];
 };
 
 // BACKPACK: SECTION FTL (Grenadier Version)

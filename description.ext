@@ -2,7 +2,7 @@
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
 // CONSOLE
-enableDebugConsole[] = {"76561197970695190"}; // 2600K
+enableDebugConsole[] = {"76561198007179126"}; // Folau
 allowFunctionsLog = 1;
 
 // RESPAWN
@@ -16,8 +16,8 @@ disabledAI = 1;
 
 // MISSION DETAILS
 author = "Folau"; // Author
-onLoadName = "US Framework"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
-onLoadMission = """Something witty needs to go in here...""<br/> – Folau"; // Description
+onLoadName = "Mission Name"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
+onLoadMission = """Very clever quote.""<br/> – Folau"; // Description
 loadScreen = "loadScreen.paa"; // Preview picture
 // overviewPicture = "loadScreen.paa" // Lobby Image
 

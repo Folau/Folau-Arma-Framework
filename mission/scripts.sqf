@@ -1,18 +1,15 @@
 // ====================================================================================
 // MISSION VARAIBLES
+f_var_AuthorUID = '76561198007179126';
+
 player addRating 100000;
 player setSpeaker "NoVoice";
 showSubtitles false;  
 CBA_display_ingame_warnings = false;
 "Group" setDynamicSimulationDistance 800;
-//enableEngineArtillery false; 	// Disable Artillery Computer
-//onMapSingleClick "_shift";	// Disable Map Clicking
-f_param_bleedout = 180;			// Farooq Bleed-out Timer (Seconds)
-f_param_groupMarkers = 1; 		// 0 = Disable, 1 = On Map, 2 = On Map + Screen, 3 = Map + Squad Stats, 4 = Commander Map Only, 5 = Commander Map + Squad Stats
-f_param_thirdPerson = 2; 		// 0 = Disable, 1 = In Vehicles Only, 2 = Not Allowed (TvT)
-f_param_jipTeleport = 0; 		// 0 = Disable, 1 = AddAction Only, 2 = FlagPole Only, 3 = Both
+
 //f_var_fogOverride = [[0,0,0],[0.1,0.005,100],[0.1,0.04,100],[0.1,random 0.02,100]]; // Override default fog settings [[none],[Light],[heavy],[rand]].
-//f_var_AuthorUID = ''; // Allows GUID to access Admin/Zeus features in MP.
+ // Allows GUID to access Admin/Zeus features in MP.
 //[] spawn {sleep 1; tao_foldmap_isOpen = true;}; // Disable TAO Folding Map
 //[] spawn {sleep 5; ZEU_tkLog_mpKilledEH = {};}; // Disable Zeus TK Spam
 // ====================================================================================
@@ -71,6 +68,15 @@ execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
 		player setPos [(getMarkerPos _dest select 0)-5*sin(random 360),(getMarkerPos _dest select 1)-5*cos(random 360)];
 	};
 };
+// Vehicle View Distances
+[] spawn {
+	sleep 1;
+	switch (player getVariable ["f_var_assignGear","r"]) do {
+		case "hp"; case "hc"; case "p": { setViewDistance 5000; systemChat "View Distance Increased (Air) - Check Settings" };
+		case "vc"; case "vd"; case "vg"; case "uav": { setViewDistance 3000; systemChat "View Distance Increased (Vehicle) - Check Settings" };
+	};
+};
+
 // ====================================================================================
 /* 
 FOLAU'S SECTION
@@ -79,11 +85,38 @@ Any scripts that need to be executed during startup i.e. LoW, AI Commander, etc.
  */
 
 // Setup Params
-missionNamespace setVariable ["playerSideFolau", independent];
-missionNameSpace setVariable ["MyCivKillCounter",0,true];
+
+missionNamespace setVariable ["playerSideFolau", west];
+missionNameSpace setVariable ["MyCivKillCounter", 0, true];
+missionNamespace setVariable ["kiaChance", f_param_kiaChance];
 
 // Executing Util Scripts
 null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
-null = execVM "folau\utils\noLoot.sqf";					// Prevent looting of enemies
-null = [10] execVM "folau\utils\lawsOfWar.sqf";			// Laws of War conditions (end6)
-//null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
+
+if (f_param_lawsOfWar == 1) then {					
+	null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
+};
+
+if (f_param_looting == 0) then {					
+	null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
+};
+
+if (f_param_shiftClick == 0) then {					
+	onMapSingleClick {_shift};							// Disable map shift-click
+};
+
+null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
+
+if (f_param_timelimit != 0) then {
+	null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
+};
+
+// Disable Artillery Computer
+if (f_param_artilleryComputer == 1) then {				// Disable/Enable Artillery Computer
+	enableEngineArtillery true;
+}
+else
+{
+	enableEngineArtillery false;
+};
+	

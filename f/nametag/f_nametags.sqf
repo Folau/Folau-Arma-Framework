@@ -80,7 +80,7 @@ F_KEYDOWN_NAMETAG = {
 [] spawn {
 	waitUntil {scriptDone f_sqf_brief};
 
-	_bstr = format ["<font size='18' color='#FF7F00'>NAME TAGS</font><br/>Toggle name tags for friendly units below.<br/><br/>
+	_bstr = format ["<font size='18' color='#EA2E2E'>NAME TAGS</font><br/>Toggle name tags for friendly units below.<br/><br/>
 Name tags are displayed when aiming at individual units up to %4m away, and constantly for all units within %3m.
         ",F_KEYNAME_NAMETAGS, F_KEY_NAMETAGS,F_DISTALL_NAMETAGS,F_DISTCursor_NAMETAGS];
 
@@ -106,7 +106,7 @@ Name tags are displayed when aiming at individual units up to %4m away, and cons
 				>TOGGLE VEHICLE TYPE</execute></font><br/>Toggle vehicle type under driver.";
         };
 
-    _bstr = _bstr + "<br/><br/><font size='18' color='#FF7F00'>COLORS</font><br/>
+    _bstr = _bstr + "<br/><br/><font size='18' color='#EA2E2E'>COLORS</font><br/>
     <font color='#FFFFFF'>Friendly</font><br/>
     <font color='#7FFFD4'>Fireteam</font><br/>
     <font color='#FF143C'>Vehicle Crew</font>";

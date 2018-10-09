@@ -27,7 +27,7 @@ if (missionNamespace getVariable["f_param_debugMode",0] == 1) then { diag_log te
 
 _unitSide = side player;
 _incAdmin = false;
-_uidList = ["76561197970695190"]; // 2600K
+_uidList = ["76561198007179126"]; // 2600K
 
 // DEBUG
 if (missionNamespace getVariable["f_param_debugMode",0] == 1) then { diag_log text format ["[F3] DEBUG (briefing.sqf): %1 side: %2",player,_unitSide]; };

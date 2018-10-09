@@ -1,11 +1,13 @@
 // Create custom radio channels for base platoons.
+// * Mission must be coop if using channels defined in radios.sqf
+// * Group leads can auto-join channels when the channel name is added at the end of the group line in groups.sqf
 if !isMultiplayer exitWith {};
 if isServer then {
-	private _sidePlayerGroups = []; private _grpBLU = []; private _grpOPF = []; private _grpIND = [];
+	private _sidePlayerGroups = []; 
+	private _grpBLU = []; private _grpOPF = []; private _grpIND = []; private _grpCIV = [];
 		
 	#include "..\..\mission\groups.sqf";
 
-	f_var_chWest = []; f_var_chEast = []; f_var_chGuer = [];
 	{
 		// Store the channel side we're processing.
 		_x params ["_groupList","_chSide"]; 
@@ -38,39 +40,45 @@ if isServer then {
 		if (count _tempArr == 0 && count _groupList > 0 && toUpper (getText ((getMissionConfig "Header") >> "gameType")) == "COOP") then {
 			// Load the predefined radio groups.
 			#include "..\..\mission\radios.sqf";
-		
+
 			if (count f_radios_settings_longRangeGroups > 0) then {
-				{					
+				{	
+					// First Channel is separate color to rest.
+					_chColor = if (_forEachIndex isEqualTo 0) then { [1,0.6,0,1] } else { [1,0.4,1,1] };
+					
 					// Was a channel defined?
-					private _channelID = radioChannelCreate [[0.5,0,0.5,1], _x, "%CHANNEL_LABEL (%UNIT_GRP_NAME - %UNIT_NAME)", []];
+					private _channelID = radioChannelCreate [_chColor, _x, "%CHANNEL_LABEL (%UNIT_GRP_NAME - %UNIT_NAME)", []];
 
 					if (_channelID != 0) then {
-						_tempArr pushBack [_x, _channelID, ([0.5,0,0.5,1] call BIS_fnc_colorRGBAtoHTML), []];
+						_tempArr pushBack [_x, _channelID, (_chColor call BIS_fnc_colorRGBAtoHTML), []];
 					} else {
-						diag_log format ["[F3] ERROR Custom channel '%1' creation failed!", _x];
+						diag_log format ["[F3] ERROR Custom channel '%1' (%2) failed! Only 8 Custom Channels are supported.", _x, _chSide];
 					};
 				} forEach f_radios_settings_longRangeGroups;
 			};
 		};
 		
+		// Store channel info into public variable.
 		missionNamespace setVariable [format["f_var_ch%1",_chSide], _tempArr, true];
 	} forEach [
 			[_grpBLU, west],
 			[_grpOPF, east],
-			[_grpIND, independent]
+			[_grpIND, independent],
+			[_grpCIV, civilian]
 		];
 	
+	// Set-up completed
 	missionNamespace setVariable ["f_var_customRadio", true, true];
 };
 
 if hasInterface then {
-	waitUntil{missionNamespace getVariable ["f_var_customRadio", false]};	
+	waitUntil{missionNamespace getVariable ["f_var_customRadio", false]}; // Wait until server has finished.
 	private _chList = missionNamespace getVariable [format["f_var_ch%1", side group player], []];
 	
 	if (count _chList > 0) then {
-		private _radioText = "<br/><font size='18' color='#FF7F00'>RADIO CHANNELS (OPTIONAL)</font>";
+		private _radioText = "<br/><font size='18' color='#EA2E2E'>RADIO CHANNELS (OPTIONAL)</font>";
 		_radioText = _radioText + format["<br/>You are a member of Group <font color='#72E500'>%1</font>.<br/><br/>Custom channels are available to allow Lead Elements to communicate directly with certain platoons and keep the Command Channel free for emergencies only.<br/>", groupId (group player)];
-		_radioText = _radioText + "<br/><br/><font size='18' color='#FF7F00'>CHANNEL LIST</font>";
+		_radioText = _radioText + "<br/><br/><font size='18' color='#EA2E2E'>CHANNEL LIST</font>";
 		
 		private _joinText = "";
 		private _joinAllText = "";
@@ -112,7 +120,14 @@ if hasInterface then {
 			_radioText = _radioText + format["<br/><font color='#FFFF00'><execute expression=""%1 systemChat '[RADIO] All Channels were removed';"">Leave All Channels</execute></font>",_leaveAllText];
 		};
 		
-		waitUntil {scriptDone f_sqf_brief};
+		waitUntil {!isNil "f_sqf_brief"; scriptDone f_sqf_brief};
 		private _rad = player createDiaryRecord ["diary", ["Signal",_radioText + "<br/>" + _joinText]];
+	};
+	
+	// Default non-commanders to group, commanders to side.
+	if (leader player == player) then {
+		setCurrentChannel 1;
+	} else {
+		setCurrentChannel 3;
 	};
 };
