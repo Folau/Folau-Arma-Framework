@@ -1,4 +1,4 @@
-	class End1
+	class End1 // Mission fully successful
 	{
 		title = "Mission Success";
 		subtitle = "Objectives completed";
@@ -8,7 +8,7 @@
 		// pictureColor[] = {0.0,0.3,0.6,1};
 	};
 
-	class End2
+	class End2 // Simultaneous casualties (%)
 	{
 		title = "Mission Failed";
 		subtitle = "High Number of Casualties";
@@ -18,11 +18,11 @@
 		// pictureColor[] = {0.0,0.3,0.6,1};
 	};
 	
-	class End3
+	class End3 // Partial / Alternative Success Condition
 	{
 		title = "Mission Complete";
-		subtitle = "Partial success - the hostages were killed.";
-		description = "The town was retaken from rebels, however the IDAP hostages were killed.";
+		subtitle = "Partial success - X.";
+		description = "XX.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -48,7 +48,7 @@
 		// pictureColor[] = {0.0,0.3,0.6,1};
 	};
 	
-	class End6 // Time Limit Parameter Reached
+	class End6 // Laws of War Failure Ending
 	{
 		title = "Mission Failed";
 		subtitle = "Conduct in breach of Laws of War";

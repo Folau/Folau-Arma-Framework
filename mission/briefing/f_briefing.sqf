@@ -14,12 +14,11 @@ if (isNil "f_param_CasualtiesCap") then { f_param_CasualtiesCap = 100 };
 
 // The code below creates the execution sub-section of notes.
 _cre = player createDiaryRecord ["diary", ["Mission Credits",format["
-<br/>Mission Author: <font color='#72E500'>Folau</font color>. 
+<br/>Mission Author: <font color='#72E500'>(Insert Name Here)</font color>. 
 <br/>
 <br/>Framework Creator: <font color='#72E500'>2600K</font color>.
+<br/>Framework Edits: <font color='#72E500'>Folau</font color>.
 <br/>Mortar Range Table: <font color='#72E500'>Wombat</font color>.
-<br/>
-<br/>Testers: <font color='#72E500'>Lawman</font color>, <font color='#72E500'>Lynx</font color>, <font color='#72E500'>Milki30</font color>, <font color='#72E500'>SeaCaptainJim</font color>.
 <br/>
 <br/>A custom-made mission for ArmA 3 and Zeus Community
 <br/>http://zeus-community.net/
@@ -45,40 +44,40 @@ _exe = player createDiaryRecord ["diary", ["",format["",f_param_CasualtiesCap]]]
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Intel",format["
 <br/><font size='18' color='#ea2e2e'>ENEMY CAPABILITY</font>
-<br/>(More detailed breakdown of the enemy units that may be encountered)
+<br/>Detail what friendly intel believe to be the enemy capability.
 <br/>
 <br/><font size='18' color='#ea2e2e'>ENEMY INTENT</font>
-<br/>(What are the enemy doing, what are they likely to do)
+<br/>What the likely enemy reaction will be - what are they going to do?
 <br/>
 <br/><font size='18' color='#ea2e2e'>LOCATION</font>
-<br/>(Any specific location information, minefields etc)
+<br/>Any particular notes about the AO (terrain, exclusions, etc).
 <br/>
 <br/><font size='18' color='#ea2e2e'>WEATHER</font>
-<br/>(Describe the weather)
+<br/>If weather is locked describe it (and the forecast) here.
 <br/>
 ",f_param_CasualtiesCap]]];
 
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Execution",format["
 <br/><font size='18' color='#ea2e2e'>COMMANDERS INTENT</font>
-<br/>The platoon is to deploy to the AO and carry out the mission as directed by the Platoon Commander.
+<br/>The platoon is to deploy to the AO and carry out the mission as directed by the Platoon Commander. OR detail steps if needed.
 <br/>
 <br/><font size='18' color='#ea2e2e'>MOVEMENT PLAN</font>
-<br/>All units are motorised, to be deployed as directed by the Platoon Commander. 
+<br/>Give details about transport available.
 <br/>
 <br/><font size='18' color='#ea2e2e'>FIRE SUPPORT</font>
-<br/>As directed by the Forward Observer.
+<br/>(As directed by the Forward Observer/Flight Air Controller)
 <br/>
 <br/>See ""Reference Material"" for Fire Support SOPs and other resources.
 <br/>
 <br/><font size='18' color='#ea2e2e'>SPECIAL TASKS</font>
-<br/>Nothing noted.
+<br/>Any secondary objectives.
 <br/>
 ",f_param_CasualtiesCap]]];
 
 _mis1 = format["
 <br/><font size='18' color='#ea2e2e'>MISSION</font>
-<br/>(1 Line Mission Description)
+<br/>Your mission is to X.
 <br/>
 <br/>Ensure KIA total is kept below %2.
 <br/>
@@ -104,20 +103,26 @@ _mis = player createDiaryRecord ["diary", ["Mission", misText]];
 
 _test = player createDiaryRecord ["diary", ["Situation",format["
 <br/><font size='18' color='#ea2e2e'>OVERVIEW</font>
-<br/>(Few lines about what the situation leading up to the mission is. DON'T WAFFLE)
+<br/>Stick to three paragraphs - what has happened, what is going to happen, and a snappy summary.
 <br/>
 <br/><font size='18' color='#ea2e2e'>FRIENDLY FORCES</font>
-<br/>NATO's strength for this mission is as follows:
+<br/>Strength of friendly forces in the following format.
 <br/>
-<br/>> N x Unit (Strength) | Transport
+<br/>> Platoon Command + Hunter + Quad Bike
+<br/>> 3 x Rifle Squads (8) + HEMTT
+<br/>> 1 x Medic Squad (4) + Hunter, attached Medical UAV
+<br/>> 1 x Engineer Squad (4) + Hunter
+<br/>> 1 x Mortar (1) + Quad Bike
+<br/>
+<br/>List the armament for any vehicles to aid mission planning.
 <br/>
 <br/><font size='18' color='#ea2e2e'>ENEMY FORCES</font>
-<br/>(Note enemy forces, very short)
+<br/>Very brief description of enemy forces.
 <br/>
 <br/>For a more detailed breakdown see the ""Intel"" tab.
 <br/>
 <br/><font size='18' color='#ea2e2e'>CIVILIAN PRESENCE</font>
-<br/>(Note civilian presence)
+<br/>Where civilians are (or if there are none).
 <br/>
 <br/>See ""Reference Material"" for a reminder on the Laws of War. 
 <br/>

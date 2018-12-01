@@ -87,7 +87,7 @@ class f_param_medical
 class f_param_kiaChance
 {
 		title = "High-Damage KIA Chance (Folau Medical)";
-		values[] = {0, 10, 25, 50, 100};
+		values[] = {0, 10, 25, 50, 100}; // Note that this represents the % chance of being killed
 		texts[] = {"None", "Low", "Normal", "High", "Always"};
 		default = 25;
 };
@@ -203,9 +203,9 @@ class f_param_lawsOfWar
 class f_param_looting
 {
 		title = "Looting Enemy";
-		values[] = {0, 1};
+		values[] = {0, 1}; // This script is currently not working, so leave looting enabled for now (1)
 		texts[] = {"Disabled", "Enabled"};
-		default = 0;
+		default = 1;
 };
 
 class f_param_shiftClick

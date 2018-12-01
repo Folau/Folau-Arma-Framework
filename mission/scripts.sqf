@@ -94,7 +94,7 @@ missionNamespace setVariable ["kiaChance", f_param_kiaChance];
 null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
 
 if (f_param_lawsOfWar == 1) then {					
-	null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
+	null = [20] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War NOTE Zeus server double-counts civilian kills
 };
 
 if (f_param_looting == 0) then {					

@@ -2,7 +2,7 @@
 // Client Intro format ["Test Line 1","Test Line 2"] execVM "f\common\f_clientIntro.sqf";
 // If left blank will default to Mission Name and players nearest location.
 // ====================================================================================
-params [["_lineOne","""clientIntro Name"""],["_lineTwo","Undisclosed Location"]];
+params [["_lineOne","""Mission 001 (f_clientIntro.sqf)"""],["_lineTwo","Undisclosed Location"]];
 
 sleep 0.1;
 
