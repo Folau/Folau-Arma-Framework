@@ -159,7 +159,7 @@ else
 
 if (missionNamespace getVariable["f_param_shiftClick",0] == 0) then {
 	 _mechanicsText = _mechanicsText + 
-	 "<br/>Shift-Click Marker: <font color='#72E500'>Disabled</font>";
+	 "<br/>Shift-Click Marker: <font color='#72E500'>Disabled (Except Mortar Crew)</font>";
 }
 else
 {

@@ -101,9 +101,13 @@ if (f_param_looting == 0) then {
 	null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
 };
 
-if (f_param_shiftClick == 0) then {					
-	onMapSingleClick {_shift};							// Disable map shift-click
+if (f_param_shiftClick == 0) then {						
+	switch (player getVariable ["f_var_assignGear","r"]) do {
+		case "mtrag"; case "nav"; case "mtrg": {systemChat "Shift-Click enabled for selected role."};
+		default {onMapSingleClick {_shift}};
+	};	// Disable map shift-click
 };
+
 
 null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
 
