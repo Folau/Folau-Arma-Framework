@@ -14,16 +14,19 @@ if (isNil "f_param_CasualtiesCap") then { f_param_CasualtiesCap = 100 };
 
 // The code below creates the execution sub-section of notes.
 _cre = player createDiaryRecord ["diary", ["Mission Credits",format["
-<br/>Mission Author: <font color='#72E500'>(Insert Name Here)</font color>. 
+<br/>Mission Author: <font color='#72E500'>Folau</font color>. 
 <br/>
 <br/>Framework Creator: <font color='#72E500'>2600K</font color>.
-<br/>Framework Edits: <font color='#72E500'>Folau</font color>.
-<br/>Mortar Range Table: <font color='#72E500'>Wombat</font color>.
+<br/>Mortar Guide and Range Table: <font color='#72E500'>Wombat</font color>.
+<br/>
+<br/>Testing & More: <font color='#72E500'>Lawman</font color>, <font color='#72E500'>SeaCaptainJim</font color>.
 <br/>
 <br/>A custom-made mission for ArmA 3 and Zeus Community
 <br/>http://zeus-community.net/
 <br/>
 ",f_param_CasualtiesCap]]];
+
+// <br/>Framework Edits: <font color='#72E500'>Folau</font color> IF USED BY SOMEONE ELSE PLEASE :)
 
 /* // The code below creates the administration sub-section of notes.
 _adm = player createDiaryRecord ["diary", ["Administration",["
