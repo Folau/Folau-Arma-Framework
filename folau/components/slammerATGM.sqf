@@ -5,7 +5,7 @@ params
 	"_tank"
 ];
 
-hint "INITIALISING";
+// hint "INITIALISING";
 
 _turretPaths = allTurrets _tank;
 
@@ -24,7 +24,7 @@ _tank enableVehicleSensor ["LaserSensorComponent" , True];
 _tank enableVehicleSensor ["DataLinkSensorComponent" , True];
 
 _sensors = listVehicleSensors (_tank);
-hint str _sensors;
+// hint str _sensors;
 
 [_tank, [0]] enableInfoPanelComponent ["SensorsDisplayComponent", "SensorDisplay", true];
 [_tank, [0,0]] enableInfoPanelComponent ["SensorsDisplayComponent", "SensorDisplay", true];

@@ -40,7 +40,10 @@ List of parts to do in:
 
 /mission/endings.hpp
 > end1 - mission success
-> end3 - specific fail condition
-> end5, 6 - currently free
+> end2 - casualty %
+> end3 - specific fail/partial success condition
+> end4 - too many KIA
+> end5 - time limit
+> end6 - Laws of War
 
 

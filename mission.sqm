@@ -5,17 +5,17 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=127;
+		nextID=148;
 	};
 	class Camera
 	{
-		pos[]={5144.9868,25.635971,295.85229};
-		dir[]={0.90340954,-0.41215944,-0.1192478};
-		up[]={0.40861741,0.91105342,-0.053936917};
-		aside[]={-0.13088253,1.7265556e-006,-0.99154085};
+		pos[]={5125.6133,56.18943,319.83804};
+		dir[]={0.9157297,-0.39097998,0.093919016};
+		up[]={0.38895547,0.92031944,0.039890282};
+		aside[]={0.10203796,7.1403338e-007,-0.99491894};
 	};
 };
 binarizationWanted=0;
@@ -25,7 +25,6 @@ addons[]=
 	"A3_Weapons_F_Rifles_MX_Black",
 	"A3_Weapons_F_Acc",
 	"A3_Weapons_F",
-	"A3_Weapons_F_Launchers_Titan",
 	"A3_Weapons_F_Pistols_P07",
 	"A3_Drones_F_Weapons_F_Gamma_Items",
 	"A3_Weapons_F_Items",
@@ -39,13 +38,16 @@ addons[]=
 	"A3_Armor_F_Beta_APC_Wheeled_02",
 	"A3_Soft_F_Gamma_Van_01",
 	"A3_Soft_F_Bootcamp_Van_01",
-	"A3_Soft_F_Offroad_01"
+	"A3_Soft_F_Offroad_01",
+	"A3_Structures_F_Exp_Military_ContainerBases",
+	"A3_Characters_F_Exp_Civil",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=12;
+		items=14;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -130,6 +132,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item12
+		{
+			className="A3_Structures_F_Exp";
+			name="Arma 3 Apex - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item13
+		{
+			className="A3_Characters_F_Exp";
+			name="Arma 3 Apex - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=6269222;
@@ -158,26 +174,27 @@ class Mission
 	};
 	class Entities
 	{
-		items=24;
+		items=35;
 		class Item0
 		{
 			dataType="Group";
 			side="West";
 			class Entities
 			{
-				items=4;
+				items=1;
 				class Item0
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5182.9805,5.0014391,308.78683};
-						angles[]={0,5.1998749,0};
+						position[]={5186.314,5.0014391,292.61899};
+						angles[]={0,4.0431423,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						description="Tester 1";
 						isPlayer=1;
 						class Inventory
 						{
@@ -191,15 +208,6 @@ class Mission
 								{
 									name="30Rnd_65x39_caseless_mag";
 									ammoLeft=30;
-								};
-							};
-							class secondaryWeapon
-							{
-								name="launch_I_Titan_short_F";
-								class primaryMuzzleMag
-								{
-									name="Titan_AT";
-									ammoLeft=1;
 								};
 							};
 							class handgun
@@ -294,22 +302,6 @@ class Mission
 							{
 								typeName="B_AssaultPack_rgr";
 								isBackpack=1;
-								class MagazineCargo
-								{
-									items=2;
-									class Item0
-									{
-										name="Titan_AT";
-										count=1;
-										ammoLeft=1;
-									};
-									class Item1
-									{
-										name="Titan_AP";
-										count=1;
-										ammoLeft=1;
-									};
-								};
 							};
 							map="ItemMap";
 							compass="ItemCompass";
@@ -404,54 +396,10 @@ class Mission
 						nAttributes=4;
 					};
 				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={5183.8477,5.0014391,310.31119};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-					};
-					id=121;
-					type="B_soldier_repair_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={5184.3486,5.0014391,312.4086};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-					};
-					id=124;
-					type="B_RangeMaster_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={5182.6133,5.0014391,310.67059};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-					};
-					id=125;
-					type="B_officer_F";
-				};
 			};
 			class Attributes
 			{
+				name="GrpBLU_ASL";
 			};
 			id=0;
 		};
@@ -460,7 +408,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5168.1938,7.7264757,305.492};
+				position[]={5172.583,7.7264757,310.45099};
 				angles[]={0,5.3904495,0};
 			};
 			side="Empty";
@@ -468,7 +416,6 @@ class Mission
 			class Attributes
 			{
 				fuel=0.39833963;
-				init="null = [this] execVM ""folau\components\slammerATGM.sqf"";";
 				textures="Sand";
 				reportRemoteTargets=1;
 				receiveRemoteTargets=1;
@@ -683,7 +630,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5178.646,5.0014386,316.32996};
+						position[]={5180.1318,5.0014386,319.96304};
 						angles[]={0,5.3230839,0};
 					};
 					side="West";
@@ -727,7 +674,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5178.646,5.5074868,316.27997};
+				position[]={5180.1318,5.5074868,319.91306};
 				angles[]={0,5.3230839,0};
 			};
 			side="West";
@@ -745,14 +692,13 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5183.0928,7.5107951,322.5322};
+				position[]={5186.7622,7.5107951,325.341};
 				angles[]={0,5.2644367,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="null = [this] execVM ""folau\components\slammerATGM.sqf"";";
 				textures="Indep_01";
 			};
 			id=74;
@@ -1015,8 +961,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5187.4849,7.6142888,327.96368};
-				angles[]={0,4.8688965,0};
+				position[]={5195.958,7.6142888,344.15201};
+				angles[]={0,5.3960171,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1559,19 +1505,139 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5190.5601,6.8715067,292.05969};
-				angles[]={0,4.9982061,0};
+				position[]={5199.79,6.8715067,300.02319};
+				angles[]={0,4.9982042,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="null = [this] execVM ""folau\components\mortarFlatbed.sqf"";";
 			};
 			id=119;
 			type="I_G_Van_01_transport_F";
 		};
 		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5195.6753,6.6098537,290.96893};
+				angles[]={0,5.3391886,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=126;
+			type="I_G_Offroad_01_AT_F";
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5177.8657,5.8630667,286.79453};
+				angles[]={0,3.9551332,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=127;
+			type="Land_Cargo_House_V4_F";
+		};
+		class Item24
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5173.5742,5.8630667,291.33139};
+				angles[]={0,3.9551332,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=128;
+			type="Land_Cargo_House_V4_F";
+		};
+		class Item25
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5176.7627,5.7302866,283.51175};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=130;
+					type="O_Survivor_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=129;
+		};
+		class Item26
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5172.5806,5.7302866,288.15939};
+						angles[]={0,6.2398171,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=132;
+					type="I_Survivor_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=131;
+		};
+		class Item27
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5182.1665,5.8630667,282.21625};
+				angles[]={0,3.9551332,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=133;
+			type="Land_Cargo_House_V4_F";
+		};
+		class Item28
 		{
 			dataType="Group";
 			side="West";
@@ -1583,37 +1649,331 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5182.1865,5.0014391,312.18597};
+						position[]={5180.8916,5.7302866,279.20746};
+						angles[]={0,0.49216038,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 					};
-					id=123;
-					type="B_Pilot_F";
+					id=137;
+					type="B_Survivor_F";
 				};
 			};
 			class Attributes
 			{
 			};
-			id=122;
+			id=136;
 		};
-		class Item23
+		class Item29
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={5187.7437,6.6098537,286.69653};
-				angles[]={0,4.9656119,0};
+				position[]={5169.3906,5.8630667,295.92154};
+				angles[]={0,3.9551332,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=138;
+			type="Land_Cargo_House_V4_F";
+		};
+		class Item30
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5168.2588,5.7302866,292.86688};
+						angles[]={0,0.21034008,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=140;
+					type="C_man_sport_3_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=139;
+		};
+		class Item31
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5195.77,5.7898083,328.19571};
+				angles[]={0,5.3512754,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
 			};
-			id=126;
-			type="I_G_Offroad_01_AT_F";
+			id=141;
+			type="Box_IND_AmmoVeh_F";
+		};
+		class Item32
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5183.7739,5.0014391,295.19};
+						angles[]={0,4.0431423,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="Tester 2";
+						isPlayable=1;
+						class Inventory
+						{
+							class primaryWeapon
+							{
+								name="arifle_MX_Black_F";
+								optics="optic_Hamr";
+								muzzle="muzzle_snds_H";
+								flashlight="acc_pointer_IR";
+								class primaryMuzzleMag
+								{
+									name="30Rnd_65x39_caseless_mag";
+									ammoLeft=30;
+								};
+							};
+							class handgun
+							{
+								name="hgun_P07_F";
+								class primaryMuzzleMag
+								{
+									name="16Rnd_9x21_Mag";
+									ammoLeft=16;
+								};
+							};
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CTRG_3";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=4;
+									class Item0
+									{
+										name="16Rnd_9x21_Mag";
+										count=2;
+										ammoLeft=16;
+									};
+									class Item1
+									{
+										name="SmokeShell";
+										count=3;
+										ammoLeft=1;
+									};
+									class Item2
+									{
+										name="SmokeShellBlue";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item3
+									{
+										name="Chemlight_blue";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=1;
+									};
+								};
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierH_CTRG";
+								isBackpack=0;
+								class MagazineCargo
+								{
+									items=4;
+									class Item0
+									{
+										name="MiniGrenade";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="HandGrenade";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item2
+									{
+										name="30Rnd_65x39_caseless_mag";
+										count=5;
+										ammoLeft=30;
+									};
+									class Item3
+									{
+										name="30Rnd_65x39_caseless_mag_Tracer";
+										count=2;
+										ammoLeft=30;
+									};
+								};
+							};
+							class backpack
+							{
+								typeName="B_AssaultPack_rgr";
+								isBackpack=1;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							gps="B_UavTerminal";
+							goggles="G_Lowprofile";
+							hmd="NVGoggles_OPFOR";
+							headgear="H_HelmetSpecB_snakeskin";
+						};
+					};
+					id=145;
+					type="B_Soldier_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENGB";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.95999998;
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="unitName";
+							expression="_this setname _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="George Price";
+								};
+							};
+						};
+						class Attribute3
+						{
+							property="face";
+							expression="_this setface _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="WhiteHead_19";
+								};
+							};
+						};
+						nAttributes=4;
+					};
+				};
+			};
+			class Attributes
+			{
+				name="GrpBLU_BSL";
+			};
+			id=144;
+		};
+		class Item33
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={5191.6548,5,304.978};
+			};
+			description="null = [this] execVM ""folau\components\mortarFlatbed.sqf"";";
+			id=146;
+		};
+		class Item34
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={5174.7651,5,319.08899};
+			};
+			description="null = [this] execVM ""folau\components\slammerATGM.sqf"";";
+			id=147;
 		};
 	};
 };

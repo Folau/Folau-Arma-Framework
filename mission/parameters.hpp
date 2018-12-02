@@ -87,7 +87,7 @@ class f_param_medical
 class f_param_kiaChance
 {
 		title = "High-Damage KIA Chance (Folau Medical)";
-		values[] = {0, 10, 25, 50, 100}; // Note that this represents the % chance of being killed
+		values[] = {0, 10, 25, 50, 100};
 		texts[] = {"None", "Low", "Normal", "High", "Always"};
 		default = 25;
 };
@@ -184,12 +184,20 @@ class f_param_artilleryComputer
 		default = 0;
 };
 
+class f_param_fireTeamMarkers
+{
+		title = "Fire Team Markers";
+		values[] = {0, 1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 0;
+};
+
 class f_param_groupMarkers
 {
 		title = "Group Markers";
 		values[] = {0, 1, 2, 3, 4, 5};
 		texts[] = {"Disable", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats"};
-		default = 1;
+		default = 4;
 };
 
 class f_param_lawsOfWar
@@ -203,9 +211,9 @@ class f_param_lawsOfWar
 class f_param_looting
 {
 		title = "Looting Enemy";
-		values[] = {0, 1}; // This script is currently not working, so leave looting enabled for now (1)
+		values[] = {0, 1};
 		texts[] = {"Disabled", "Enabled"};
-		default = 1;
+		default = 0;
 };
 
 class f_param_shiftClick
@@ -213,7 +221,7 @@ class f_param_shiftClick
 		title = "Shift-Click Waypoints";
 		values[] = {0, 1};
 		texts[] = {"Disabled", "Enabled"};
-		default = 1;
+		default = 0;
 };
 
 class f_param_thirdPerson

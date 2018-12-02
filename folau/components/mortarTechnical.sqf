@@ -5,7 +5,7 @@ params
 	"_vic"
 ];
 
-hint "INITIALISING";
+// hint "INITIALISING";
 
 _mortar = "I_G_Mortar_01_F" createVehicle position _vic;
 

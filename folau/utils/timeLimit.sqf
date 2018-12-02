@@ -1,4 +1,3 @@
-
 // Set up the time limit trigger
 _trg = createTrigger ["EmptyDetector", [0,0,0]];
 _trg setTriggerActivation ["ANYPLAYER", "PRESENT", false];

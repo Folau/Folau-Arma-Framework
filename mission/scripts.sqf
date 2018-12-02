@@ -16,10 +16,10 @@ CBA_display_ingame_warnings = false;
 // OPTIONALS
 execVM "f\earplug\f_earplugs.sqf";				// Zeus - Earplugs
 execVM "f\nametag\f_nametags.sqf";				// F3 - Nametags
-execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
+// execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
 // ====================================================================================
 // F3 - Casualty Cap - Sides: west | east | resistance - Format: [SIDE,ENDING,<PERCENT>]
-[west,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+[independent,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[east,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[resistance,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[west,{f_var_casualtyLimitHit = true;}] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf"; // Alternative use with trigger.
@@ -86,7 +86,7 @@ Any scripts that need to be executed during startup i.e. LoW, AI Commander, etc.
 
 // Setup Params
 
-missionNamespace setVariable ["playerSideFolau", west];
+missionNamespace setVariable ["playerSideFolau", independent];
 missionNameSpace setVariable ["MyCivKillCounter", 0, true];
 missionNamespace setVariable ["kiaChance", f_param_kiaChance];
 
@@ -94,7 +94,7 @@ missionNamespace setVariable ["kiaChance", f_param_kiaChance];
 null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
 
 if (f_param_lawsOfWar == 1) then {					
-	null = [20] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War NOTE Zeus server double-counts civilian kills
+	null = [20] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
 };
 
 if (f_param_looting == 0) then {					
@@ -120,3 +120,6 @@ else
 	enableEngineArtillery false;
 };
 	
+if (f_param_fireTeamMarkers == 1 ) then {
+	execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
+}; 

@@ -10,15 +10,39 @@ NB:
 
 The latter could be improved by checking classes and weapons etc, but I'm not overly fussed atm.
  */
+ 
+addMissionEventHandler ["EntityKilled", {
+	params ["_killedUnit"];
+	 
+	_playersSideFnc = missionNamespace getVariable ["playerSideFolau",0];
+	  
+	if !(side group _killedUnit isEqualTo _playersSideFnc) then 
+	{
+		// hint format ["UNIT KILLED SIDE %1", (side group _killedUnit)];
+		_killedUnit setVariable ["notLootable", true];
+	}
+	else
+	{	
+		// hint "MAN DOWN";
+		_killedUnit setVariable ["notLootable", false];
+	}
+}];
+ 
 player addEventHandler ["InventoryOpened",{
 
 	_playersSideFnc = missionNamespace getVariable ["playerSideFolau",0];
   
         if (_this select 1 isKindOf "Man") then {
+		
 			_thing = _this select 1;
-			// hint format["DEBUG PRINT: %1",(side group _thing)];
+			_lootBoolean = _thing getVariable "notLootable";
+			
+			// hint format["DEBUG PRINT: Side (Obj) %1 Side (Player)",(side group _thing), (_playersSideFnc)];
+			
 			// if (side group _thing == east || side group _thing == independent) then {
-			if (side group _thing != _playersSideFnc) then {
+			
+			if (_lootBoolean) then {
+				// hint "YOU CANNAE LOOT HIM CAPTAIN";
 				closeDialog 602; true
 			};
 

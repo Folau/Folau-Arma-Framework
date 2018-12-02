@@ -108,17 +108,6 @@ if (missionNamespace getVariable["f_param_jipTeleport",0] > 0) then {
 	};
 };
 
-// MARKERS
-if (missionNamespace getVariable["f_param_groupMarkers",0] > 0) then {
-	switch (f_param_groupMarkers) do {
-		case 4;
-		case 5: { 
-			_mechanicsText = _mechanicsText + "<br/><br/><font size='18' color='#ea2e2e'>MARKERS</font>";
-			_mechanicsText = _mechanicsText + "<br/>Group markers are displayed on the map for the <font color='#72E500'>Commander</font> only.<br/>"; 
-		};
-	};
-};
-
 // ENGINEERING
 _mechanicsText = _mechanicsText + 
 "<br/><font size='18' color='#ea2e2e'>ENGINEERING / EOD</font>
@@ -126,13 +115,70 @@ _mechanicsText = _mechanicsText +
 <br/>Mines can be defused by: <font color='#72E500'>EOD Only</font>
 <br/>";
 
-
 if (missionNamespace getVariable["f_param_looting",0] == 0) then {
 	 _mechanicsText = _mechanicsText + 
 	 "<br/><font size='18' color='#ea2e2e'>LOOTING</font>
 	<br/>No <font color='#72E500'>enemy units</font> can be looted for equipment, however KIA friendlies, all vehicles and all storage can be looted. The platoon will have enough equipment available to complete the mission without looting, though may need to resupply if Logistics roles are available. 
 	<br/>";
 };
+
+_mechanicsText = _mechanicsText + 
+"<br/><font size='18' color='#ea2e2e'>IMMERSION</font>";
+if (missionNamespace getVariable["f_param_artilleryComputer",0] == 0) then {
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Artillery Computer: <font color='#72E500'>Disabled</font>";
+}
+else
+{
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Artillery Computer: <font color='#72E500'>Enabled</font>";
+};
+
+if (missionNamespace getVariable["f_param_groupMarkers",0] > 0) then {
+	switch (f_param_groupMarkers) do {
+		case 4;
+		case 5: { 
+			_mechanicsText = _mechanicsText + "<br/>Group Markers: <font color='#72E500'>Commander Only</font>"; 
+		};
+		case 1;
+		case 2: { 
+			_mechanicsText = _mechanicsText + "<br/>Group Markers: <font color='#72E500'>Enabled</font>"; 
+		};
+	};
+};
+
+if (missionNamespace getVariable["f_param_fireTeamMarkers",0] == 0) then {
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Fireteam Markers: <font color='#72E500'>Disabled</font>";
+}
+else
+{
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Fireteam Markers: <font color='#72E500'>Enabled</font>";
+};
+
+if (missionNamespace getVariable["f_param_shiftClick",0] == 0) then {
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Shift-Click Marker: <font color='#72E500'>Disabled</font>";
+}
+else
+{
+	 _mechanicsText = _mechanicsText + 
+	 "<br/>Shift-Click Marker: <font color='#72E500'>Enabled</font>";
+};
+
+switch (f_param_thirdPerson) do {
+	case 0: { 
+		_mechanicsText = _mechanicsText + "<br/>Third Person: <font color='#72E500'>Enabled</font>"; 
+	};
+	case 1: { 
+		_mechanicsText = _mechanicsText + "<br/>Third Person: <font color='#72E500'>Vehicles Only</font>"; 
+	};
+	case 2: { 
+		_mechanicsText = _mechanicsText + "<br/>Third Person: <font color='#72E500'>Disabled</font>"; 
+	};
+};
+
 
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Mechanical Notes", _mechanicsText]];
