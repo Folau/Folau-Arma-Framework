@@ -1,5 +1,9 @@
 /* 
-Folau's No Loot Script
+Name: 		Loot Prevention Script
+Author: 	Folau
+Date:		15th December 2018
+
+Description:
 
 Prevents players from accessing the inventory of non-side units (including civilians)
 
@@ -9,6 +13,11 @@ NB:
 > Players can still grab rifles/AT off the ground, but not go hunting for additional ammo.
 
 The latter could be improved by checking classes and weapons etc, but I'm not overly fussed atm.
+
+Usage:
+		
+null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
+
  */
  
 addMissionEventHandler ["EntityKilled", {

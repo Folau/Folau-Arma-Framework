@@ -19,7 +19,7 @@ execVM "f\nametag\f_nametags.sqf";				// F3 - Nametags
 // execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
 // ====================================================================================
 // F3 - Casualty Cap - Sides: west | east | resistance - Format: [SIDE,ENDING,<PERCENT>]
-[independent,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+[west,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[east,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[resistance,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[west,{f_var_casualtyLimitHit = true;}] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf"; // Alternative use with trigger.
@@ -84,9 +84,11 @@ FOLAU'S SECTION
 Any scripts that need to be executed during startup i.e. LoW, AI Commander, etc.
  */
 
+ // CRITICAL LINE TO EDIT - SET TO PLAYERS' SIDE
+_playerSideFolau = west; 
+ 
 // Setup Params
-
-missionNamespace setVariable ["playerSideFolau", independent];
+missionNamespace setVariable ["playerSideFolau", _playerSideFolau];
 missionNameSpace setVariable ["MyCivKillCounter", 0, true];
 missionNamespace setVariable ["kiaChance", f_param_kiaChance];
 
@@ -126,4 +128,16 @@ else
 	
 if (f_param_fireTeamMarkers == 1 ) then {
 	execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
-}; 
+};
+
+// -- Any other scripts --
+
+// Making AI low-tech
+null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
+
+// Setting up paratroopers
+{
+if(side _x == _playerSideFolau) then {
+	null = [_x] execVM "folau\utils\paradropSetup.sqf";
+};
+} foreach (allUnits); 
