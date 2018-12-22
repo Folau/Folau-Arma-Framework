@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5195.2847,44.475266,320.49133};
-		dir[]={0.58018678,-0.3715587,-0.72480923};
-		up[]={0.2322011,0.92840409,-0.29008189};
-		aside[]={-0.78069907,3.2456592e-007,-0.62492442};
+		pos[]={5253.2163,7.6394033,327.92163};
+		dir[]={0.72639316,-0.27488714,0.62993622};
+		up[]={0.20768626,0.9614709,0.18010736};
+		aside[]={0.65517509,2.8598879e-007,-0.75549889};
 	};
 };
 binarizationWanted=0;
@@ -196,8 +196,8 @@ class Mission
 		forecastLightnings=0.1;
 		year=2035;
 		day=28;
-		hour=2;
-		minute=21;
+		hour=12;
+		minute=0;
 		startFogDecay=0.014;
 		forecastFogDecay=0.014;
 	};
@@ -216,8 +216,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5250.3066,5.0014391,292.50671};
-						angles[]={0,0.17472872,0};
+						position[]={5254.5015,5.0821695,325.5639};
+						angles[]={0,6.2023902,0};
 					};
 					side="West";
 					flags=7;

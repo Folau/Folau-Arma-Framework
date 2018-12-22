@@ -132,7 +132,7 @@ if (f_param_fireTeamMarkers == 1 ) then {
 
 // -- Any other scripts --
 
-// Making AI low-tech
+/* // Making AI low-tech
 null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
 
 // Setting up paratroopers
@@ -140,4 +140,4 @@ null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
 if(side _x == _playerSideFolau) then {
 	null = [_x] execVM "folau\utils\paradropSetup.sqf";
 };
-} foreach (allUnits); 
+} foreach (allUnits);  */
