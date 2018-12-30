@@ -138,6 +138,17 @@ null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
 // Setting up paratroopers
 {
 if(side _x == _playerSideFolau) then {
-	null = [_x] execVM "folau\utils\paradropSetup.sqf";
+	
 };
 } foreach (allUnits);  */
+
+
+vtol addEventHandler ["GetIn",{
+	_vehicle = _this select 0; //vehicle wchich triggered the EH
+	_pos = _this select 1; //Position in vehicle (driver, gunner etc) not Position on map!
+	_unit = _this select 2; //player that entered the vehicle
+
+	null = [_vehicle, _unit] execVM "folau\utils\paradropSetup.sqf";
+
+}];
+

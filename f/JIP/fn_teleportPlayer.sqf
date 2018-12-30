@@ -18,7 +18,7 @@ if (count _refUnitArray == 0) then {
 		if ((side _x) == playerSide && _x != player && alive _x) then {
 			_refUnitArray pushBack _x;
 		}; 
-	} forEach allUnits - _nearbyUnits;
+	} forEach allPlayers - _nearbyUnits;
 };
 
 // We didn't find anyone!

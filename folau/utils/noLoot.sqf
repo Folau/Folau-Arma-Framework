@@ -25,10 +25,10 @@ addMissionEventHandler ["EntityKilled", {
 	 
 	_playersSideFnc = missionNamespace getVariable ["playerSideFolau",0];
 	  
-	if !(side group _killedUnit isEqualTo _playersSideFnc) then 
+	if !(side group _killedUnit isEqualTo _playersSideFnc || side group _killedUnit isEqualTo civilian) then 
 	{
 		// hint format ["UNIT KILLED SIDE %1", (side group _killedUnit)];
-		_killedUnit setVariable ["notLootable", false];
+		_killedUnit setVariable ["notLootable", true];
 		removeAllWeapons _killedUnit;
 	}
 	else

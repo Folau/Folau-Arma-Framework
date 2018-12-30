@@ -2,9 +2,6 @@
 Name: 		AI Item Removal
 Author: 	Folau
 Date:		15th December 2018
-
-Assuming players start in their airdrop vehicle, this will allow them to paradrop and keep backpack kits
-
  */
 
 params ["_aiSide"];

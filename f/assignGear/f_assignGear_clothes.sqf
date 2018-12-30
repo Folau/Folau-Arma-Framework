@@ -142,13 +142,15 @@ if(count _rig > 0) then {
 if(count _glasses > 0) then {
 	private ["_toCheck"];
 	_toCheck = [_glasses] call f_fnc_arrayCheck;
-	if (_toCheck == "") then {
-		removeGoggles _unit;
-	} else {
-		if ((!isNil "_toCheck") && {isClass (configFile >> "CfgGlasses" >> _toCheck)}) then {
-			_unit addGoggles _toCheck;
+	if !(goggles _unit in _glasses) then {
+		if (_toCheck == "") then {
+			removeGoggles _unit;
 		} else {
-			diag_log text format ["[F3] WARNING (f_assingnGear_clothes.sqf): Goggles (%1) not found for %2 of type '%3'",_toCheck,_unit,_typeofUnit];
+			if ((!isNil "_toCheck") && {isClass (configFile >> "CfgGlasses" >> _toCheck)}) then {
+				_unit addGoggles _toCheck;
+			} else {
+				diag_log text format ["[F3] WARNING (f_assingnGear_clothes.sqf): Goggles (%1) not found for %2 of type '%3'",_toCheck,_unit,_typeofUnit];
+			};
 		};
 	};
 } else {

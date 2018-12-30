@@ -18,7 +18,7 @@ if(side _x == west) then {
 
 */
 
-params ["_unit"];
+params ["_vehicle", "_unit"];
 
 // Save the original backpack and remove
 _bp = backpack _unit;
@@ -29,7 +29,7 @@ removeBackpack _unit;
 sleep 0.5;
 _unit addBackpack "B_parachute";
 
-waitUntil {sleep 0.1; (position _unit select 2) < 125;};
+waitUntil {sleep 0.1; (position _unit select 2) < 125 && !(_unit in _vehicle)};
 
 //Check if players chute is open, if not open it.
 if (vehicle _unit isEqualto _unit && alive _unit) then {
