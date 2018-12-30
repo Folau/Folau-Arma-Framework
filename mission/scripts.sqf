@@ -143,12 +143,13 @@ if(side _x == _playerSideFolau) then {
 } foreach (allUnits);  */
 
 
-vtol addEventHandler ["GetIn",{
-	_vehicle = _this select 0; //vehicle wchich triggered the EH
+// Set up VTOL for paradrop
+player addEventHandler ["GetInMan",{
+	_unit = _this select 0; //vehicle wchich triggered the EH
 	_pos = _this select 1; //Position in vehicle (driver, gunner etc) not Position on map!
-	_unit = _this select 2; //player that entered the vehicle
-
-	null = [_vehicle, _unit] execVM "folau\utils\paradropSetup.sqf";
-
+	_vehicle = _this select 2; //player that entered the vehicle
+	
+	if (_vehicle == vtol) then {
+		null = [_vehicle, _unit] execVM "folau\utils\paradropSetup.sqf";
+	};
 }];
-
