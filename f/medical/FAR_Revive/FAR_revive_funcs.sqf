@@ -39,7 +39,11 @@ FAR_HandleDamage_EH = {
 			systemChat "Critical Damage!";
 		};*/
 		
-		if (_amountOfDamage >= 1 && _kia_chance > random 100)
+		_saveRoll = random 100;
+		
+		// systemChat format["Save Roll: %1 / Limit %2", _saveRoll, _kia_chance];
+		
+		if (_amountOfDamage >= 1 && _kia_chance > _saveRoll)
 		then {
 		
 			// Handle Damage

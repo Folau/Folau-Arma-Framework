@@ -156,7 +156,7 @@ class f_param_caslimit
 	title = "Casualty Limit";
 	values[] = {50, 60, 70, 80};
 	texts[] = {"Low (50)", "Normal (60)", "High (70)", "Very High (80)"};
-	default = 50;
+	default = 60;
 };
 
 class f_param_kialimit

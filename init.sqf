@@ -24,7 +24,7 @@ if isServer then {
 	if (f_param_lawsOfWar == 1) then {					
 		null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
 	};	
-	missionNamespace setVariable ["kiaChance", f_param_kiaChance];
+
 	null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
 	null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
 

@@ -89,7 +89,8 @@ _playerSideFolau = west;
  
 // Setup Params
 missionNamespace setVariable ["playerSideFolau", _playerSideFolau];
-
+missionNamespace setVariable ["kiaChance", f_param_kiaChance];
+	
 if (f_param_looting == 0) then {					
 	null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
 };

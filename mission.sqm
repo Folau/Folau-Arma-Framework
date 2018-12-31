@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5000.1611,218.99693,5901.188};
-		dir[]={0.59118581,-0.64060503,0.4900412};
-		up[]={0.49320138,0.76786447,0.40881974};
-		aside[]={0.63817763,9.2200935e-008,-0.76990002};
+		pos[]={5008.5303,213.80215,5898.8213};
+		dir[]={-0.9304598,-0.34465054,0.12446361};
+		up[]={-0.34162378,0.93872303,0.045698807};
+		aside[]={0.13258974,-6.1487663e-007,0.9911865};
 	};
 };
 binarizationWanted=0;
@@ -6934,7 +6934,7 @@ class Mission
 		class Item35
 		{
 			dataType="Marker";
-			position[]={4978.4844,201.01863,5858.0391};
+			position[]={4367.2217,230.23448,3848.9517};
 			name="respawn_east";
 			type="mil_flag";
 			colorName="ColorEAST";
@@ -6943,7 +6943,7 @@ class Mission
 		class Item36
 		{
 			dataType="Marker";
-			position[]={4978.314,187.47511,5813.7612};
+			position[]={4358.915,224.91527,3774.6475};
 			name="respawn_guerrila";
 			type="mil_flag";
 			colorName="ColorGUER";
