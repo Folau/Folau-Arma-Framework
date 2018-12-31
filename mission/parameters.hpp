@@ -118,12 +118,12 @@ class f_param_jipTeleport
 class f_param_respawn
 {
 	title = "Respawn";
-	values[] = {600};
-	texts[] = {"Wave 10 Minutes"};
+/* 	values[] = {600};
+	texts[] = {"Wave 10 Minutes"}; */
 
-/* 	values[] = {0,30,60,300,600,900,1200,1,2,5,10};
+	values[] = {0,30,60,300,600,900,1200,1,2,5,10};
 	texts[] = {"Disabled","Timer 30 Seconds","Timer 1 Minute","Wave 5 Minutes","Wave 10 Minutes","Wave 15 Minutes","Wave 20 Minutes","2 Tickets","3 Tickets","5 Tickets","10 Tickets"};
- */	
+	
 	default = 600;
 };
 
@@ -150,6 +150,14 @@ class f_param_aiSkill
 	texts[] = {"Short (30 Minutes)", "Medium (45 Minutes)", "Long (60 Minutes)"};
 	default = 1800;
 }; */
+
+class f_param_caslimit
+{
+	title = "Casualty Limit";
+	values[] = {50, 60, 70, 80};
+	texts[] = {"Low (50)", "Normal (60)", "High (70)", "Very High (80)"};
+	default = 50;
+};
 
 class f_param_kialimit
 {

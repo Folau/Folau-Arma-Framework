@@ -19,7 +19,7 @@ _cre = player createDiaryRecord ["diary", ["Mission Credits",format["
 <br/>Framework Creator: <font color='#72E500'>2600K</font color>.
 <br/>Mortar Guide and Range Table: <font color='#72E500'>Wombat</font color>.
 <br/>
-<br/>Testing & More: <font color='#72E500'>Lawman</font color>, <font color='#72E500'>SeaCaptainJim</font color>.
+<br/>Testing and More: <font color='#72E500'>Lawman</font color>, <font color='#72E500'>SeaCaptainJim</font color>.
 <br/>
 <br/>A custom-made mission for ArmA 3 and Zeus Community
 <br/>http://zeus-community.net/
@@ -82,11 +82,11 @@ _mis1 = format["
 <br/><font size='18' color='#ea2e2e'>MISSION</font>
 <br/>Your mission is to X.
 <br/>
-<br/>Ensure KIA total is kept below %2.
+<br/>Ensure Casualty/KIA totals are kept below %3/%2.
 <br/>
 <br/>Ensure simultaneous casualties are kept below %1 percent.
 <br/>
-",f_param_CasualtiesCap, f_param_kialimit];
+",f_param_CasualtiesCap, f_param_kialimit, f_param_caslimit];
 
 // Below - addition for timed missions
 _mis2 = format["

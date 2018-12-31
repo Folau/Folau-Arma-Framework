@@ -31,8 +31,8 @@
 	class End4 // High KIA Count
 	{
 		title = "Mission Failed";
-		subtitle = "High KIA Count Reported";
-		description = "A high number of units are reported KIA - the mission is a failure.";
+		subtitle = "High Casualty / KIA Count Reported";
+		description = "A high number of units are reported Casualties / KIA - the mission is a failure.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};

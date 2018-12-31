@@ -89,15 +89,6 @@ _playerSideFolau = west;
  
 // Setup Params
 missionNamespace setVariable ["playerSideFolau", _playerSideFolau];
-missionNameSpace setVariable ["MyCivKillCounter", 0, true];
-missionNamespace setVariable ["kiaChance", f_param_kiaChance];
-
-// Executing Util Scripts
-null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
-
-if (f_param_lawsOfWar == 1) then {					
-	null = [20] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
-};
 
 if (f_param_looting == 0) then {					
 	null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
@@ -108,13 +99,6 @@ if (f_param_shiftClick == 0) then {
 		case "mtrag"; case "nav"; case "mtrg": {systemChat "Shift-Click enabled for selected role."};
 		default {onMapSingleClick {_shift}};
 	};	// Disable map shift-click
-};
-
-
-null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
-
-if (f_param_timelimit != 0) then {
-	null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
 };
 
 // Disable Artillery Computer

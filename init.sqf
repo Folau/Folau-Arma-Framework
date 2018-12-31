@@ -20,6 +20,18 @@ if isServer then {
 		{if (_x isKindOf "Man" && (_x getVariable["f_var_assignGear",""] != "")) then {deleteVehicle _x}} forEach allDead;
 	};
 	
+	// Folau Stuff
+	if (f_param_lawsOfWar == 1) then {					
+		null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
+	};	
+	missionNamespace setVariable ["kiaChance", f_param_kiaChance];
+	null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
+	null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
+
+	if (f_param_timelimit != 0) then {
+		null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
+	};
+		
 	// Performance Counter / Debug
 	[] spawn {
 		sleep 1;

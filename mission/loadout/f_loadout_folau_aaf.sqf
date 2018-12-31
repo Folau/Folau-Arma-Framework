@@ -19,7 +19,7 @@ _NVG_bool = True;
 // ================================
 // ATTACHMENTS
 // ================================
-_scope_frontline = ["optic_ACO", "optic_Holosight_blk_F", "optic_MRCO"]; // Standard choice for infantry - give them the chance for med range.
+_scope_frontline = ["optic_MRCO", "optic_ACO", "optic_Holosight_blk_F"]; // Standard choice for infantry - give them the chance for med range.
 _scope_support = ["optic_ACO", "optic_Holosight_blk_F"]; // Support infantry don't get extra options
 _scope_dm = ["optic_dms", "optic_SOS", "optic_MRCO"]; // Designated Marksman Night
 _scope_sniper = ["optic_LRPS"]; // Sniper
@@ -114,14 +114,14 @@ _DMriflemag = "20Rnd_762x51_Mag";
 _DMriflemag_tr = "20Rnd_762x51_Mag";
 
 // Rifleman AT
-_RAT = "launch_MRAWS_olive_rail_F";
-_RATmag = "MRAWS_HEAT_F";
-_RATmag2 = "MRAWS_HE_F";
+_RAT = "launch_NLAW_F";
+_RATmag = "NLAW_F";
+_RATmag2 = "NLAW_F";
 
 // Medium AT
-_MAT = "launch_I_Titan_short_F";
-_MATmag1 = "Titan_AT";
-_MATmag2 = "Titan_AP";
+_MAT = "launch_MRAWS_olive_rail_F";
+_MATmag1 = "MRAWS_HEAT_F";
+_MATmag2 = "MRAWS_HE_F";
 
 // Surface Air
 _SAM = "launch_I_Titan_F";
@@ -420,7 +420,7 @@ switch (_typeOfUnit) do
 	// LOADOUT: Forward Observer
 	case "fo":
 	{
-		[_typeOfUnit] call _backpack;
+		// [_typeOfUnit] call _backpack;
 		_unit addMagazines [_carbinemag,_defMags];
 		_unit addMagazines [_carbinemag_tr,_defMags_tr];
 		[_unit, _carbine] call f_fnc_addWeapon;
@@ -431,7 +431,6 @@ switch (_typeOfUnit) do
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos3] call f_fnc_addWeapon;
 		_unit addMagazines ["Laserbatteries",4];
-		_unit linkItem _uavterminal;
 		_attachments = _attach_sp;
 	};	
 	

@@ -18,7 +18,7 @@ disabledAI = 1;
 author = "Folau"; // Author
 onLoadName = "Mission 001"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
 onLoadMission = """Some witty quote needs to go in here.""<br/> – Folau"; // Description
-loadScreen = "loadScreen.paa"; // Preview picture // Loadscreen image - comment for default
+// loadScreen = "loadScreen.paa"; // Preview picture // Loadscreen image - comment for default
 // overviewPicture = "loadScreen.paa" // Lobby Image
 
 class Header

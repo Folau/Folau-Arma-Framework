@@ -19,7 +19,7 @@ _NVG_bool = True;
 // ================================
 // ATTACHMENTS
 // ================================
-_scope_frontline = ["optic_ACO", "optic_Holosight_blk_F", "optic_Hamr"]; // Standard choice for infantry - give them the chance for med range.
+_scope_frontline = ["optic_Hamr", "optic_ACO", "optic_Holosight_blk_F"]; // Standard choice for infantry - give them the chance for med range.
 _scope_support = ["optic_ACO", "optic_Holosight_blk_F"]; // Support infantry don't get extra options
 _scope_dm = ["optic_SOS", "optic_AMS_snd"]; // Designated Marksman Night
 _scope_sniper = ["optic_LRPS"]; // Sniper
@@ -114,14 +114,14 @@ _DMriflemag = "30Rnd_65x39_caseless_mag";
 _DMriflemag_tr = "30Rnd_65x39_caseless_mag_Tracer";
 
 // Rifleman AT
-_RAT = "launch_MRAWS_sand_F";
-_RATmag = "MRAWS_HEAT_F";
-_RATmag2 = "MRAWS_HE_F";
+_RAT = "launch_NLAW_F";
+_RATmag = "NLAW_F";
+_RATmag2 = "NLAW_F";
 
 // Medium AT
-_MAT = "launch_B_Titan_short_F";
-_MATmag1 = "Titan_AT";
-_MATmag2 = "Titan_AP";
+_MAT = "launch_MRAWS_sand_F";
+_MATmag1 = "MRAWS_HEAT_F";
+_MATmag2 = "MRAWS_HE_F";
 
 // Surface Air
 _SAM = "launch_B_Titan_F";
@@ -610,7 +610,7 @@ switch (_typeOfUnit) do
 	// LOADOUT: RIFLEMAN (AT)
 	case "rat":
 	{
-		[_typeOfUnit] call _backpack;	
+		["rat_pcml"] call _backpack;	
 		_unit addMagazines [_riflemag,_defMags];
 		_unit addMagazines [_riflemag_tr,_defMags_tr];
 		[_unit, _rifle] call f_fnc_addWeapon;

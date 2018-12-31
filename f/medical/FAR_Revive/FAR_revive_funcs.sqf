@@ -41,9 +41,65 @@ FAR_HandleDamage_EH = {
 		
 		if (_amountOfDamage >= 1 && _kia_chance > random 100)
 		then {
-			_unit allowDamage true;
-			_unit setHitPointDamage [_bodyPart, 1];
+		
+			// Handle Damage
+			//_unit allowDamage true;
+			// _unit setHitPointDamage [_bodyPart, 1];
 			_amountOfDamage = _amountOfDamage;
+			_unit allowDamage false;
+			_unit setDamage 1;
+			
+			// Casualty Count Update
+			[_unit] spawn {
+				_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
+			
+				// Random sleep to allow network sync if multiple casualties.
+				sleep random 10;
+				{
+					_x params ["_sideVar","_markerVar"];
+					
+					// systemChat format["Unit Side %1 Side Var %1", _unitSide, _sideVar];
+					
+					if (_unitSide == _sideVar) exitWith {
+						_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
+						_kiaVar = missionNamespace getVariable [format["fol_var_kia_counter_%1",_sideVar],0];
+						
+						missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],_casVar + 1,true];
+						missionNamespace setVariable [format["fol_var_kia_counter_%1",_sideVar],_kiaVar + 1,true];
+						
+						_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar + 1), (_kiaVar + 1)];
+						// _markerVar setMarkerText format["Casualties: %1",(_casVar + 1)];
+					};
+				} forEach [
+					[west,"respawn_west"],
+					[east,"respawn_east"],
+					[resistance,"respawn_guerrila"],
+					[civilian,"respawn_civilian"]
+				];
+			};		
+				
+/* 			[_unit] spawn {
+				_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
+				{
+					_x params ["_sideVar","_markerVar"];
+					if (_unitSide == _sideVar) exitWith {
+						_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
+						_kiaVar = missionNamespace getVariable [format["fol_var_kia_counter_%1",_sideVar],0];
+		
+						missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],_casVar + 1,true];
+						missionNamespace setVariable [format["fol_var_kia_counter_%1",_sideVar],_kiaVar + 1,true];	
+						
+						systemChat format["Instant Kill %1 Cas %2 KIA %3", _sideVar, _casVar, _kiaVar]; 
+						_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar), (_kiaVar)];
+					};
+				} forEach [
+					[west,"respawn_west"],
+					[east,"respawn_east"],
+					[resistance,"respawn_guerrila"],
+					[civilian,"respawn_civilian"]
+				];
+			}; */
+
 		}
 		else
 		{
@@ -56,19 +112,6 @@ FAR_HandleDamage_EH = {
 	_amountOfDamage;
 };
 
-Fol_Update_Marker = {
-	{
-	_x params ["_sideVar","_markerVar"];
-	_kiaVar = missionNamespace getVariable ["fol_var_kia_counter",0];	
-	_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
-	_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar), (_kiaVar)];
-	} forEach [
-			[west,"respawn_west"],
-			[east,"respawn_east"],
-			[resistance,"respawn_guerrila"],
-			[civilian,"respawn_civilian"]
-	];
-};
 
 FAR_public_EH = {
 	if(count _this < 2) exitWith {};
@@ -121,9 +164,9 @@ FAR_Player_Unconscious = {
 			_x params ["_sideVar","_markerVar"];
 			if (_unitSide == _sideVar) exitWith {
 				_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
-				// Change the respawn marker to reflect # of casualties.
+				_kiaVar = missionNamespace getVariable [format["fol_var_kia_counter_%1",_sideVar],0];
 				missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],_casVar + 1,true];
-				call Fol_Update_Marker;
+				_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar + 1), (_kiaVar)];
 				// _markerVar setMarkerText format["Casualties: %1",(_casVar + 1)];
 			};
 		} forEach [
@@ -217,7 +260,24 @@ FAR_Player_Unconscious = {
 		_unit setCaptive false;
 		_unit allowDamage true;
 		_unit setDamage 1;
-				
+		
+		[_unit] spawn {
+			_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
+			{
+					_x params ["_sideVar","_markerVar"];	
+					if (_unitSide == _sideVar) exitWith {
+					_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
+					_kiaVar = missionNamespace getVariable [format["fol_var_kia_counter_%1",_sideVar],0];
+					missionNamespace setVariable [format["fol_var_kia_counter_%1",_sideVar],_kiaVar + 1,true];	
+					_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar), (_kiaVar + 1)];
+					};
+			} forEach [
+				[west,"respawn_west"],
+				[east,"respawn_east"],
+				[resistance,"respawn_guerrila"],
+				[civilian,"respawn_civilian"]];
+		};	
+		
 	} else {	// Player got revived		
 		["Terminate"] call BIS_fnc_EGSpectator;
 		sleep 3;

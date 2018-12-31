@@ -12,6 +12,7 @@ _maxCivs		"Int" Number of civilians before the mission fails
 params["_maxCivs"];
 
 missionNamespace setVariable ["maxCivKilled", _maxCivs];
+missionNameSpace setVariable ["MyCivKillCounter", 0, true];
 
 addMissionEventHandler ["EntityKilled", {
   params ["_killedUnit","_killer","_triggerMan"];

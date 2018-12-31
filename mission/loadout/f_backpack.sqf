@@ -87,6 +87,12 @@ case "rat": {
 	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag2, 1]; };	// HE
 };
 
+// BACKPACK: RIFLEMAN AT (RAT)
+case "rat_pcml": {
+	[_bagsmall,_unit] call f_fnc_addBackpack;
+	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 3]; };	// HEAT
+};
+
 // BACKPACK: AUTORIFLEMAN
 case "ar": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
