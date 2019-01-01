@@ -3,7 +3,7 @@
 	_x params ["_sideVar","_markerVar"];
 	missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],0,true];
 	missionNamespace setVariable [format["fol_var_kia_counter_%1",_sideVar],0,true];
-	_markerVar setMarkerText format["Casualties: %1, KIA: %2",0,0];
+	// _markerVar setMarkerText format["Casualties: %1, KIA: %2",0,0];
 	
 } forEach [
 	[west,"respawn_west"],

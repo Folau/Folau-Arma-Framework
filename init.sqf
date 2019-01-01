@@ -28,9 +28,14 @@ if isServer then {
 	null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
 	null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
 
-	if (f_param_timelimit != 0) then {
+/* 	if (f_param_timelimit != 0) then {
 		null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
 	};
+	
+	// Setting up time limit
+	if (_timeLimitType in [1,2]) then {
+		null = [_timeLimitType, _timeLimitValue] execVM "folau\utils\timeLimit.sqf";
+	}; */
 		
 	// Performance Counter / Debug
 	[] spawn {

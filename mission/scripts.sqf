@@ -19,7 +19,7 @@ execVM "f\nametag\f_nametags.sqf";				// F3 - Nametags
 // execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
 // ====================================================================================
 // F3 - Casualty Cap - Sides: west | east | resistance - Format: [SIDE,ENDING,<PERCENT>]
-[west,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+//[west,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[east,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[resistance,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 //[west,{f_var_casualtyLimitHit = true;}] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf"; // Alternative use with trigger.
@@ -90,6 +90,9 @@ _playerSideFolau = west;
 // Setup Params
 missionNamespace setVariable ["playerSideFolau", _playerSideFolau];
 missionNamespace setVariable ["kiaChance", f_param_kiaChance];
+
+// Casualty Cap
+[_playerSideFolau, 2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 	
 if (f_param_looting == 0) then {					
 	null = execVM "folau\utils\noLoot.sqf";				// Prevent looting of enemies
@@ -116,17 +119,8 @@ if (f_param_fireTeamMarkers == 1 ) then {
 };
 
 // -- Any other scripts --
-
-/* // Making AI low-tech
-null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
-
-// Setting up paratroopers
-{
-if(side _x == _playerSideFolau) then {
-	
-};
-} foreach (allUnits);  */
-
+// Making AI low-tech
+// null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
 
 // Set up VTOL for paradrop
 player addEventHandler ["GetInMan",{
