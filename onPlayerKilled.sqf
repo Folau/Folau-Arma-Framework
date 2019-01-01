@@ -31,7 +31,7 @@ if (isNil "f_param_respawn") then {f_param_respawn = 0};
 if (isNil "f_var_localTickets") then { f_var_localTickets = if (f_param_respawn <= 10) then {f_param_respawn} else {0}; };
 
 // Basic Spawning is set.
-if (f_param_respawn in [30,60]) exitWith { 
+if (f_param_respawn in [30,60, 299]) exitWith { 
 	setPlayerRespawnTime f_param_respawn; 
 };
 
@@ -46,7 +46,7 @@ if (f_var_localTickets > 0) exitWith {
 setPlayerRespawnTime 9999999;
 
 // Check if Wave Spawning is required
-if (f_param_respawn > 60) then {	
+if (f_param_respawn > 299) then {	
 	// Work out time until spawning is due.
 	private _respawnTime = f_param_respawn - (time mod f_param_respawn);
 	// Set players spawn timer.
