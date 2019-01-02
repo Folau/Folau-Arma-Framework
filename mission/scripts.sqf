@@ -119,8 +119,6 @@ if (f_param_fireTeamMarkers == 1 ) then {
 };
 
 // -- Any other scripts --
-// Making AI low-tech
-// null = [independent] execVM "folau\utils\aiItemRemoval.sqf";
 
 // Set up VTOL for paradrop
 player addEventHandler ["GetInMan",{

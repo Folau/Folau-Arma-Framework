@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1025;
+	toggles=1153;
 	class ItemIDProvider
 	{
-		nextID=549;
+		nextID=598;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5008.5303,213.80215,5898.8213};
-		dir[]={-0.9304598,-0.34465054,0.12446361};
-		up[]={-0.34162378,0.93872303,0.045698807};
-		aside[]={0.13258974,-6.1487663e-007,0.9911865};
+		pos[]={1695.9611,13.836879,5589.9785};
+		dir[]={-0.84182161,-0.44979271,-0.29837456};
+		up[]={-0.42395192,0.89313304,-0.15026504};
+		aside[]={-0.3340762,-1.9324943e-008,0.94254875};
 	};
 };
 binarizationWanted=0;
@@ -115,8 +115,8 @@ class Mission
 		forecastLightnings=0.1;
 		year=2035;
 		day=28;
-		hour=12;
-		minute=0;
+		hour=8;
+		minute=13;
 		startFogDecay=0.014;
 		forecastFogDecay=0.014;
 	};

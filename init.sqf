@@ -21,13 +21,16 @@ if isServer then {
 	};
 	
 	// Folau Stuff
+	// Setting up any AI changes
+	null = execVM "folau\folAI\folAIinit.sqf";
+
 	if (f_param_lawsOfWar == 1) then {					
 		null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
 	};	
 
-	null = execVM "folau\FolAI\setAISkill.sqf";				// Set AI Skill
 	null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
 
+	
 /* 	if (f_param_timelimit != 0) then {
 		null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)
 	};
