@@ -36,12 +36,7 @@ SpecialUnits = {
 	_spotterBool = ["spotter", _manType] call BIS_fnc_inString;
 	_officerBool = ["officer", _manType] call BIS_fnc_inString;
 
-	// Accounts for AAA - these should be able to fire at 2km without infantry getting triggered.
-	if (["crew", _manType] call BIS_fnc_inString):
-		_vic = vehicle leader _checkGroup;
-		_vehicleBool = ["aa", typeOf _vic] call BIS_fnc_inString;
-	
-	if (_sniperBool || _spotterBool || _officerBool || _vehicleBool) then {
+	if (_sniperBool || _spotterBool || _officerBool) then {
 		_specialUnit = true;
 	}
 	else {
@@ -116,10 +111,10 @@ while { alive leader _unit } do {
 			while {(count (waypoints _unit)) > 0} do {
 				deleteWaypoint ((waypoints _unit) select 0);
 			};
-			
+
 			// Create the guard waypoint
 			_waypoint1 = _unit addWaypoint [getpos _x, 50];
-			[group leader _unit, 0] setWaypointType "GUARD";
+			[group leader _unit, 1] setWaypointType "MOVE";
 			_unit setSpeedMode "FULL";
 			_unit setBehaviour "AWARE"; 
 			_unit setFormation "WEDGE";
@@ -144,6 +139,36 @@ while { alive leader _unit } do {
 			_unit setBehaviour "AWARE"; 
 			breakout "Test"
 		};
+	};
+	
+	sleep 5;
+	
+};
+
+while { alive leader _unit } do {
+	scopeName "UNLOAD";
+
+	if (behaviour leader _unit == "COMBAT") then
+			
+		{
+			while {(count (waypoints _unit)) > 0} do {
+				deleteWaypoint ((waypoints _unit) select 0);
+			};
+
+		// Create the guard waypoint
+		_waypoint1 = _unit addWaypoint [getpos leader _unit, 0];
+		[_unit, 0] setWaypointType "TR UNLOAD";
+		_waypoint2 = _unit addWaypoint [getpos leader _unit, 0];
+		[_unit, 1] setWaypointType "GETOUT";
+		// Create the guard waypoint
+		_waypoint3 = _unit addWaypoint [getpos leader _unit, 20];
+		[_unit, 2] setWaypointType "GUARD";
+		
+		_unit setSpeedMode "FULL";
+		_unit setBehaviour "AWARE"; 
+		_unit setFormation "WEDGE";
+		
+		breakout "UNLOAD"
 	};
 	
 	sleep 5;

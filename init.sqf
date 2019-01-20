@@ -21,9 +21,20 @@ if isServer then {
 	};
 	
 	// Folau Stuff
-	// Setting up any AI changes
-	null = execVM "folau\folAI\folAIinit.sqf";
+	
+	if (f_param_aiVersion == 1) then {
+	
+		// Params
+		_folAISides = [east];
+		_keyPoints = ["keypos1"];
 
+		// Call Init
+		null = [
+			_folAISides, 
+			_keyPoints
+		] execVM "folau\folAI\folAIinit.sqf";
+	};
+	
 	if (f_param_lawsOfWar == 1) then {					
 		null = [10] execVM "folau\utils\lawsOfWar.sqf";		// Set up Laws of War
 	};	

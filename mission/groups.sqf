@@ -93,6 +93,7 @@ _grpOPF = [
 	["GrpOPF_PLM1","PLT M1","o_med","PLT M1",_red],
 	["GrpOPF_PLM2","PLT M2","o_med","PLT M2",_red],
 	["GrpOPF_JTAC","JTAC","o_hq","JTAC",_red],
+	["GrpOPF_FAC","FAC","o_hq","FAC",_red],
 	["GrpOPF_NAV","NAVY","o_naval","NAVY",_red],
 	
 	// RIFLES
@@ -103,7 +104,9 @@ _grpOPF = [
 	["GrpOPF_ESL","Echo","o_inf","E",_red],
 	
 	// Recon
-	["GrpOPF_ST1","ST","o_recon","ST1",_red],
+	["GrpOPF_RSL","Romeo","o_recon","R",_red],
+	["GrpOPF_SSL","Sierra","o_recon","S",_red],
+	["GrpOPF_ST1","Sniper 1","o_recon","ST1",_red],
 	
 	// SPECIALISTS
 	["GrpOPF_MTR1","MTR 1","o_mortar","MTR1",_red],
@@ -126,10 +129,11 @@ _grpOPF = [
 	["GrpOPF_LOG2","LOG2","o_support","LOG2",_red],
 	
 	// IFV
-	["GrpOPF_IFV1","IFV1","o_mech_inf","IFV1",_red],
-	["GrpOPF_IFV2","IFV2","o_mech_inf","IFV2",_red],
-	["GrpOPF_IFV3","IFV3","o_mech_inf","IFV3",_red],
-	["GrpOPF_IFV4","IFV4","o_mech_inf","IFV4",_red],
+	["GrpOPF_IFVC","IFV-CO","o_mech_inf","IFV-CO",_red],
+	["GrpOPF_IFV1","IFV-1","o_mech_inf","IFV-1",_red],
+	["GrpOPF_IFV2","IFV-2","o_mech_inf","IFV-2",_red],
+	["GrpOPF_IFV3","IFV-3","o_mech_inf","IFV-3",_red],
+	["GrpOPF_IFV4","IFV-4","o_mech_inf","IFV-4",_red],
 	
 	// MBT
 	["GrpOPF_TNK1","Thunder 1","o_armor","THU1",_red],

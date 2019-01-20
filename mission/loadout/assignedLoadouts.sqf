@@ -3,12 +3,12 @@
 // ---------------------------------- WEST FORCES -------------------------------------
 
 if (_side == "west") then {
-	#include "f_loadout_folau_us.sqf"
+	#include "f_loadout_folau_fia.sqf"
 	};
 
 // ---------------------------------- EAST FORCES -------------------------------------
 if (_side == "east") then {
-	#include "f_loadout_folau_csat_car95.sqf"
+	#include "f_loadout_folau_csat_tropic_car95.sqf"
 	};
 // ---------------------------------- INDP FORCES -------------------------------------
 

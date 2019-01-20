@@ -19,10 +19,10 @@ _NVG_bool = True;
 // ================================
 // ATTACHMENTS
 // ================================
-_scope_frontline = ["optic_Arco_blk_F", "optic_ACO", "optic_Holosight_blk_F"]; // Standard choice for infantry - give them the chance for med range.
+_scope_frontline = ["optic_Arco_ghex_F", "optic_ACO", "optic_Holosight_blk_F"]; // Standard choice for infantry - give them the chance for med range.
 _scope_support = ["optic_ACO", "optic_Holosight_blk_F"]; // Support infantry don't get extra options
-_scope_dm = ["optic_DMS", "optic_Arco_blk_F"]; // Designated Marksman Night
-_scope_sniper = ["optic_LRPS"]; // Sniper
+_scope_dm = ["optic_DMS_ghex_F", "optic_Arco_ghex_F"]; // Designated Marksman Night
+_scope_sniper = ["optic_LRPS_ghex_F"]; // Sniper
 
 _attach1 = ["acc_pointer_IR","acc_flashlight"];
 // _attach1 = ["acc_flashlight"];
@@ -73,17 +73,17 @@ _pistol = "hgun_Rook40_F";
 _pistolmag = "16Rnd_9x21_Mag";
 
 // Standard-issue Rifle (All front-line roles)
-_rifle = ["arifle_CTAR_hex_F"];
+_rifle = ["arifle_CTAR_ghex_F"];
 _riflemag = "30Rnd_580x42_Mag_F";
 _riflemag_tr = "30Rnd_580x42_Mag_Tracer_F";
 
 // Standard-issue Carbine (All support roles)
-_carbine = ["arifle_CTAR_hex_F"];
+_carbine = ["arifle_CTAR_ghex_F"];
 _carbinemag = "30Rnd_580x42_Mag_F";
 _carbinemag_tr = "30Rnd_580x42_Mag_Tracer_F";
 
 // Rifle with GL and HE grenades (CO, DC, FTLs)
-_glrifle = ["arifle_CTAR_GL_hex_F"];
+_glrifle = ["arifle_CTAR_GL_ghex_F"];
 _glriflemag = "30Rnd_580x42_Mag_F";
 _glriflemag_tr = "30Rnd_580x42_Mag_Tracer_F";
 _glmag = "1Rnd_HE_Grenade_shell";
@@ -100,42 +100,42 @@ _glflarealt2 = "UGL_FlareGreen_F";
 _glflarealt3 = "UGL_FlareYellow_F";
 
 // Automatic Rifleman
-_AR = "arifle_CTARS_hex_F";
+_AR = "arifle_CTARS_ghex_F";
 _ARmag = "100Rnd_580x42_Mag_F";
 _ARmag_tr = "100Rnd_580x42_Mag_Tracer_F";
 
 // Medium MG
-_MMG = "MMG_01_hex_F";
+_MMG = "MMG_01_tan_F";
 _MMGmag = "150Rnd_93x64_Mag";
 _MMGmag_tr = "150Rnd_93x64_Mag";
 
 // Marksman rifle
-_DMrifle = "srifle_DMR_07_hex_F";
+_DMrifle = "srifle_DMR_07_ghex_F";
 _DMriflemag = "20Rnd_650x39_Cased_Mag_F";
 _DMriflemag_tr = "20Rnd_650x39_Cased_Mag_F";
 
 // Rifleman AT
-_RAT = "launch_RPG32_F";
+_RAT = "launch_RPG32_ghex_F";
 _RATmag = "RPG32_F";
 _RATmag2 = "RPG32_HE_F";
 
 // Medium AT
-_MAT = "launch_O_Vorona_brown_F";
+_MAT = "launch_O_Vorona_green_F";
 _MATmag1 = "Vorona_HEAT";
 _MATmag2 = "Vorona_HE";
 
 // Surface Air
-_SAM = "launch_O_Titan_F";
+_SAM = "launch_O_Titan_ghex_F";
 _SAMmag = "Titan_AA";
 
 // Heavy AT
-_HAT = "launch_O_Vorona_brown_F";
+_HAT = "launch_O_Vorona_green_F";
 _HATmag1 = "Vorona_HEAT";
 _HATmag2 = "Vorona_HE";
 
 // Sniper
-_SNrifle = ["srifle_LRR_camo_F"];
-_SNrifleMag = "7Rnd_408_Mag";
+_SNrifle = ["srifle_GM6_ghex_F"];
+_SNrifleMag = "5Rnd_127x108_Mag";
 
 // Standard Submachine Gun/Personal Defence Weapon (Aircraft Pilot, Submachinegunner)
 _smg = "SMG_02_F";
@@ -165,10 +165,10 @@ _medkit = "Medikit";
 // Binoculars
 _binos1 = "Binocular";
 _binos2 = "Rangefinder";
-_binos3 = "Laserdesignator_02";
+_binos3 = "Laserdesignator_02_ghex_F";
 
 // Night Vision Goggles (NVGoggles)
-_nvg = "O_NVGoggles_hex_F";
+_nvg = "O_NVGoggles_ghex_F";
 
 // UAV Terminal
 _uavterminal = "O_UavTerminal";	  // BLUFOR - FIA
@@ -188,10 +188,10 @@ _APmine2 = "APERSMine_Range_Mag";
 // ================================
 
 // Infantry
-_bagsmall 	= 		["B_AssaultPack_ocamo"];
-_bagmedium 	= 		["B_FieldPack_ocamo"];
-_bagday 	=		["B_Kitbag_cbr"];
-_baglarge 	=  		["B_Carryall_ocamo"];
+_bagsmall 	= 		["B_FieldPack_ghex_F"];
+_bagmedium 	= 		["B_FieldPack_ghex_F"];
+_bagday 	=		["B_Carryall_ghex_F"];
+_baglarge 	=  		["B_Carryall_ghex_F"];
 
 // Diver
 _bagmediumdiver =  	"B_AssaultPack_blk";				// used by divers
@@ -226,27 +226,27 @@ _special = ["plm", "m"];
 
 // Basic clothing
 // The outfit-piece is randomly selected from the array for each unit
-_baseUniform = ["U_O_CombatUniform_ocamo"];
-_baseHelmet = ["H_HelmetSpecO_ocamo"];
+_baseUniform = ["U_O_T_Soldier_F"];
+_baseHelmet = ["H_HelmetSpecO_ghex_F"];
 _baseGlasses = [""];
 
 // Vests
-_vlightRig = "V_Chestrig_khk";
-_lightRig = "V_HarnessO_brn";
-_mediumRig = "V_HarnessO_brn"; 	// default for all infantry classes
-_heavyRig = "V_TacVest_khk";
-_specialRig = "V_HarnessO_brn";
+_vlightRig = "V_Chestrig_rgr";
+_lightRig = "V_HarnessO_ghex_F";
+_mediumRig = "V_HarnessO_ghex_F"; 	// default for all infantry classes
+_heavyRig = "V_TacVest_rgr";
+_specialRig = "V_HarnessO_ghex_F";
 
 // Lighter / Support Objects
-_lightHelmet = ["H_HelmetO_ocamo"];
-_lightUniform = ["UU_O_CombatUniform_ocamo"];
+_lightHelmet = ["H_HelmetO_ghex_F"];
+_lightUniform = ["U_O_T_Soldier_F"];
 
 // Crewman
 _crew = ["vc","vg","vd"];
 
-_crewUniform = ["U_O_CombatUniform_ocamo"];
-_crewHelmet = ["H_HelmetCrew_O"];
-_crewRig = ["V_BandollierB_khk"];
+_crewUniform = ["U_O_T_Soldier_F"];
+_crewHelmet = ["H_HelmetCrew_O_ghex_F"];
+_crewRig = ["V_BandollierB_ghex_F"];
 _crewGlasses = _baseGlasses;
 
 // Diver
@@ -277,10 +277,10 @@ _pilotGlasses = [];
 // Ghillie
 _ghillie = ["sn","sp"];
 
-_ghillieUniform = ["U_B_FullGhillie_sard"];
-_ghillieHelmet = ["H_HelmetB_camo"];
-_ghillieRig = ["V_Chestrig_khk"];
-_ghillieGlasses = ["G_Bandanna_khk"];
+_ghillieUniform = ["U_O_T_FullGhillie_tna_F"];
+_ghillieHelmet = [];
+_ghillieRig = ["V_Chestrig_rgr"];
+_ghillieGlasses = ["G_Bandanna_oli"];
 
 // Recon
 _specOp = ["rsl", "rm", "rgren", "rrat", "rsc", "rdm", "rjtac"];
@@ -383,7 +383,7 @@ switch (_typeOfUnit) do
 	case "jtac":
 	{
 		["small"] call _backpack;
-		_unit addVest "V_HarnessOGL_brn";
+		_unit addVest "V_HarnessOGL_ghex_F";
 		_unit addMagazines [_glriflemag,_defMags];
 		_unit addMagazines [_glriflemag_tr,_defMags_tr];
 		_unit addMagazines [_glsmoke,2];
@@ -660,7 +660,7 @@ switch (_typeOfUnit) do
 	case "gren":
 	{
 		["g"] call _backpack;
-		_unit addVest "V_HarnessOGL_brn";
+		_unit addVest "V_HarnessOGL_ghex_F";
 		_unit addMagazines [_glriflemag,_defMags];
 		_unit addMagazines [_glriflemag_tr,_defMags_tr];
 		[_unit, _glrifle] call f_fnc_addWeapon;

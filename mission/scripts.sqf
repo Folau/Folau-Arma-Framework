@@ -85,7 +85,7 @@ Any scripts that need to be executed during startup i.e. LoW, AI Commander, etc.
  */
 
  // CRITICAL LINE TO EDIT - SET TO PLAYERS' SIDE
-_playerSideFolau = west; 
+_playerSideFolau = east; 
  
 // Setup Params
 missionNamespace setVariable ["playerSideFolau", _playerSideFolau];

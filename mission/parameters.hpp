@@ -135,12 +135,28 @@ class f_ParamSpacer_title4
 	default = -100;
 };
 
+class f_param_aiVersion
+{
+	title = "AI Version";
+	values[] = {0, 1};
+	texts[] = {"Vanilla", "FolAI"};
+	default = 1;
+};
+
+class f_param_aiBehaviour
+{
+	title = "FolAI Behaviour (Not Yet Implemented)";
+	values[] = {0, 1, 2};
+	texts[] = {"Normal", "Aggressive", "Defensive"};
+	default = 0;
+};
+
 class f_param_aiSkill
 {
 	title = "AI Skill";
 	values[] = {4, 5, 6, 7, 8};
 	texts[] = {"Reserve (0.4)", "Regular (0.5)", "Hardened (0.6)", "Veteren (0.7)", "Elite (0.8)"};
-	default = 5;
+	default = 6;
 };
 
 /* class f_param_defenceTimelimit
