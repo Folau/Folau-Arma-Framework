@@ -53,6 +53,12 @@ FAR_HandleDamage_EH = {
 			_unit allowDamage false;
 			_unit setDamage 1;
 			
+			if (vehicle _killer != _killer) then {
+				format["[TeamKill] %1 was killed by %2 (%3)", name _unit, name _killer, getText(configFile >> "CfgVehicles" >> typeOf vehicle _killer >> "displayName")] remoteExec ["systemChat"];
+			} else {
+				format["[TeamKill] %1 was killed by %2", name _unit, name _killer] remoteExec ["systemChat"];
+			};
+			
 			// Casualty Count Update
 			[_unit] spawn {
 				_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
@@ -151,9 +157,9 @@ FAR_Player_Unconscious = {
 			((isPlayer _unit && isPlayer _killer) || !isMultiPlayer)
 		) then {
 			if (vehicle _killer != _killer) then {
-				format["[TeamKill] %1 was killed by %2 (%3)", name _unit, name _killer, getText(configFile >> "CfgVehicles" >> typeOf vehicle _killer >> "displayName")] remoteExec ["systemChat"];
+				format["[TeamKill] %1 was injured by %2 (%3)", name _unit, name _killer, getText(configFile >> "CfgVehicles" >> typeOf vehicle _killer >> "displayName")] remoteExec ["systemChat"];
 			} else {
-				format["[TeamKill] %1 was killed by %2", name _unit, name _killer] remoteExec ["systemChat"];
+				format["[TeamKill] %1 was injured by %2", name _unit, name _killer] remoteExec ["systemChat"];
 			};
 		};
 	};
