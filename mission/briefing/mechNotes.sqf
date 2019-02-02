@@ -90,7 +90,7 @@ if (!isNil "f_param_respawn") then {
 		if (f_param_respawn <= 10) then {
 			_mechanicsText = _mechanicsText + format["<br/>Limited Tickets: <font color='#72E500'>%1</font><br/>",f_param_respawn];
 		} else {
-			if (f_param_respawn in [30,60]) then {
+			if (f_param_respawn in [30,60, 300]) then {
 				_mechanicsText = _mechanicsText + format["<br/>Respawn Timer: <font color='#72E500'>%1</font> Seconds<br/>",f_param_respawn];
 			} else {
 				_mechanicsText = _mechanicsText + format["<br/>Wave Respawn: <font color='#72E500'>%1</font> Minutes<br/>",[f_param_respawn,"MM"] call BIS_fnc_secondsToString];

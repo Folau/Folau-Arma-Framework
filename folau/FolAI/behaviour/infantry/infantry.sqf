@@ -35,11 +35,13 @@ SpecialUnits = {
 	_sniperBool = (["sniper", _manType] call BIS_fnc_inString || ["ghille", _manType] call BIS_fnc_inString);
 	_spotterBool = ["spotter", _manType] call BIS_fnc_inString;
 	_officerBool = ["officer", _manType] call BIS_fnc_inString;
-
+	_vehicleBool = false;
+	
 	// Accounts for AAA - these should be able to fire at 2km without infantry getting triggered.
-	if (["crew", _manType] call BIS_fnc_inString):
+	if (["crew", _manType] call BIS_fnc_inString) then {
 		_vic = vehicle leader _checkGroup;
-		_vehicleBool = ["aa", typeOf _vic] call BIS_fnc_inString;
+		_vehicleBool = ["AA", typeOf _vic] call BIS_fnc_inString;
+	};
 	
 	if (_sniperBool || _spotterBool || _officerBool || _vehicleBool) then {
 		_specialUnit = true;

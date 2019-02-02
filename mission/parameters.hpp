@@ -121,10 +121,10 @@ class f_param_respawn
 /* 	values[] = {600};
 	texts[] = {"Wave 10 Minutes"}; */
 
-	values[] = {0,30,60,299,300,600,900,1200,1,2,5,10};
+	values[] = {0,30,60,300,301,600,900,1200,1,2,5,10};
 	texts[] = {"Disabled","Timer 30 Seconds","Timer 1 Minute","Timer 5 Minutes","Wave 5 Minutes","Wave 10 Minutes","Wave 15 Minutes","Wave 20 Minutes","2 Tickets","3 Tickets","5 Tickets","10 Tickets"};
 	
-	default = 299;
+	default = 300;
 };
 
 class f_ParamSpacer_title4
@@ -139,7 +139,7 @@ class f_param_aiVersion
 {
 	title = "AI Version";
 	values[] = {0, 1};
-	texts[] = {"Vanilla", "FolAI"};
+	texts[] = {"Vanilla", "FolAI (0.1B)"};
 	default = 1;
 };
 
@@ -205,7 +205,7 @@ class f_param_artilleryComputer
 		title = "Artillery Computer";
 		values[] = {0, 1};
 		texts[] = {"Disabled", "Enabled"};
-		default = 0;
+		default = 1;
 };
 
 class f_param_fireTeamMarkers
@@ -220,8 +220,8 @@ class f_param_groupMarkers
 {
 		title = "Group Markers";
 		values[] = {0, 1, 2, 3, 4, 5};
-		texts[] = {"Disable", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats"};
-		default = 4;
+		texts[] = {"Disabled", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats"};
+		default = 0;
 };
 
 class f_param_lawsOfWar

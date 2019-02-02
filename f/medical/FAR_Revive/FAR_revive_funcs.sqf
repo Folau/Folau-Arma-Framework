@@ -43,8 +43,7 @@ FAR_HandleDamage_EH = {
 		
 		// systemChat format["Save Roll: %1 / Limit %2", _saveRoll, _kia_chance];
 		
-		if (_amountOfDamage >= 1 && _kia_chance > _saveRoll)
-		then {
+		if (_amountOfDamage >= 1 && _kia_chance > _saveRoll && _bodyPart in ["","head","face_hub","neck"]) then {
 		
 			// Handle Damage
 			//_unit allowDamage true;
@@ -53,12 +52,22 @@ FAR_HandleDamage_EH = {
 			_unit allowDamage false;
 			_unit setDamage 1;
 			
-			if (vehicle _killer != _killer) then {
-				format["[TeamKill] %1 was killed by %2 (%3)", name _unit, name _killer, getText(configFile >> "CfgVehicles" >> typeOf vehicle _killer >> "displayName")] remoteExec ["systemChat"];
-			} else {
-				format["[TeamKill] %1 was killed by %2", name _unit, name _killer] remoteExec ["systemChat"];
+			// Death message
+			if (FAR_EnableDeathMessages && !isNil "_killer" && _killer != _unit) then {	
+				// Never announce enemy or Zeus kills.
+				if (
+					!([side (group _unit), side (group _killer)] call BIS_fnc_sideIsEnemy) && 
+					!([getAssignedCuratorLogic _killer] call BIS_fnc_isCurator) &&
+					((isPlayer _unit && isPlayer _killer) || !isMultiPlayer)
+				) then {
+					if (vehicle _killer != _killer) then {
+						format["[TeamKill] %1 was killed by %2 (%3)", name _unit, name _killer, getText(configFile >> "CfgVehicles" >> typeOf vehicle _killer >> "displayName")] remoteExec ["systemChat"];
+					} else {
+						format["[TeamKill] %1 was killed by %2", name _unit, name _killer] remoteExec ["systemChat"];
+					};
+				};
 			};
-			
+					
 			// Casualty Count Update
 			[_unit] spawn {
 				_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
