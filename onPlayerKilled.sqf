@@ -2,28 +2,6 @@ if isDedicated exitWith{};
 
 params ["_killed","_killer","_respawn","_respawnDelay"];
 
-/* // Casualty Counter
-[] spawn {
-	if (time < 5) exitWith {};
-	
-	// Random sleep to allow network sync if multiple casualties.
-	sleep random 25;
-	{
-		_x params ["_sideVar","_markerVar"];
-		if (side (group player) == _sideVar) exitWith {
-			_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
-			// Change the respawn marker to reflect # of casualties.
-			missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],_casVar + 1,true];
-			// _markerVar setMarkerText format["Casualties: %1",(_casVar + 1)];
-		};
-	} forEach [
-		[west,"respawn_west"],
-		[east,"respawn_east"],
-		[resistance,"respawn_guerrila"],
-		[civilian,"respawn_civilian"]
-	];
-}; */
-
 // Save players dying gear
 [_killed, [missionNamespace, "f_var_savedGear"]] call BIS_fnc_saveInventory;
 
@@ -31,7 +9,7 @@ if (isNil "f_param_respawn") then {f_param_respawn = 0};
 if (isNil "f_var_localTickets") then { f_var_localTickets = if (f_param_respawn <= 10) then {f_param_respawn} else {0}; };
 
 // Basic Spawning is set.
-if (f_param_respawn in [30,60, 300]) exitWith { 
+if (f_param_respawn in [30,60,300]) exitWith { 
 	setPlayerRespawnTime f_param_respawn; 
 };
 

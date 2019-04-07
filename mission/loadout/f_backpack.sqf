@@ -32,6 +32,16 @@ case "sl": {
 	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 4];
 };
 
+case "sl_l": {
+	[_bagsmall,_unit] call f_fnc_addBackpack;
+	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 4];
+	(unitBackpack _unit) addMagazineCargoGlobal [_riflemag_tr, 2];
+	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade,2];
+	(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenadealt,2];
+	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 4];
+	(unitBackpack _unit) addMagazineCargoGlobal [_ARmag, 1];
+};
+
 // BACKPACK: SECTION FTL (Rifle Version)
 case "ftlr": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
@@ -90,7 +100,7 @@ case "rat": {
 // BACKPACK: RIFLEMAN AT (RAT)
 case "rat_pcml": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
-	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 3]; };	// HEAT
+	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 2]; };	// HEAT
 };
 
 // BACKPACK: AUTORIFLEMAN

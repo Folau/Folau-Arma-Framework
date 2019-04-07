@@ -24,7 +24,7 @@ while {time < (f_param_timelimit - 120)} do { // 180 for testing - will be pulle
 	_total_spawned = west countSide allUnits;
 	_player_count = east countSide allUnits;
 	
-	if (_total_spawned < (2 * _player_count) ) then {
+	if (_total_spawned < (3 * _player_count) ) then {
 		_k = 0;
 		_group_count = random [2, 4, 8];
 		_group = createGroup west;

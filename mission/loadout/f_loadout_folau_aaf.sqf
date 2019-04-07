@@ -55,6 +55,7 @@ _attach_sn = [_scope_sniper, _bipod1];				// Snipers
 
 _attach_recon = [_attach1, _scope_frontline, _silencer1];
 _attach_recon_dm = [_attach1, _scope_dm, _bipod1, _silencerdm];
+_attach_none = [];
 
 // Default setup
 _hg_attachments= []; // The default attachment set for handguns, overwritten in the individual unitType
@@ -307,7 +308,7 @@ if (_isMan) then {
 	_unit linkItem "ItemCompass";	// Add and equip a compass
 	_unit linkItem "ItemRadio";		// Add and equip A3's default radio
 	_unit linkItem "ItemWatch";		// Add and equip a watch
-	_unit linkItem "ItemGPS"; 		// Add and equip a GPS
+	// _unit linkItem "ItemGPS"; 		// Add and equip a GPS
 	
 	// HANDLE CLOTHES
 	// Handle clothes and helmets and such using the include file called next.
@@ -360,6 +361,7 @@ switch (_typeOfUnit) do
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
 		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS"; 
 	};
 
 	// LOADOUT: DEPUTY COMMANDER  / PLATOON SERGEANT
@@ -376,6 +378,7 @@ switch (_typeOfUnit) do
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
 		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
 	};
 		
 	// LOADOUT: JTAC
@@ -398,6 +401,7 @@ switch (_typeOfUnit) do
 		[_unit, _binos3] call f_fnc_addWeapon;
 		_unit addMagazines ["Laserbatteries",4];
 		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
 	};
 	
 	// LOADOUT: UAV OPERATOR
@@ -432,6 +436,7 @@ switch (_typeOfUnit) do
 		[_unit, _binos3] call f_fnc_addWeapon;
 		_unit addMagazines ["Laserbatteries",4];
 		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
 	};	
 	
 	// LOADOUT: NAVY
@@ -463,6 +468,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
 	};
 	
 	// LOADOUT: COMBAT LIFE SAVER
@@ -525,6 +531,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
 	};
 		
 	// LOADOUT: FIRE TEAM LEADER
@@ -541,6 +548,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
 	};
 	
 	// LOADOUT: FIRE TEAM LEADER
@@ -558,6 +566,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
 	};
 	
 	// LOADOUT: RIFLEMAN
@@ -609,7 +618,7 @@ switch (_typeOfUnit) do
 	// LOADOUT: RIFLEMAN (AT)
 	case "rat":
 	{
-		[_typeOfUnit] call _backpack;	
+		["rat_pcml"] call _backpack;	
 		_unit addMagazines [_riflemag,_defMags];
 		_unit addMagazines [_riflemag_tr,_defMags_tr];
 		[_unit, _rifle] call f_fnc_addWeapon;
@@ -667,7 +676,171 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 	};
+	// ================================
+	// LIGHT/MECH INFANTRY
+	// ================================
+		
+	// LOADOUT: SQUAD LEADER
+	case "sl_l":
+	{
+		[_typeOfUnit] call _backpack;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
+	};
+		
+	// LOADOUT: FIRE TEAM LEADER
+	case "ftlr_l":
+	{
+		[_typeOfUnit] call _backpack;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
+	};
+	
+	// LOADOUT: FIRE TEAM LEADER
+	case "ftlg_l":
+	{
+		[_typeOfUnit] call _backpack;
+		_unit addMagazines [_glriflemag,_defMags];
+		_unit addMagazines [_glriflemag_tr,_defMags_tr];
+		_unit addMagazines [_glmag,5];
+		[_unit, _glrifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
+	};
+	
+	// LOADOUT: RIFLEMAN
+	case "r_l":
+	{
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+	};
 
+	// LOADOUT: AUTOMATIC RIFLEMAN
+	case "ar_l":
+	{
+		_unit addMagazines ["200Rnd_65x39_cased_Box_Tracer",1];
+		// for "_i" from 0 to 2 do {_unit addMagazine _ARmag};
+		[_unit, _AR] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		_attachments = _attach_ar;
+	};
+
+	// LOADOUT: ASSISTANT AUTOMATIC RIFLEMAN
+	case "aar_l":
+	{
+		[_typeOfUnit] call _backpack;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _binos1] call f_fnc_addWeapon;
+	};
+
+	// LOADOUT: RIFLEMAN (AT)
+	case "rat_l":
+	{
+		["rat_pcml"] call _backpack;	
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _RAT] call f_fnc_addWeapon;
+	};
+
+	// LOADOUT: DESIGNATED MARKSMAN
+	case "dm_l":
+	{
+		// [_typeOfUnit] call _backpack;
+		_unit addMagazines [_DMriflemag,4];
+		_unit addMagazines [_DMriflemag_tr,4];
+		[_unit, _DMrifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		_attachments = _attach_dm;
+	};
+	
+	// LOADOUT: AMMOBEARER
+	case "ammo_l":
+	{
+		[_typeOfUnit] call _backpack;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];;
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+	};
+	
+	// LOADOUT: GRENADIER
+	case "gren_l":
+	{
+		// ["g"] call _backpack;
+		_unit addMagazines [_glriflemag,_defMags];
+		_unit addMagazines [_glriflemag_tr,_defMags_tr];
+		[_unit, _glrifle] call f_fnc_addWeapon;
+		_unit addMagazines [_smokegrenade,3];
+		_unit addMagazines [_chem,2];
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_pistolmag,2];
+		_unit addMagazines [_glmag, 5];
+		_unit addMagazines [_glsmoke, 3];
+		_unit addMagazines [_glsmokealt2, 2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+	};
+	
 	// ================================
 	// SUPPORT
 	// ================================
@@ -902,6 +1075,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_chem,1];
 		_unit addMagazines [_pistolmag,2];
 		_attachments = _attach_sn;
+		_unit linkItem "ItemGPS";
 	};
 
 	// LOADOUT: SPOTTER
@@ -920,6 +1094,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_chem,1];
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _binos2] call f_fnc_addWeapon;
+		_unit linkItem "ItemGPS";
 	};
 	
 	// LOADOUT: LOGISTICS
@@ -946,13 +1121,14 @@ switch (_typeOfUnit) do
 	{
 		_unit addMagazines [_smgmag,_defMags];
 		[_unit, _smg] call f_fnc_addWeapon;
-		_unit addMagazines [_smokegrenade,2];
-		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_smokegrenade,1];
+		_unit addMagazines [_smokegrenadealt,1];
 		_unit addMagazines [_chem,1];
 		[_unit, _binos2] call f_fnc_addWeapon;
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
+		_attachments = _attach_none;
 	};
 
 	// LOADOUT: VEHICLE DRIVER
@@ -965,7 +1141,7 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_chem,1];
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
+		_attachments = _attach_none;
 	};
 
 	// LOADOUT: VEHICLE GUNNER
@@ -973,12 +1149,12 @@ switch (_typeOfUnit) do
 	{
 		_unit addMagazines [_smgmag,_defMags];
 		[_unit, _smg] call f_fnc_addWeapon;
-		_unit addMagazines [_smokegrenade,2];
-		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_smokegrenade,1];
+		_unit addMagazines [_smokegrenadealt,1];
 		_unit addMagazines [_chem,1];
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
+		_attachments = _attach_none;
 	};
 
 	// ================================

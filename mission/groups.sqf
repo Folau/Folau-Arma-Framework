@@ -15,7 +15,7 @@ _purple	=	[0.5, 0,   0.5, 1 	];
 _black =	[0,   0,   0,   1	];
 _white =	[1,   1,   1,   1	];
 
-_grpBLU = [
+/* _grpBLU = [
 	// HQ
 	["GrpBLU_CO","CO","b_hq","CO",_blue],
 	["GrpBLU_XO","XO","b_hq","XO",_blue],
@@ -82,7 +82,7 @@ _grpBLU = [
 	["GrpBLU_P2","Falcon","b_plane","Falcon",_blue]
 	
 	// Always make sure there's no comma after the last entry!
-];
+]; */
 
 // Group Variable Name, ORBAT Name, Icon Type, Icon Text, Icon Color, Make Channel (default true)
 _grpOPF = [
@@ -175,6 +175,13 @@ _grpIND = [
 	["GrpIND_DSL","Delta","n_inf","D",_green],
 	["GrpIND_ESL","Echo","n_inf","E",_green],
 	
+	// Mechanised Infantry
+	["GrpIND_MASL","Alpha (Mech)","n_inf","A",_green],
+	["GrpIND_MBSL","Bravo (Mech)","n_inf","B",_green],
+	["GrpIND_MCSL","Charlie (Mech)","n_inf","C",_green],
+	["GrpIND_MDSL","Delta (Mech)","n_inf","D",_green],
+	["GrpIND_MESL","Echo (Mech)","n_inf","E",_green],	
+	
 	// Recon
 	["GrpIND_ST1","ST","n_recon","ST1",_green],
 	
@@ -197,6 +204,7 @@ _grpIND = [
 	["GrpIND_CLS2","CLS2","n_med","CLS2",_green],	
 	["GrpIND_LOG1","LOG1","n_support","LOG1",_green],
 	["GrpIND_LOG2","LOG2","n_support","LOG2",_green],
+	["GrpIND_SUP","Support","n_support","SUPPORT",_green],
 	
 	// IFV
 	["GrpIND_IFV1","IFV1","n_mech_inf","IFV1",_green],

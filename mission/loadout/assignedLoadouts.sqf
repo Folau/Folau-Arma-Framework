@@ -8,7 +8,7 @@ if (_side == "west") then {
 
 // ---------------------------------- EAST FORCES -------------------------------------
 if (_side == "east") then {
-	#include "f_loadout_folau_csat_tropic_car95.sqf"
+	#include "f_loadout_folau_csat_car95.sqf"
 	};
 // ---------------------------------- INDP FORCES -------------------------------------
 
