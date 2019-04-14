@@ -40,7 +40,7 @@ if isServer then {
 	};	
 
 	null = execVM "folau\utils\kiaCasCounter.sqf";			// Set up the KIA Counter
-
+	// execVM "folau\components\hellcat_rearm.sqf";
 	
 /* 	if (f_param_timelimit != 0) then {
 		null = execVM "folau\utils\timeLimit.sqf";			// If a time limit is required (end5)

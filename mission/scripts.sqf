@@ -85,7 +85,7 @@ Any scripts that need to be executed during startup i.e. LoW, AI Commander, etc.
  */
 
  // CRITICAL LINE TO EDIT - SET TO PLAYERS' SIDE
-_playerSideFolau = east; 
+_playerSideFolau = independent; 
  
 // Setup Params
 missionNamespace setVariable ["playerSideFolau", _playerSideFolau];
@@ -117,6 +117,8 @@ else
 if (f_param_fireTeamMarkers == 1 ) then {
 	execVM "f\FTMemberMarkers\f_initFTMarkers.sqf";	// F3 - FT Markers
 };
+
+[player] execVM "folau\utils\groupAction.sqf";			// Add the Group Action to fix respawn issues
 
 // -- Any other scripts --
 

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1025;
+		nextID=1026;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1644.1458,22.195543,5375.6128};
-		dir[]={-0.64606696,-0.73524511,0.20553251};
-		up[]={-0.70065117,0.67780024,0.2228955};
-		aside[]={0.30319431,-1.7490238e-006,0.95307189};
+		pos[]={1653.6479,35.997089,5330.4438};
+		dir[]={-0.26210791,-0.77289891,0.57806897};
+		up[]={-0.31917092,0.63453317,0.70391595};
+		aside[]={0.91087478,-1.907465e-006,0.41301408};
 	};
 };
 binarizationWanted=0;
@@ -65,7 +65,8 @@ addons[]=
 	"A3_Air_F_EPB_Heli_Light_03",
 	"A3_Soft_F_Beta_MRAP_03",
 	"A3_Characters_F_Common",
-	"A3_Drones_F_Air_F_Gamma_UAV_02"
+	"A3_Drones_F_Air_F_Gamma_UAV_02",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
@@ -276,7 +277,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=125;
+		items=126;
 		class Item0
 		{
 			dataType="Comment";
@@ -4853,7 +4854,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1605.243,5.5014391,5403.5259};
+						position[]={1605.3734,5.5014391,5403.3994};
 						angles[]={0,0.22142993,0};
 					};
 					side="Independent";
@@ -4916,7 +4917,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1604.7305,5.5014544,5401.4014};
+						position[]={1604.8608,5.5014544,5401.2749};
 						angles[]={0,0.22143134,0};
 					};
 					side="Independent";
@@ -4979,7 +4980,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1604.1876,5.5014544,5399.3237};
+						position[]={1604.318,5.5014544,5399.1973};
 						angles[]={0,0.22143134,0};
 					};
 					side="Independent";
@@ -5042,7 +5043,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1604.073,5.5014391,5397.5337};
+						position[]={1604.2034,5.5014391,5397.4072};
 						angles[]={0,0.22142993,0};
 					};
 					side="Independent";
@@ -5104,7 +5105,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1603.7843,5.5014544,5395.5337};
+						position[]={1603.9147,5.5014544,5395.4072};
 						angles[]={0,0.22143134,0};
 					};
 					side="Independent";
@@ -5168,7 +5169,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1603.3021,5.5014391,5393.0806};
+						position[]={1603.4325,5.5014391,5392.9541};
 						angles[]={0,0.22143134,0};
 					};
 					side="Independent";
@@ -5230,7 +5231,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1602.885,5.5014391,5390.7378};
+						position[]={1603.0154,5.5014391,5390.6113};
 						angles[]={0,0.22142993,0};
 					};
 					side="Independent";
@@ -5292,7 +5293,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1602.251,5.5014391,5388.2168};
+						position[]={1602.3813,5.5014391,5388.0903};
 						angles[]={0,0.22142993,0};
 					};
 					side="Independent";
@@ -13054,6 +13055,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={5016.1631,208.54785,5909.0088};
+						angles[]={0,1.2403772,0};
 					};
 					side="West";
 					flags=5;
@@ -13381,7 +13383,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1627.7983,7.8041077,5371.2964};
-				angles[]={-0,0.28555879,0};
+				angles[]={0,0.28555879,0};
 			};
 			side="Empty";
 			flags=4;
@@ -14239,7 +14241,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1596.7571,5.5014391,5415.5361};
+						position[]={1628.3973,5.5014391,5350.0068};
 						angles[]={0,0.20432569,0};
 					};
 					side="Independent";
@@ -14249,7 +14251,6 @@ class Mission
 						rank="LIEUTENANT";
 						init="[""jtac"",this] call f_fnc_assignGear;";
 						description="HQ - Forward Air Controller";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=933;
@@ -14302,7 +14303,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1595.099,5.4699044,5414.396};
+						position[]={1626.739,5.5014391,5348.8667};
 					};
 					side="Independent";
 					flags=5;
@@ -14310,11 +14311,11 @@ class Mission
 					{
 						rank="SERGEANT";
 						description="Eagle - Pilot (WY-55 Hellcat)";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=991;
 					type="I_helipilot_F";
-					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -14363,7 +14364,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1596.2531,5.5014391,5412.7041};
+						position[]={1627.8933,5.5014391,5347.1748};
 					};
 					side="Independent";
 					flags=5;
@@ -14422,7 +14423,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1594.7251,5.4759412,5411.7319};
+						position[]={1626.3654,5.5014391,5346.2026};
 					};
 					side="Independent";
 					flags=5;
@@ -14434,7 +14435,6 @@ class Mission
 					};
 					id=993;
 					type="I_helicrew_F";
-					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -14483,7 +14483,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1595.8081,5.497601,5409.9722};
+						position[]={1627.4484,5.5014391,5344.4429};
 					};
 					side="Independent";
 					flags=5;
@@ -14494,7 +14494,6 @@ class Mission
 					};
 					id=994;
 					type="I_helipilot_F";
-					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -17560,8 +17559,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1578.058,5.170496,5399.7617};
-				angles[]={0.06739822,0.25826043,0.22606835};
+				position[]={1639.3073,7.0310755,5344.1953};
+				angles[]={0,0.25826043,0};
 			};
 			side="Empty";
 			flags=4;
@@ -17570,15 +17569,14 @@ class Mission
 			};
 			id=995;
 			type="I_Heli_light_03_dynamicLoadout_F";
-			atlOffset=-0.043367386;
 		};
 		class Item115
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1582.0574,5.1700811,5415.7896};
-				angles[]={0.057436496,0.25826043,0.20459661};
+				position[]={1614.34,7.0310755,5348.9639};
+				angles[]={0,0.25826043,0};
 			};
 			side="Empty";
 			flags=4;
@@ -17587,7 +17585,6 @@ class Mission
 			};
 			id=996;
 			type="I_Heli_light_03_dynamicLoadout_F";
-			atlOffset=-0.035076141;
 		};
 		class Item116
 		{
@@ -17650,7 +17647,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1611.2841,5.5014391,5402.4658};
-						angles[]={-0,0.23755677,0};
+						angles[]={0,0.23755677,0};
 					};
 					side="Independent";
 					flags=7;
@@ -17712,7 +17709,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1610.696,5.5014391,5400.0356};
-						angles[]={-0,0.23755677,0};
+						angles[]={0,0.23755677,0};
 					};
 					side="Independent";
 					flags=5;
@@ -17774,7 +17771,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1610.108,5.5014391,5397.6069};
-						angles[]={-0,0.23755677,0};
+						angles[]={0,0.23755677,0};
 					};
 					side="Independent";
 					flags=5;
@@ -17836,7 +17833,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1609.519,5.5014391,5395.1758};
-						angles[]={-0,0.23755677,0};
+						angles[]={0,0.23755677,0};
 					};
 					side="Independent";
 					flags=5;
@@ -18261,7 +18258,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1633.0343,5.5014386,5391.1787};
-						angles[]={-0,0.26450893,0};
+						angles[]={0,0.26450893,0};
 					};
 					side="Independent";
 					flags=6;
@@ -18277,7 +18274,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1633.0343,5.5014386,5391.1787};
-						angles[]={-0,0.26450893,0};
+						angles[]={0,0.26450893,0};
 					};
 					side="Independent";
 					flags=4;
@@ -18331,7 +18328,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1633.0343,7.0683393,5391.1177};
-				angles[]={-0,0.26450893,0};
+				angles[]={0,0.26450893,0};
 			};
 			side="Independent";
 			flags=6;
@@ -18350,7 +18347,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1615.9384,7.8041077,5375.5669};
-				angles[]={-0,0.28555879,0};
+				angles[]={0,0.28555879,0};
 			};
 			side="Empty";
 			flags=4;
@@ -18362,6 +18359,22 @@ class Mission
 			};
 			id=1019;
 			type="I_Plane_Fighter_04_F";
+		};
+		class Item125
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1645.9415,6.2898083,5347.2148};
+				angles[]={0,0.22880055,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1025;
+			type="Box_IND_AmmoVeh_F";
 		};
 	};
 };

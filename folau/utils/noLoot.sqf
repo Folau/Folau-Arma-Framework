@@ -38,7 +38,7 @@ addMissionEventHandler ["EntityKilled", {
 	}
 }];
  
-player addEventHandler ["InventoryOpened",{
+/* player addEventHandler ["InventoryOpened",{
 
 	_playersSideFnc = missionNamespace getVariable ["playerSideFolau",0];
   
@@ -58,4 +58,4 @@ player addEventHandler ["InventoryOpened",{
 
 		
 		};
-}];
+}]; */

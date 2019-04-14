@@ -11,6 +11,8 @@ if (_newUnit getVariable ["f_var_assignGear","x"] != "x") then {
 	[_newUnit, [missionNamespace, "f_var_savedGear"]] call BIS_fnc_loadInventory;
 };
 
+[_newUnit] execVM "folau\utils\groupAction.sqf";
+
 // CREATING A BETTER JIP MECHANIC
 
 if (side _newUnit == west && !(isNil "med_west")) then {
