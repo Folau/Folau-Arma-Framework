@@ -11,13 +11,22 @@ FAR_Player_Actions = {
 		if (!isNil "FAR_addActionBag") then { _unit removeAction FAR_addActionBag };
 		// addAction [title, script, arguments, priority, showWindow, hideOnUse, shortcut, condition, radius, unconscious] 
 		
-		FAR_addActionRevive = _unit addAction ["<t color=""#B70000"">" + "Revive (Medkit)" + "</t>", FAR_HandleRevive,[], 11, true, true, "", "call FAR_Check_Revive && {(cursorTarget distance player) <= 2.8}",2.8];
-		FAR_addActionStabilise = _unit addAction ["<t color=""#B70000"">" + "Stabilize (1 FAK)" + "</t>", FAR_HandleStabilize, [], 10, true, true, "", "(call FAR_Check_Stabilize) && {(cursorTarget distance player) <= 2.5}",2.5];
-		FAR_addActionDrag = _unit addAction ["<t color=""#B70000"">" + "Drag" + "</t>", FAR_Drag, [], 9, false, true, "", "(call FAR_Check_Dragging) && {(cursorTarget distance player) <= 2.5}",2.5];
-		FAR_addActionReviveNonMedic = _unit addAction ["<t color=""#B70000"">" + "Revive (1 FAK)" + "</t>", FAR_HandleRevive,[], 11, true, true, "", "call FAR_Check_Revive_NonM && {(cursorTarget distance player) <= 2.8}",2.8];
+		FAR_addActionRevive = _unit addAction ["<t color=""#23a4f3"">" + "Revive (Medkit)" + "</t>", FAR_HandleRevive,[], 11, true, true, "", "call FAR_Check_Revive && {(cursorTarget distance player) <= 2.8}",2.8];
+		
+		_unit setUserActionText [FAR_addActionRevive, "<img size='2' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/><t color=""#23a4f3"">" + "Revive (Medkit)" + "</t>"];
+		
+		FAR_addActionStabilise = _unit addAction ["<t color=""#FF0000"">" + "Stabilize (1 FAK)" + "</t>", FAR_HandleStabilize, [], 10, true, true, "", "(call FAR_Check_Stabilize) && {(cursorTarget distance player) <= 2.5}",2.5];
+		
+		_unit setUserActionText [FAR_addActionStabilise, "<img size='2' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/><t color=""#FF0000"">" + "Stabilize (1 FAK)" + "</t>"];
+		
+		FAR_addActionDrag = _unit addAction ["Drag", FAR_Drag, [], 9, false, true, "", "(call FAR_Check_Dragging) && {(cursorTarget distance player) <= 2.5}",2.5];
+				
+		FAR_addActionReviveNonMedic = _unit addAction ["<t color=""#FF0000"">" + "Revive (1 FAK)" + "</t>", FAR_HandleRevive,[], 11, true, true, "", "call FAR_Check_Revive_NonM && {(cursorTarget distance player) <= 2.8}",2.8];
+		
+		_unit setUserActionText [FAR_addActionReviveNonMedic, "<img size='2' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/><t color=""#FFFF00"">" + "Revive (1 FAK)" + "</t>"];
 		
 		if (_unit getUnitTrait "Medic") then {
-			FAR_addActionBag = _unit addAction ["<t color=""#B70000"">" + "Bag Body" + "</t>", FAR_Bag, [], 8, false, true, "", "(call FAR_Check_Bag) && {(cursorObject distance player) <= 2.8}",2.8];
+			FAR_addActionBag = _unit addAction ["<t color=""#FF0000"">" + "Bag Body" + "</t>", FAR_Bag, [], 8, false, true, "", "(call FAR_Check_Bag) && {(cursorObject distance player) <= 2.8}",2.8];
 		};
 	};
 };
@@ -145,7 +154,7 @@ FAR_public_EH = {
 
 FAR_Player_Unconscious = {
 	params ["_unit", "_killer"];
-	
+
 	// Eject unit if inside vehicle
 	if (vehicle _unit != _unit) then {
 		moveOut _unit;
@@ -202,8 +211,28 @@ FAR_Player_Unconscious = {
 		disableUserInput false;
 		disableUserInput true;
 		disableUserInput false;
+		
+
+		
+		FAR_revive_ppVig ppEffectAdjust [1,1,0,[0.15,0,0,1],[1.0,0.5,0.5,1],[0.587,0.199,0.114,0],[1,1,0,0,0,0.2,1]];
+		FAR_revive_ppBlur ppEffectAdjust [0];
+		
+		{
+			_x ppEffectCommit 0;
+			_x ppEffectEnable true;
+			_x ppEffectForceInNVG true;
+		} forEach [FAR_revive_ppVig, FAR_revive_ppBlur];
+		
+		91 cutText ["", "BLACK IN", 5, True];
+		92 cutRsc ["RscInterlacing", "PLAIN", 0.1, True];
+		{_x cutRsc ["RscCommonBackground", "PLAIN", 0.1, True];} forEach [93,94,95];//,95,96];
+		
+		[100] call BIS_fnc_bloodEffect;
 	};
 	
+	_hudStatus = shownHUD;
+	showHUD [false,false,false,false,false,false,false,false];	
+		
 	//_unit setVelocity [0,0,0];
     _unit allowDamage false;
 	_unit setCaptive true;
@@ -229,6 +258,8 @@ FAR_Player_Unconscious = {
 		FAR_BleedOut = FAR_BleedOut - 60;
 	};
 	
+	private _tick = 0;
+	
 	while { !isNull _unit && 
 			alive _unit && 
 			(lifeState _unit == "INCAPACITATED") &&
@@ -239,9 +270,16 @@ FAR_Player_Unconscious = {
 			if (FAR_BleedOut > 600) then {
 				hintSilent format["Waiting for a medic\n\n%1", call FAR_CheckFriendlies];
 			} else { 
-				hintSilent format["Bleedout in %1 seconds\n\n%2", round (_bleedOut - time), call FAR_CheckFriendlies];
+				//titleText [format["Bleedout in %1 seconds\n\n%2", round (_bleedOut - time), call FAR_CheckFriendlies], "PLAIN", 0.1];
+				titleText [format["Bleedout in %1 Seconds...", round (_bleedOut - time)], "PLAIN"];
+				// titleText [format["<img size='2' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/>" + "\n" + "Bleedout in %1 Seconds", round (_bleedOut - time)], "PLAIN"];
+				
+				//[format["Bleedout in %1 seconds\n\n%2", round (_bleedOut - time), call FAR_CheckFriendlies], "PLAIN", 0.1] remoteExec ["TitleText", _unit];
+				// hintSilent format["Bleedout in %1 seconds\n\n%2", round (_bleedOut - time), call FAR_CheckFriendlies];
 			};
 		};
+		
+		if (_tick % ((round random 5) + 5) == 0) then { [100] call BIS_fnc_bloodEffect; };
 		
 		/*
 		// TOFIX: Floating blood when dragging.
@@ -251,8 +289,8 @@ FAR_Player_Unconscious = {
 			_bSplash setVectorUp surfaceNormal getPosWorld _unit;
 		};
 		*/
-		
-		sleep 0.5;
+		_tick = _tick + 1;		
+		sleep 1;
 	};
 	
 	if (_unit getVariable ["FAR_isStabilized",false]) then {
@@ -261,12 +299,17 @@ FAR_Player_Unconscious = {
 				alive _unit && 
 				(lifeState _unit == "INCAPACITATED")
 		} do {
-			if (isPlayer _unit) then  {		
-				hintSilent format["You have been stabilized\n\n%1", call FAR_CheckFriendlies];	
+			if (isPlayer _unit) then  {
+				titleText ["You have been Stabilized.", "PLAIN"];			
+				// hintSilent format["You have been stabilized\n\n%1", call FAR_CheckFriendlies];	
 			};
-			sleep 0.5;
+			sleep 1;
 		};
 	};
+	
+	{_x ppEffectEnable false} forEach [FAR_revive_ppVig, FAR_revive_ppBlur];	
+	showHUD _hudStatus;
+	for "_n" from 91 to 96 do {_n cutFadeOut 0.1;};
 	
 	// Bled out
 	if (FAR_BleedOut > 0 && 
@@ -302,9 +345,11 @@ FAR_Player_Unconscious = {
 		sleep 3;
 		
 		// Clear the "medic nearby" hint
-		hintSilent "";
+		titleText["", "PLAIN"];
 		_unit allowDamage true;
 		_unit setCaptive false;
+
+
 	};
 	
 	// Reset variables
@@ -404,14 +449,14 @@ FAR_HandleRevive = {
 			if !(player getUnitTrait "Medic" && "Medikit" in (items player)) then {
 				if !("FirstAidKit" in (items player)) then {
 					_target removeItem "FirstAidKit";
-					[[format["%1 used a FAK from your inventory to revive you",name player],"PLAIN DOWN", 2]] remoteExec ["TitleText",_target];
+					[[format["%1 used a FAK from your inventory to revive you",name player],"PLAIN DOWN"]] remoteExec ["TitleText",_target];
 				} else {
 					player removeItem "FirstAidKit";
-					[[format["You were revived by %1",name player],"PLAIN DOWN", 2]] remoteExec ["TitleText",_target];			
+					[[format["You were revived by %1",name player],"PLAIN DOWN"]] remoteExec ["TitleText",_target];			
 				};
 			}
 			else {
-				[[format["You were revived by %1",name player],"PLAIN DOWN", 2]] remoteExec ["TitleText",_target];			
+				[[format["You were revived by %1",name player],"PLAIN DOWN"]] remoteExec ["TitleText",_target];			
 			};
 
 			if (currentWeapon _target != "") then {

@@ -11,6 +11,10 @@ FAR_BleedOut = f_param_bleedout;	// Seconds until unconscious unit bleeds out an
 FAR_EnableDeathMessages = true;		// Enable teamkill notifications
 FAR_ReviveMode = 2;					// 0 = Only medics can revive	1 = All units can revive 	2 = Same as 1 but a medikit is required to revive
 
+// Create PP effects
+FAR_revive_ppVig = ppEffectCreate ["ColorCorrections", 1633];
+FAR_revive_ppBlur = ppEffectCreate ["DynamicBlur", 525];
+
 call compileFinal preprocessFileLineNumbers "f\medical\FAR_revive\FAR_revive_funcs.sqf";
 
 if isDedicated exitWith {};

@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1653.6479,35.997089,5330.4438};
-		dir[]={-0.26210791,-0.77289891,0.57806897};
-		up[]={-0.31917092,0.63453317,0.70391595};
-		aside[]={0.91087478,-1.907465e-006,0.41301408};
+		pos[]={1612.9493,34.300377,5402.3521};
+		dir[]={-0.38816351,-0.91789025,0.083033808};
+		up[]={-0.89762652,0.39673334,0.19201495};
+		aside[]={0.20919265,2.165325e-007,0.97792476};
 	};
 };
 binarizationWanted=0;
@@ -4074,15 +4074,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1588.041,5.4369345,5398.0391};
-						angles[]={0,0.33245906,0};
+						position[]={1588.041,5.4369431,5398.0386};
+						angles[]={0,0.33246776,0};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[""fltr"",this] call f_fnc_assignGear;";
+						init="[""ftlr"",this] call f_fnc_assignGear;";
 						name="UnitAAF_A2_FTL";
 						description="Squad 2IC";
 						isPlayable=1;
@@ -4590,15 +4590,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1596.0831,5.5014391,5396.7856};
-						angles[]={0,0.25133938,0};
+						position[]={1596.083,5.5014391,5396.7856};
+						angles[]={0,0.25134486,0};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[""fltr"",this] call f_fnc_assignGear;";
+						init="[""ftlr"",this] call f_fnc_assignGear;";
 						name="UnitAAF_B2_FTL";
 						description="Squad 2IC";
 						isPlayable=1;
@@ -5105,22 +5105,21 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1603.9147,5.5014544,5395.4072};
-						angles[]={0,0.22143134,0};
+						position[]={1603.915,5.5014391,5395.4067};
+						angles[]={0,0.22142993,0};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[""fltr"",this] call f_fnc_assignGear;";
+						init="[""ftlr"",this] call f_fnc_assignGear;";
 						name="UnitAAF_C2_FTL";
 						description="Squad 2IC";
 						isPlayable=1;
 					};
 					id=667;
 					type="I_Soldier_TL_F";
-					atlOffset=1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13382,8 +13381,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1627.7983,7.8041077,5371.2964};
-				angles[]={0,0.28555879,0};
+				position[]={1626.8738,7.8041077,5370.9531};
+				angles[]={0,0.27627957,0};
 			};
 			side="Empty";
 			flags=4;
@@ -14251,7 +14250,6 @@ class Mission
 						rank="LIEUTENANT";
 						init="[""jtac"",this] call f_fnc_assignGear;";
 						description="HQ - Forward Air Controller";
-						isPlayable=1;
 					};
 					id=933;
 					type="I_officer_F";
@@ -14311,8 +14309,6 @@ class Mission
 					{
 						rank="SERGEANT";
 						description="Eagle - Pilot (WY-55 Hellcat)";
-						isPlayer=1;
-						isPlayable=1;
 					};
 					id=991;
 					type="I_helipilot_F";
@@ -14371,7 +14367,6 @@ class Mission
 					class Attributes
 					{
 						description="Copilot";
-						isPlayable=1;
 					};
 					id=992;
 					type="I_helipilot_F";
@@ -14431,7 +14426,6 @@ class Mission
 					{
 						rank="SERGEANT";
 						description="Falcon - Pilot (WY-55 Hellcat)";
-						isPlayable=1;
 					};
 					id=993;
 					type="I_helicrew_F";
@@ -14490,7 +14484,6 @@ class Mission
 					class Attributes
 					{
 						description="Co-Pilot";
-						isPlayable=1;
 					};
 					id=994;
 					type="I_helipilot_F";
@@ -15380,7 +15373,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1655.9462,5.5014391,5427.4292};
+						position[]={1655.946,5.5014391,5427.4287};
 						angles[]={0,4.9198914,0};
 					};
 					side="Independent";
@@ -15391,6 +15384,7 @@ class Mission
 						init="[""sl_l"",this] call f_fnc_assignGear;";
 						name="UnitAAF_BM1_FTL";
 						description="Dismount Team Lead";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=949;
@@ -18346,7 +18340,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1615.9384,7.8041077,5375.5669};
+				position[]={1617.2574,7.8041077,5373.6284};
 				angles[]={0,0.28555879,0};
 			};
 			side="Empty";
@@ -18365,8 +18359,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1645.9415,6.2898083,5347.2148};
-				angles[]={0,0.22880055,0};
+				position[]={1644.817,6.2898083,5346.0396};
+				angles[]={0,3.3198273,0};
 			};
 			side="Empty";
 			flags=4;
