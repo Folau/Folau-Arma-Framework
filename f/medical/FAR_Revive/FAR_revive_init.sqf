@@ -1,4 +1,4 @@
-// Farooq's Revive 2.0 (2600K Edit)
+// Farooq's Revive Folau Version
 
 // Parameters - Feel free to edit these
 if (isNil "f_param_bleedout") then {

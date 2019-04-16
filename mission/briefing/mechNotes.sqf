@@ -81,6 +81,7 @@ if (missionNamespace getVariable["f_param_kiaChance",0] > 0) then {
 	<br/>For large damage to a critical area there is a chance of KIA.";
 };
 
+
 // RESPAWN / JIP
 _mechanicsText = _mechanicsText + "<br/><br/><font size='18' color='#ea2e2e'>JIP / RESPAWN</font>";
 if (!isNil "f_param_respawn") then {
@@ -107,6 +108,8 @@ if (missionNamespace getVariable["f_param_jipTeleport",0] > 0) then {
 		case 3: { _mechanicsText = _mechanicsText + "<br/>JIP players may use either the <font color='#72E500'>Action Menu</font> or <font color='#72E500'>Flag Pole</font> at base to teleport to their squad.<br/>"; };
 	};
 };
+_mechanicsText = _mechanicsText + "<br/>If available a <font color='#72E500'>Medical Truck</font> will be used for respawn.<br/>";
+_mechanicsText = _mechanicsText + "<br/>Group Leaders have an action on them if a JIP/Respawn is separated from their group.<br/>";
 
 // ENGINEERING
 _mechanicsText = _mechanicsText + 

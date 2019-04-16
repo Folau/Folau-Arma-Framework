@@ -30,12 +30,31 @@ addMissionEventHandler ["EntityKilled", {
 		// hint format ["UNIT KILLED SIDE %1", (side group _killedUnit)];
 		_killedUnit setVariable ["notLootable", true];
 		removeAllWeapons _killedUnit;
+		
+/* 		switch (side _killedUnit) do {
+				case west: { 		
+					_killedUnit unassignItem "NVGoggles";
+					_killedUnit removeItem "NVGoggles";
+					_killedUnit unassignItem "NVGoggles_tna_F";
+					_killedUnit removeItem "NVGoggles_tna_F";
+				};
+				case east: {			
+					_killedUnit unassignItem "NVGoggles_OPFOR";
+					_killedUnit removeItem "NVGoggles_OPFOR";
+				};
+				case independent: {			
+					_killedUnit unassignItem "NVGoggles_INDEP";
+					_killedUnit removeItem "NVGoggles_INDEP";
+				};
+				default { };
+			}; */
+			
+		_killedUnit unassignItem "ItemGPS";
+		_killedUnit removeItem "ItemGPS";
+		
+/* 		removeBackpack _killedUnit; */
 	}
-	else
-	{	
-		// hint "MAN DOWN";
-		_killedUnit setVariable ["notLootable", false];
-	}
+
 }];
  
 /* player addEventHandler ["InventoryOpened",{
