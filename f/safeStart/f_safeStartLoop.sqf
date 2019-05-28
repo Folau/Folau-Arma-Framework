@@ -14,7 +14,7 @@ while {f_param_safe_start > 0} do {
 	if (f_param_safe_start < 0) exitWith {};
 
 	// Broadcast remaining time to players
-	["SafeStart",[format["Time Remaining: %1 min",f_param_safe_start]]] remoteExec ["bis_fnc_showNotification",0];
+	// ["SafeStart",[format["Time Remaining: %1 min",f_param_safe_start]]] remoteExec ["bis_fnc_showNotification",0];
 
 	uiSleep 60; // Sleep 60 seconds
 
@@ -25,7 +25,7 @@ while {f_param_safe_start > 0} do {
 //Once the mission timer has reached 0, disable the safeties
 if (f_param_safe_start == 0) then {
 		// Broadcast message to players
-		["SafeStartMissionStarting",["Mission starting now!"]] remoteExec ["bis_fnc_showNotification",0];
+		["SafeStartMissionStarting",["Safe Start Ended"]] remoteExec ["bis_fnc_showNotification",0];
 
 		// Remotely execute script to disable safety for all selectable units
 		[false] remoteExec ["f_fnc_safety",0,true];

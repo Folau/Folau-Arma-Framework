@@ -33,6 +33,154 @@ wreckManagerMode = 1; // All
 wreckRemovalMaxTime = 900; // 15m
 minPlayerDistance = 50; // 50m
 
+class CfgORBAT
+{
+	class AAFCompany
+	{
+	
+	id = 12;
+	idType = 0;
+	type = "HQ";
+	side = "Resistance";
+	size = "Company";
+	// commander = "Flinn";
+	//commanderRank = "Captain";
+	insignia = "\a3\missions_f_epa\data\img\orbat\I_AAF_ca.paa";
+	text = "B Company";
+	textShort = "B Company";
+	description = "AAF Combined Company.";
+	
+		class 1platoon
+		{
+			id = 0;
+			idType = 0;
+			type = "Infantry";
+			side = "Resistance";
+			size = "Platoon";
+			//commander = "Flinn";
+			//commanderRank = "Lieutenant";
+			text = "1 Platoon";
+			textShort = "1 Plt";
+			description = "AAF Rifle Platoon.";
+
+			class alpha
+			{
+				id = 1;
+				idType = 0;
+				type = "Infantry";
+				side = "Resistance";
+				size = "Squad";
+				//commander = "Ray";
+				//commanderRank = "Sergeant";
+				text = "Alpha Squad";
+				textShort = "A";
+				description = "AAF Rifle Squad";
+			};
+
+			class bravo
+			{
+				id = 2;
+				idType = 0;
+				type = "Infantry";
+				side = "Resistance";
+				size = "Squad";
+				//commander = "Dixon";
+				//commanderRank = "Sergeant";
+				text = "Bravo Squad";
+				textShort = "B";
+				description = "AAF Rifle Squad";
+			};
+			
+			class charlie
+			{
+				id = 3;
+				idType = 0;
+				type = "Infantry";
+				side = "Resistance";
+				size = "Squad";
+				//commander = "Nichols";
+				//commanderRank = "Sergeant";
+				text = "Charlie Squad";
+				textShort = "C";
+				description = "AAF Rifle Squad";
+			};
+			
+			class 1mortar
+			{
+				id = 4;
+				idType = 0;
+				type = "Mortar";
+				side = "Resistance";
+				size = "FireTeam";
+				//commander = "Davis";
+				//commanderRank = "Corporal";
+				text = "Light Mortar";
+				textShort = "Mortar";
+				description = "AAF Light Mortar";
+			};
+		};
+		
+		class 2sqdn
+		{
+			id = 0;
+			idType = 0;
+			type = "Helicopter";
+			side = "Resistance";
+			size = "Platoon";
+			//commander = "Flinn";
+			//commanderRank = "Lieutenant";
+			text = "2 Squadron";
+			textShort = "2 Sqdn";
+			description = "AAF Attack Helicopter Squadron.";
+
+			class eagle
+			{
+				id = 1;
+				idType = 0;
+				type = "Helicopter";
+				side = "Resistance";
+				size = "FireTeam";
+				//commander = "Ray";
+				//commanderRank = "Sergeant";
+				text = "Eagle";
+				textShort = "Eagle";
+				description = "WY-55 Hellcat";
+				assets[] = {"I_Heli_light_03_dynamicLoadout_F"};
+			};
+
+			class falcon
+			{
+				id = 2;
+				idType = 0;
+				type = "Helicopter";
+				side = "Resistance";
+				size = "FireTeam";
+				//commander = "Dixon";
+				//commanderRank = "Sergeant";
+				text = "Falcon";
+				textShort = "Falcon";
+				description = "WY-55 Hellcat";
+				assets[] = {"I_Heli_light_03_dynamicLoadout_F"};
+			};
+			
+
+		};
+		class supp
+		{
+			id = 0;
+			idType = 0;
+			type = "Support";
+			side = "Resistance";
+			size = "Squad";
+			//commander = "Flinn";
+			//commanderRank = "Sergeant";
+			text = "Support";
+			textShort = "Support";
+			description = "AAF Support Element.";
+		};
+	};
+};
+
 class ACE_Settings {
 	#include "mission\ace3.hpp"
 };

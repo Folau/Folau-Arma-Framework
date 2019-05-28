@@ -19,7 +19,7 @@ _NVG_bool = True;
 // ================================
 // ATTACHMENTS
 // ================================
-_scope_frontline = ["optic_Hamr", "optic_ACO", "optic_Holosight_blk_F"]; // Standard choice for infantry - give them the chance for med range.
+_scope_frontline = ["optic_ACO", "optic_Holosight_blk_F", "optic_Hamr"]; // Standard choice for infantry - give them the chance for med range.
 _scope_support = ["optic_ACO", "optic_Holosight_blk_F"]; // Support infantry don't get extra options
 _scope_dm = ["optic_SOS", "optic_AMS_snd"]; // Designated Marksman Night
 _scope_sniper = ["optic_LRPS"]; // Sniper
@@ -114,14 +114,14 @@ _DMriflemag = "30Rnd_65x39_caseless_mag";
 _DMriflemag_tr = "30Rnd_65x39_caseless_mag_Tracer";
 
 // Rifleman AT
-_RAT = "launch_NLAW_F";
-_RATmag = "NLAW_F";
-_RATmag2 = "NLAW_F";
+_RAT = "launch_MRAWS_sand_F";
+_RATmag = "MRAWS_HEAT_F";
+_RATmag2 = "MRAWS_HE_F";
 
 // Medium AT
-_MAT = "launch_MRAWS_sand_F";
-_MATmag1 = "MRAWS_HEAT_F";
-_MATmag2 = "MRAWS_HE_F";
+_MAT = "launch_B_Titan_short_F";
+_MATmag1 = "Titan_AT";
+_MATmag2 = "Titan_AP";
 
 // Surface Air
 _SAM = "launch_B_Titan_F";
@@ -225,8 +225,8 @@ _special = ["plm", "m"];
 
 // Basic clothing
 // The outfit-piece is randomly selected from the array for each unit
-_baseUniform = ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_vest"];
-_baseHelmet = ["H_HelmetSpecB", "H_HelmetSpecB_paint1", "H_HelmetSpecB_paint2", "H_HelmetSpecB_blk", "H_HelmetSpecB_sand"];
+_baseUniform = ["U_B_CTRG_1", "U_B_CTRG_3"];
+_baseHelmet = ["H_HelmetSpecB_snakeskin"];
 _baseGlasses = ["", "G_Combat", "G_LowProfile", "G_Tactical_Clear", "G_Shades_Black", "G_Sport_Blackred", "G_Shades_Red", "G_Shades_Blue", "G_Shades_Green", "G_Tactical_Black"];
 
 // Vests
@@ -238,12 +238,12 @@ _specialRig = "V_PlateCarrierSpec_rgr";
 
 // Lighter / Support Objects
 _lightHelmet = ["H_HelmetB_light_grass", "H_HelmetB_light_desert", "H_HelmetB_light_black", "H_HelmetB_light_sand", "H_HelmetB_light"];
-_lightUniform = ["U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam_tshirt"];
+_lightUniform = ["U_B_CTRG_1", "U_B_CTRG_3", "U_B_CTRG_2"];
 
 // Crewman
 _crew = ["vc","vg","vd"];
 
-_crewUniform = ["U_B_CombatUniform_mcam_tshirt"];
+_crewUniform = ["U_B_CTRG_2"];
 _crewHelmet = ["H_HelmetCrew_B"];
 _crewRig = ["V_BandollierB_rgr"];
 _crewGlasses = _baseGlasses;
@@ -610,7 +610,7 @@ switch (_typeOfUnit) do
 	// LOADOUT: RIFLEMAN (AT)
 	case "rat":
 	{
-		["rat_pcml"] call _backpack;	
+		[_typeOfUnit] call _backpack;	
 		_unit addMagazines [_riflemag,_defMags];
 		_unit addMagazines [_riflemag_tr,_defMags_tr];
 		[_unit, _rifle] call f_fnc_addWeapon;

@@ -2,7 +2,7 @@
 // Client Intro format ["Test Line 1","Test Line 2"] execVM "f\common\f_clientIntro.sqf";
 // If left blank will default to Mission Name and players nearest location.
 // ====================================================================================
-params [["_lineOne","""Mission 001 (f_clientIntro.sqf)"""],["_lineTwo","Undisclosed Location"]];
+/* params [["_lineOne","""Operation Touchdown"""],["_lineTwo","Undisclosed Location"]];
 
 sleep 0.1;
 
@@ -66,4 +66,26 @@ private _monthName = switch (date select 1) do {
 		1, 
 		10
 	]
-] spawn BIS_fnc_EXP_camp_SITREP;
+] spawn BIS_fnc_EXP_camp_SITREP; */
+
+
+/* ["\A3\Missions_F_Jets\video\showcase_jets_intro_01.ogv", "BIG OLD TEST BOYS"] call BIS_fnc_titlecard;
+waitUntil { !isNil { BIS_fnc_titlecard_finished } }; */
+
+//titleCut ["", "BLACK IN", 5];
+//cutText ["<t color='#ff0000' size='5'>1Operation Hera by Folau</t><br/>***********", "BLACK FADED"];
+/* titleText ["Your message", "BLACK", 2];
+30 fadeSound 3;
+sleep 8; */
+
+/* _lineTwo = "Undisclosed Location";
+
+// player call BIS_fnc_locationDescription ??
+_nearLoc = (nearestLocations [getPosATL player, ["NameCityCapital","NameCity","NameVillage","NameLocal"], 1000]); 
+
+if (count _nearLoc > 0) then { 
+	_lineTwo = format["%1 - %2", text(_nearLoc select 0), toUpper worldName];
+};
+
+
+[player, _lineTwo, 200, 100, 75, 1, [], 0, true] spawn BIS_fnc_establishingShot */

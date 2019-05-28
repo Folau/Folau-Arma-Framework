@@ -26,4 +26,4 @@ null = execVM "folau\folAI\loadout\aiLoadout.sqf";
 	null = [_x, _keyPoints] execVM "folau\folAI\behaviour\main.sqf";
 } forEach (_aiSide);
 
-systemChat "FolAI Setup Successfully";
+// systemChat "FolAI Setup Successfully";

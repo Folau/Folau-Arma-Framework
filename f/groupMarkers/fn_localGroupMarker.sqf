@@ -16,34 +16,57 @@ _grp = missionNamespace getVariable [_grpName,grpNull];
 // CREATE MARKER
 if !(isNull _grp) then {
 	//diag_log format ["fn_localGroupMarker.sqf Creating %1",_grpName];
-	clearGroupIcons _grp;
-	_mkr = _grp addGroupIcon [_mkrType,[0,0]];
-	
-	_cnt = count units _grp;
-	
-	if (_cnt > 4) then {
-		_mkr = _grp addGroupIcon ["group_2",[0,0]];
-	};
+	while {true} do {
+		if (f_param_groupMarkers == 6 && !(("ItemGPS" in (assigneditems player)) || ("B_UavTerminal" in (assigneditems player)) || ("O_UavTerminal" in (assigneditems player)) || ("I_UavTerminal" in (assigneditems player)) || ("C_UavTerminal" in (assigneditems player))))then {
+			
+			setGroupIconsVisible [False, False]; 
+			}
+		else
+			{
+			setGroupIconsVisible [True, False]; 
+			clearGroupIcons _grp;
+			_mkr = _grp addGroupIcon [_mkrType,[0,0]];
+			
+			_cnt = count units _grp;
+			
+			if (_cnt > 4) then {
+				_cntMkr = _grp addGroupIcon ["group_2",[0,0]];
+			};
 
-	if (_cnt > 2 && _cnt <= 4) then {
-		_mkr = _grp addGroupIcon ["group_1",[0,0]];
-	};
+			if (_cnt > 2 && _cnt <= 4) then {
+				_cntMkr = _grp addGroupIcon ["group_1",[0,0]];
+			};
 
-	if (_cnt < 3 && _cnt > 1) then {
-		_mkr = _grp addGroupIcon ["group_0",[0,0]];
-	};	
-	
-/* 	switch (_cnt) do {
-		case 1:
-		{
-			_mkr = _grp addGroupIcon ["group_0",[0,0]];
-		}
-		case 2: { 
-			_mkr = _grp addGroupIcon ["group_1",[0,0]];		
+			if (_cnt < 3 && _cnt >= 1) then {
+				_cntMkr = _grp addGroupIcon ["group_0",[0,0]];
+			};	
+				
+			_grp setgroupIconParams [_mkrColor,_mkrText,0.8,TRUE];
 		};
-	}; */
-	
-
-	
-	_grp setgroupIconParams [_mkrColor,_mkrText,0.8,TRUE];
+		sleep 1;
+	};
 };
+
+/* while {true} do {
+	if !(isNil "_cntMkr") then {
+		_grp removeGroupIcon _cntMkr;
+
+		_cnt = count units _grp;
+		
+		if (_cnt > 4) then {
+			_cntMkr = _grp addGroupIcon ["group_2",[0,0]];
+		};
+
+		if (_cnt > 2 && _cnt <= 4) then {
+			_cntMkr = _grp addGroupIcon ["group_1",[0,0]];
+		};
+
+		if (_cnt < 3 && _cnt > 1) then {
+			_cntMkr = _grp addGroupIcon ["group_0",[0,0]];
+		};	
+		
+		_target removeGroupIcon _cntMkr;
+		
+		sleep 5;
+	};
+}; */

@@ -45,7 +45,23 @@ _adm = player createDiaryRecord ["diary", ["Administration",["
 _exe = player createDiaryRecord ["diary", ["",format["",f_param_CasualtiesCap]]];
 
 // The code below creates the execution sub-section of notes.
-_exe = player createDiaryRecord ["diary", ["Intel",format["
+_exe = player createDiaryRecord ["diary", ["Enemy Forces",format["
+<br/><font size='18' color='#ea2e2e'>ENEMY CAPABILITY</font>
+<br/>Detail what friendly intel believe to be the enemy capability.
+<br/>
+<br/><font size='18' color='#ea2e2e'>ENEMY INTENT</font>
+<br/>What the likely enemy reaction will be - what are they going to do?
+<br/>
+<br/><font size='18' color='#ea2e2e'>LOCATION</font>
+<br/>Any particular notes about the AO (terrain, exclusions, etc).
+<br/>
+<br/><font size='18' color='#ea2e2e'>WEATHER</font>
+<br/>If weather is locked describe it (and the forecast) here.
+<br/>
+",f_param_CasualtiesCap]]];
+
+// The code below creates the execution sub-section of notes.
+_exe = player createDiaryRecord ["diary", ["Friendly Forces",format["
 <br/><font size='18' color='#ea2e2e'>ENEMY CAPABILITY</font>
 <br/>Detail what friendly intel believe to be the enemy capability.
 <br/>
@@ -105,32 +121,11 @@ else
 _mis = player createDiaryRecord ["diary", ["Mission", misText]];
 
 _test = player createDiaryRecord ["diary", ["Situation",format["
-<br/><font size='18' color='#ea2e2e'>OVERVIEW</font>
+<br/><font size='18' color='#ea2e2e'>SITUATION</font>
 <br/>Stick to three paragraphs - what has happened, what is going to happen, and a snappy summary.
-<br/>
-<br/><font size='18' color='#ea2e2e'>FRIENDLY FORCES</font>
-<br/>Strength of friendly forces in the following format.
-<br/>
-<br/>> Platoon Command + Hunter + Quad Bike
-<br/>> 3 x Rifle Squads (8) + HEMTT
-<br/>> 1 x Medic Squad (4) + Hunter, attached Medical UAV
-<br/>> 1 x Engineer Squad (4) + Hunter
-<br/>> 1 x Mortar (1) + Quad Bike
-<br/>
-<br/>List the armament for any vehicles to aid mission planning.
-<br/>
-<br/><font size='18' color='#ea2e2e'>ENEMY FORCES</font>
-<br/>Very brief description of enemy forces.
-<br/>
-<br/>For a more detailed breakdown see the ""Intel"" tab.
-<br/>
-<br/><font size='18' color='#ea2e2e'>CIVILIAN PRESENCE</font>
-<br/>Where civilians are (or if there are none).
-<br/>
-<br/>See ""Reference Material"" for a reminder on the Laws of War. 
 <br/>
 ",f_param_CasualtiesCap]]];
 
 // The code below creates the execution sub-section of notes.
-_misSpace = player createDiaryRecord ["diary", ["-- Mission Details --","
+_misSpace = player createDiaryRecord ["diary", ["-- Mission Briefing --","
 <br/>"]];

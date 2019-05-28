@@ -61,6 +61,9 @@ if isServer then {
 			!isNil "f_var_stopLogging";
 		};
 	};
+	
+	null = execVM "folau\orbat\playerLeaders.sqf";			// Set up the KIA Counter
+	
 	missionNamespace setVariable ["f_var_missionLoaded", true, true];
 };
 // ====================================================================================

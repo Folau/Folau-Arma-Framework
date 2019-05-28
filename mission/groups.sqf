@@ -15,7 +15,7 @@ _purple	=	[0.5, 0,   0.5, 1 	];
 _black =	[0,   0,   0,   1	];
 _white =	[1,   1,   1,   1	];
 
-/* _grpBLU = [
+_grpBLU = [
 	// HQ
 	["GrpBLU_CO","CO","b_hq","CO",_blue],
 	["GrpBLU_XO","XO","b_hq","XO",_blue],
@@ -82,7 +82,7 @@ _white =	[1,   1,   1,   1	];
 	["GrpBLU_P2","Falcon","b_plane","Falcon",_blue]
 	
 	// Always make sure there's no comma after the last entry!
-]; */
+];
 
 // Group Variable Name, ORBAT Name, Icon Type, Icon Text, Icon Color, Make Channel (default true)
 _grpOPF = [
@@ -161,6 +161,8 @@ _grpOPF = [
 _grpIND = [	
 	// HQ
 	["GrpIND_CO","CO","n_hq","CO",_green],
+	["GrpIND_1PLT","1PLT","n_hq","1Plt",_green],
+	["GrpIND_2PLT","2PLT","n_hq","2Plt",_green],
 	["GrpIND_XO","XO","n_hq","XO",_green],
 	["GrpIND_FO","FO","n_hq","FO",_green],
 	["GrpIND_PLM1","PLT M1","n_med","PLT M1",_green],
@@ -168,19 +170,26 @@ _grpIND = [
 	["GrpIND_JTAC","JTAC","n_hq","JTAC",_green],
 	["GrpIND_NAV","NAVY","n_naval","NAVY",_green],
 	
-	// RIFLES
+	// Infantry
 	["GrpIND_ASL","Alpha","n_inf","A",_green],
 	["GrpIND_BSL","Bravo","n_inf","B",_green],
 	["GrpIND_CSL","Charlie","n_inf","C",_green],
 	["GrpIND_DSL","Delta","n_inf","D",_green],
 	["GrpIND_ESL","Echo","n_inf","E",_green],
 	
+	// Motorized Infantry
+	["GrpIND_MoASL","Alpha (Motor)","n_motor_inf","A",_green],
+	["GrpIND_MoBSL","Bravo (Motor)","n_motor_inf","B",_green],
+	["GrpIND_MoCSL","Charlie (Motor)","n_motor_inf","C",_green],
+	["GrpIND_MoDSL","Delta (Motor)","n_motor_inf","D",_green],
+	["GrpIND_MoESL","Echo (Motor)","n_motor_inf","E",_green],
+	
 	// Mechanised Infantry
-	["GrpIND_MASL","Alpha (Mech)","n_inf","A",_green],
-	["GrpIND_MBSL","Bravo (Mech)","n_inf","B",_green],
-	["GrpIND_MCSL","Charlie (Mech)","n_inf","C",_green],
-	["GrpIND_MDSL","Delta (Mech)","n_inf","D",_green],
-	["GrpIND_MESL","Echo (Mech)","n_inf","E",_green],	
+	["GrpIND_MeASL","Alpha (Mech)","n_mech_inf","A",_green],
+	["GrpIND_MeBSL","Bravo (Mech)","n_mech_inf","B",_green],
+	["GrpIND_MeCSL","Charlie (Mech)","n_mech_inf","C",_green],
+	["GrpIND_MeDSL","Delta (Mech)","n_mech_inf","D",_green],
+	["GrpIND_MeESL","Echo (Mech)","n_mech_inf","E",_green],	
 	
 	// Recon
 	["GrpIND_ST1","ST","n_recon","ST1",_green],
@@ -230,6 +239,9 @@ _grpIND = [
 	["GrpIND_AH1","Hawk","n_air","Hawk",_green],
 	
 	["GrpIND_P1","Eagle","n_plane","Eagle",_green],
-	["GrpIND_P2","Falcon","n_plane","Falcon",_green]
+	["GrpIND_P2","Falcon","n_plane","Falcon",_green],
+	
+	["GrpIND_1SQDN","1 Squadron","n_plane","1 SQDN",_green],	
+	["GrpIND_2SQDN","2 Squadron","n_air","2 SQDN",_green]
 ];
 	// Always make sure there's no comma after the last entry!];

@@ -13,6 +13,15 @@ case "plm": {
 case "uav": {
 	[_baguav,_unit] call f_fnc_addBackpack;
 };
+// BACKPACK: UAV MEDICAL
+case "uavm": {
+	[_bagMedUav,_unit] call f_fnc_addBackpack;
+};
+
+// BACKPACK: UAV LOGISTICS
+case "uavl": {
+	[_bagUtilUav,_unit] call f_fnc_addBackpack;
+};
 
 case "fo": {
 	[_bagremote, _unit] call f_fnc_addBackpack;
@@ -100,7 +109,7 @@ case "rat": {
 // BACKPACK: RIFLEMAN AT (RAT)
 case "rat_pcml": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
-	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 2]; };	// HEAT
+	if (!isNil "_RATmag") then { (unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 3]; };	// HEAT
 };
 
 // BACKPACK: AUTORIFLEMAN
@@ -258,9 +267,32 @@ case "engm": {
 };
 
 // ================================
-// OTHERS
+// DIVERS
 // ================================
 
+// BACKPACK: DESIGNATED MARKSMAN (DM) UNUSED
+case "dtl": {
+	[_bagmediumdiver,_unit] call f_fnc_addBackpack;
+};
+
+case "div": {
+	[_bagmediumdiver,_unit] call f_fnc_addBackpack;
+};
+
+case "divm": {
+	[_bagmediumdiver,_unit] call f_fnc_addBackpack;
+	(unitBackpack _unit) addItemCargoGlobal [_medkit,1];
+	(unitBackpack _unit) addItemCargoGlobal [_firstaid, 6];
+};
+
+case "dexp": {
+	[_bagmediumdiver,_unit] call f_fnc_addBackpack;
+	(unitBackpack _unit) addItemCargoGlobal [_satchel,3];
+};
+
+// ================================
+// OTHERS
+// ================================
 // OTHERS
 case "small": {
 	[_bagsmall,_unit] call f_fnc_addBackpack;
@@ -272,8 +304,4 @@ case "medium": {
 
 case "large": {
 	[_baglarge,_unit] call f_fnc_addBackpack;
-};
-
-case "kerry": {
-	["B_AssaultPack_Kerry", _unit] call f_fnc_addBackpack;
 };

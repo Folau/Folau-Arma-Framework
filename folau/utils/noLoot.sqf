@@ -28,10 +28,10 @@ addMissionEventHandler ["EntityKilled", {
 	if !(side group _killedUnit isEqualTo _playersSideFnc || side group _killedUnit isEqualTo civilian) then 
 	{
 		// hint format ["UNIT KILLED SIDE %1", (side group _killedUnit)];
-		_killedUnit setVariable ["notLootable", true];
+		// _killedUnit setVariable ["notLootable", true];
 		removeAllWeapons _killedUnit;
 		
-/* 		switch (side _killedUnit) do {
+		switch (side _killedUnit) do {
 				case west: { 		
 					_killedUnit unassignItem "NVGoggles";
 					_killedUnit removeItem "NVGoggles";
@@ -47,8 +47,8 @@ addMissionEventHandler ["EntityKilled", {
 					_killedUnit removeItem "NVGoggles_INDEP";
 				};
 				default { };
-			}; */
-			
+			};
+		removeBackpack _killedUnit;
 		_killedUnit unassignItem "ItemGPS";
 		_killedUnit removeItem "ItemGPS";
 		

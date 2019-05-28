@@ -147,6 +147,9 @@ if (missionNamespace getVariable["f_param_groupMarkers",0] > 0) then {
 		case 2: { 
 			_mechanicsText = _mechanicsText + "<br/>Group Markers: <font color='#72E500'>Enabled</font>"; 
 		};
+		case 6: {
+			_mechanicsText = _mechanicsText + "<br/>Group Markers: <font color='#72E500'>GPS/Terminal Equiped</font>"; 
+		};
 	};
 };
 

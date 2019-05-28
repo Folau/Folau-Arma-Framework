@@ -219,9 +219,9 @@ class f_param_fireTeamMarkers
 class f_param_groupMarkers
 {
 		title = "Group Markers";
-		values[] = {0, 1, 2, 3, 4, 5};
-		texts[] = {"Disabled", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats"};
-		default = 0;
+		values[] = {0, 1, 2, 3, 4, 5, 6};
+		texts[] = {"Disabled", "On Map", "On Map + Screen", "Map + Squad Stats", "Commander Map Only", "Commander Map + Squad Stats", "GPS/Terminal"};
+		default = 6;
 };
 
 class f_param_lawsOfWar
