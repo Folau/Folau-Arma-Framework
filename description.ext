@@ -12,7 +12,7 @@ respawnTemplates[] = {"Counter"};
 respawnOnStart = -1;
 
 // AI DISABLE
-disabledAI = 1;
+disabledAI = 0;
 
 // MISSION DETAILS
 author = "Folau"; // Author

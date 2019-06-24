@@ -62,7 +62,7 @@ if (f_param_groupMarkers == 2) then {
 };
 
 // Extended Group Info - Stop here if not enabled.
-if (f_param_groupMarkers in [1,2,4]) exitWith {};
+if (f_param_groupMarkers in [1,2,4,6]) exitWith {};
 
 setGroupIconsSelectable true;
 

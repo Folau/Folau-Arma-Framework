@@ -3,15 +3,14 @@
 _playerArray = ["U_B_CombatUniform_mcam_vest", "H_HelmetSpecB_paint1", "H_HelmetB_light_black", "U_B_CTRG_3", "U_I_CombatUniform_shortsleeve"];
 
 // Player Array [NATO UNIFORM, NATO E HELMET, NATO L HELMET, CTRG UNIFORM, AAF UNIFORM]
-// switch (getPlayerUID player) do {
-switch (name player) do {
+switch (getPlayerUID player) do {
+// switch (name player) do {
 	
 	// Single Player	
 	case "_SP_PLAYER_": {_playerArray = ["U_B_CombatUniform_mcam_vest", "H_HelmetSpecB_paint1", "H_HelmetB_light_black", "U_B_CTRG_3", "U_I_CombatUniform_shortsleeve"]; hint "Found SP";};
 	
 	// Folau
-	// case "76561198007179126": {_playerArray = ["U_B_CombatUniform_mcam_vest", "H_HelmetSpecB_paint1", "H_HelmetB_light_black", "U_B_CTRG_3", "U_I_CombatUniform_shortsleeve"]; systemChat "Found Folau (UID)";}; 
-	
+	case "76561198007179126": {_playerArray = ["U_B_CombatUniform_mcam_vest", "H_HelmetSpecB_paint1", "H_HelmetB_light_black", "U_B_CTRG_3", "U_I_CombatUniform_shortsleeve"]; systemChat "Found Folau (UID)";}; 
 	case "Folau": {_playerArray = ["U_B_CombatUniform_mcam_vest", "H_HelmetSpecB_paint1", "H_HelmetB_light_grass", "U_B_CTRG_3", "U_I_CombatUniform_shortsleeve"]; hint "Found Folau (NAME)";}; 	
 	// Lawman
 	case "Lawman": {_playerArray = ["U_B_CombatUniform_mcam", "H_HelmetSpecB", "H_HelmetB_light", "U_B_CTRG_1", "U_I_CombatUniform"]; hint "Found Lawman (NAME)";}; 	

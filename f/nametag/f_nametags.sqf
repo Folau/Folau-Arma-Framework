@@ -29,11 +29,11 @@ f_showCursorOnly_Nametags = false; // Show only units under cursor target (disab
 
 // Other values
 f_distCursor_Nametags = 100;	// Distance to display name tag for unit under cursor
-f_distAll_Nametags = 25;		// Distance to display name tags for all units around
+f_distAll_Nametags = 0.1;		// Distance to display name tags for all units around
 F_KEY_NAMETAGS =  "TeamSwitch"; // The action key to toggle the name tags. See possible keys here: http://community.bistudio.com/wiki/Category:Key_Actions
 
 // Display values
-f_size_Nametags = 0.023; // The size the names are displayed in
+/* f_size_Nametags = 0.023; // The size the names are displayed in
 f_height_standing_Nametags = 2; // Height above standing infantry unit
 f_height_crouch_Nametags = 1.5; // Height above crouching infantry unit
 f_height_prone_Nametags = 0.9;  // Height above prone infantry unit
@@ -42,7 +42,18 @@ F_SHADOW_NAMETAGS = 2; // The shadow for the name tags (0 - 2)
 f_color_Nametags =  [1,1,1,0.9]; // The color for infantry and units in vehicle cargo (in [red,green, blue, opacity])
 f_color2_Nametags = [1,0.1,0.2,0.9]; // The color for units in driver, gunner and other vehicle positions positions
 f_groupColor_Nametags = [0,1,0.7,0.9]; // The color for units of the same group
-F_FONT_NAMETAGS = "EtelkaMonospaceProBold"; // Font for the names
+F_FONT_NAMETAGS = "EtelkaMonospaceProBold"; // Font for the names// Display values */
+
+f_size_Nametags = 0.029; // The size the names are displayed in
+f_height_standing_Nametags = 2; // Height above standing infantry unit
+f_height_crouch_Nametags = 1.5; // Height above crouching infantry unit
+f_height_prone_Nametags = 0.9;  // Height above prone infantry unit
+f_vheight_Nametags = 0; // The height of the name tags for units in vehicles (0 = hovering over vehicle)
+F_SHADOW_NAMETAGS = 2; // The shadow for the name tags (0 - 2)
+f_color_Nametags =  [1,1,1,0.9]; // The color for infantry and units in vehicle cargo (in [red,green, blue, opacity])
+f_color2_Nametags = [1,0.1,0.2,0.9]; // The color for units in driver, gunner and other vehicle positions positions
+f_groupColor_Nametags = [0,1,0.7,0.9]; // The color for units of the same group
+F_FONT_NAMETAGS = "PuristaSemiBold"; // Font for the names
 
 // SCRIPTSIDE
 

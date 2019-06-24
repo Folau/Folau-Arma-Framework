@@ -12,9 +12,9 @@ switch (_typeOfUnit) do
 	// LOADOUT: COMPANY COMMANDER
 	case "co":
 	{
-		_unit addMagazines [_carbinemag,_defMags];
-		_unit addMagazines [_carbinemag_tr,_defMags_tr];
-		[_unit, _carbine] call f_fnc_addWeapon;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
 		_unit addMagazines [_grenade,2];
 		_unit addMagazines [_smokegrenade,2];
 		_unit addMagazines [_smokegrenadealt,2];
@@ -22,16 +22,15 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
 		_unit linkItem "ItemGPS"; 
 	};
 	
 	// LOADOUT: PLATOON COMMANDER
 	case "pltco":
 	{
-		_unit addMagazines [_carbinemag,_defMags];
-		_unit addMagazines [_carbinemag_tr,_defMags_tr];
-		[_unit, _carbine] call f_fnc_addWeapon;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
 		_unit addMagazines [_grenade,2];
 		_unit addMagazines [_smokegrenade,2];
 		_unit addMagazines [_smokegrenadealt,2];
@@ -39,16 +38,15 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
 		_unit linkItem "ItemGPS"; 
 	};
 
 	// LOADOUT: DEPUTY COMMANDER  / PLATOON SERGEANT
 	case "dc":
 	{
-		_unit addMagazines [_carbinemag,_defMags];
-		_unit addMagazines [_carbinemag_tr,_defMags_tr];
-		[_unit, _carbine] call f_fnc_addWeapon;
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
 		_unit addMagazines [_grenade,2];
 		_unit addMagazines [_smokegrenade,2];
 		_unit addMagazines [_smokegrenadealt,2];
@@ -56,7 +54,6 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos2] call f_fnc_addWeapon;
-		_attachments = _attach_sp;
 		_unit linkItem "ItemGPS";
 	};
 		
@@ -113,6 +110,24 @@ switch (_typeOfUnit) do
 		[_unit, _pistol] call f_fnc_addWeapon;
 		[_unit, _binos1] call f_fnc_addWeapon;
 		_unit linkItem _uavterminal;
+	};	
+	
+	// LOADOUT: PLATOON SIGNALLER
+	case "pltsig":
+	{
+		_unit addMagazines [_carbinemag,_defMags];
+		_unit addMagazines [_carbinemag_tr,_defMags_tr];
+		[_unit, _carbine] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		[_unit, _binos2] call f_fnc_addWeapon;
+		_attachments = _attach_sp;
+		_unit linkItem "ItemGPS";
+		_unit setVariable ["radioOperator", 1, True];
 	};	
 	
 	// ================================
@@ -233,7 +248,22 @@ switch (_typeOfUnit) do
 		_unit addMagazines [_pistolmag,2];
 		[_unit, _pistol] call f_fnc_addWeapon;
 	};
-
+	
+	// LOADOUT: RADIO OPERATOR
+	case "radio":
+	{
+		_unit addMagazines [_riflemag,_defMags];
+		_unit addMagazines [_riflemag_tr,_defMags_tr];
+		[_unit, _rifle] call f_fnc_addWeapon;
+		_unit addMagazines [_grenade,2];
+		_unit addMagazines [_smokegrenade,2];
+		_unit addMagazines [_smokegrenadealt,2];
+		_unit addMagazines [_chem,1];
+		_unit addMagazines [_pistolmag,2];
+		[_unit, _pistol] call f_fnc_addWeapon;
+		_unit setVariable ["radioOperator", 1, True];
+	};
+	
 	// LOADOUT: AUTOMATIC RIFLEMAN
 	case "ar":
 	{

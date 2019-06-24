@@ -80,7 +80,11 @@ if hasInterface then {
 	f_sqf_brief = execVM "f\briefing\briefing.sqf";		// F3 - Briefing
 	f_sqf_orbat = execVM "f\briefing\f_showOrbat.sqf";	// F3 - ORBAT (f_sqf_brief required)
 	f_sqf_gearSel = execVM "f\briefing\f_showLoadoutSelect.sqf";	// Zeus - Gear Selection (f_sqf_orbat required)
+	
+	// Custom Radios - remove this line to stop Command Chat being removed!
+	// execVM "folau\utils\customRadio.sqf";
 };
 
 // Any other things that need executing
 sleep 1;
+

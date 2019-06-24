@@ -17,10 +17,10 @@ _white =	[1,   1,   1,   1	];
 
 _grpBLU = [
 	// HQ
-	["GrpBLU_CO","CO","b_hq","CO",_blue],
-	["GrpBLU_XO","XO","b_hq","XO",_blue],
-	["GrpBLU_FO","FO","b_hq","FO",_blue],
-	["GrpBLU_PLM1","PLT M1","b_med","PLT M1",_blue],
+	["GrpBLU_CO","Platoon Commander","b_hq","CO",_blue],
+	["GrpBLU_XO","Platoon Sergeant","b_hq","XO",_blue],
+	["GrpBLU_FO","Forward Observer","b_hq","FO",_blue],
+	["GrpBLU_PLM1","Platoon Medic","b_med","PLT M1",_blue],
 	["GrpBLU_PLM2","PLT M2","b_med","PLT M2",_blue],
 	["GrpBLU_JTAC","JTAC","b_hq","JTAC",_blue],
 	["GrpBLU_NAV","NAVY","b_naval","NAVY",_blue],
@@ -36,7 +36,7 @@ _grpBLU = [
 	["GrpBLU_ST1","ST","b_recon","ST1",_blue],
 	
 	// SPECIALISTS
-	["GrpBLU_MTR1","MTR 1","b_mortar","MTR1",_blue],
+	["GrpBLU_MTR1","Mortar","b_mortar","MTR1",_blue],
 	["GrpBLU_MTR2","MTR 2","b_mortar","MTR2",_blue],
 	
 	["GrpBLU_MMG1","MMG","b_inf","MMG1",_blue],

@@ -48,8 +48,8 @@ _attach_dm = [_attachSide, _scope_dm, _bipod1];		// Designated Marksman
 _attach_sp = [_attachSide, _scope_support];			// "Support" Roles
 _attach_sn = [_scope_sniper, _bipod1];				// Snipers
 
-_attach_recon = [_attachSide, _scope_frontline, _silencer1];
-_attach_recon_dm = [_attachSide, _scope_dm, _bipod1, _silencerdm];
+_attach_recon = [_attachSide, _scope_frontline, _silencerStd];
+_attach_recon_dm = [_attachSide, _scope_dm, _bipod1, _silencerDm];
 _attach_none = [];
 
 // Default setup
@@ -218,7 +218,7 @@ _baghsamag 	= 	"B_HMG_01_support_F";				// used by Heavy SAM assistant gunner
 // "medium" vests are used for all classes if they are not assigned a specific uniform
 // FACE, CLOTHES AND UNIFORMS
 _vlight = ["mtrag", "mtrg", "hsamag", "hsamg", "msamag", "mmgag", "matag", "log"];
-_light = ["co", "dc", "jtac", "fo", "leng", "mmgg", "matg", "uav", "msamg", "eng", "ugv", "uavm", "uavl"];
+_light = ["jtac", "fo", "leng", "mmgg", "matg", "uav", "msamg", "eng", "ugv", "uavm", "uavl"];
 _heavy =  ["exp", "sl_l", "ftlr_l"];
 _special = ["plm", "m", "ugv"];
 

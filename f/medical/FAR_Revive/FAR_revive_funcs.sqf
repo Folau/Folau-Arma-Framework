@@ -54,9 +54,7 @@ FAR_HandleDamage_EH = {
 		
 		if (_amountOfDamage >= 1 && _kia_chance > _saveRoll && _bodyPart in ["","head","face_hub","neck"]) then {
 		
-			// Handle Damage
-			//_unit allowDamage true;
-			// _unit setHitPointDamage [_bodyPart, 1];
+			1 fadeSound 0.2; 
 			_amountOfDamage = _amountOfDamage;
 			_unit allowDamage false;
 			_unit setDamage 1;
@@ -106,31 +104,10 @@ FAR_HandleDamage_EH = {
 				];
 			};		
 				
-/* 			[_unit] spawn {
-				_unitSide = if (isPlayer (_this select 0)) then {playerSide} else {side (group (_this select 0))};
-				{
-					_x params ["_sideVar","_markerVar"];
-					if (_unitSide == _sideVar) exitWith {
-						_casVar = missionNamespace getVariable [format["f_var_casualtyCount_%1",_sideVar],0];
-						_kiaVar = missionNamespace getVariable [format["fol_var_kia_counter_%1",_sideVar],0];
-		
-						missionNamespace setVariable [format["f_var_casualtyCount_%1",_sideVar],_casVar + 1,true];
-						missionNamespace setVariable [format["fol_var_kia_counter_%1",_sideVar],_kiaVar + 1,true];	
-						
-						systemChat format["Instant Kill %1 Cas %2 KIA %3", _sideVar, _casVar, _kiaVar]; 
-						_markerVar setMarkerText format["Casualties: %1, KIA: %2",(_casVar), (_kiaVar)];
-					};
-				} forEach [
-					[west,"respawn_west"],
-					[east,"respawn_east"],
-					[resistance,"respawn_guerrila"],
-					[civilian,"respawn_civilian"]
-				];
-			}; */
-
 		}
 		else
 		{
+			1 fadeSound 0.2;
 			_unit setDamage 0;
 			_unit allowDamage false;
 			_amountOfDamage = 0;
@@ -319,6 +296,7 @@ FAR_Player_Unconscious = {
 	) then {
 		// Kill player, stop the camera.
 		["Terminate"] call BIS_fnc_EGSpectator;
+		1 fadeSound 1;
 		_unit setCaptive false;
 		_unit allowDamage true;
 		_unit setDamage 1;
@@ -346,6 +324,7 @@ FAR_Player_Unconscious = {
 		
 		// Clear the "medic nearby" hint
 		titleText["", "PLAIN"];
+		1 fadeSound 1;
 		_unit allowDamage true;
 		_unit setCaptive false;
 

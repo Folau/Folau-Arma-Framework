@@ -78,7 +78,7 @@ waitUntil { !isNil { BIS_fnc_titlecard_finished } }; */
 30 fadeSound 3;
 sleep 8; */
 
-/* _lineTwo = "Undisclosed Location";
+_lineTwo = "Undisclosed Location";
 
 // player call BIS_fnc_locationDescription ??
 _nearLoc = (nearestLocations [getPosATL player, ["NameCityCapital","NameCity","NameVillage","NameLocal"], 1000]); 
@@ -88,4 +88,4 @@ if (count _nearLoc > 0) then {
 };
 
 
-[player, _lineTwo, 200, 100, 75, 1, [], 0, true] spawn BIS_fnc_establishingShot */
+[player, _lineTwo, 200, 100, 75, 1, [], 0, true] spawn BIS_fnc_establishingShot

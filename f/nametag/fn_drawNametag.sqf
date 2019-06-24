@@ -22,17 +22,18 @@ _suffix = if (count _this > 2) then {_this select 2} else {""};
 _str = name _u + _suffix;
 
 //If the unit is dead, exit.
-if (!alive _u || !isPlayer _u) exitWith {};
+// if (!alive _u || !isPlayer _u) exitWith {};
+if (!alive _u) exitWith {};
 
 // Define the color of the nametag
 _color = F_COLOR_NAMETAGS; // Default color
 if (_suffix != "") then {_color = F_COLOR2_NAMETAGS};			// Mounted units
 if(_u in units player) then {
 	switch (assignedTeam _u) do {
-		case "RED": {_color = [1,0,0,0.7]; };
-		case "GREEN": {_color = [0,1,0,0.7]; };
-		case "BLUE": {_color = [0,0.5,1,0.7]; };
-		case "YELLOW": {_color = [1,1,0,0.7]; };
+		case "RED": {_color = [1,0.3,0,0.9]; };
+		case "GREEN": {_color = [0,1,0,0.9]; };
+		case "BLUE": {_color = [0,0.5,1,0.9]; };
+		case "YELLOW": {_color = [1,1,0,0.9]; };
 		default {_color = f_groupColor_Nametags };
 	};
 }; // Units of same group
@@ -44,7 +45,7 @@ _showdis = if (!isNil "F_SHOWDISTANCE_NAMETAGS") then [{F_SHOWDISTANCE_NAMETAGS}
 _showveh = if (!isNil "f_showVehicle_Nametags") then [{f_showVehicle_Nametags},{false}];
 
 // Show group name for other groups only
-if (_showgroup && group _u != group player) then {_str = format ["%1 ",groupID (group _u)] + _str};
+if (_showgroup && group _u != group player) then {_str = _str + format [" (%1)",groupID (group _u)]};
 
 // Show distance for units in over 3m distance only
 if (_showdis && {_pos distance player >= 3}) then {

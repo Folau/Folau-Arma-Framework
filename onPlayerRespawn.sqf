@@ -18,7 +18,7 @@ if (_newUnit getVariable ["f_var_assignGear","x"] != "x") then {
 // if (side _newUnit == west && !(isNil "med_west")) then {
 if (side _newUnit == west) then {
 	_nObject = nearestObjects [_oldUnit, ["B_Truck_01_medical_F", "B_T_Truck_01_medical_F"], 5000] select 0;
-	if (isNil _nObject) then {
+	if !(isNil "_nObject") then {
 		_newUnit moveInCargo _nObject;
 		};
 	};
@@ -26,7 +26,7 @@ if (side _newUnit == west) then {
 // ---------------------------------- EAST FORCES -------------------------------------
 if (side _newUnit == east) then {
 	_nObject = nearestObjects [_oldUnit, ["O_Truck_02_medical_F", "O_T_Truck_03_medical_ghex_F", "O_Truck_03_medical_F"], 5000] select 0;
-	if (isNil _nObject) then {
+	if !(isNil "_nObject") then {
 		_newUnit moveInCargo _nObject;
 		};
 	};
@@ -34,7 +34,7 @@ if (side _newUnit == east) then {
 
 if (side _newUnit == independent) then {
 	_nObject = nearestObjects [_oldUnit, ["I_Truck_02_medical_F"], 5000] select 0;
-	if (isNil _nObject) then {
+	if !(isNil "_nObject") then {
 		_newUnit moveInCargo _nObject;
 		};
 	};

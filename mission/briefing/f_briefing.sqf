@@ -46,39 +46,56 @@ _exe = player createDiaryRecord ["diary", ["",format["",f_param_CasualtiesCap]]]
 
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Enemy Forces",format["
-<br/><font size='18' color='#ea2e2e'>ENEMY CAPABILITY</font>
+<br/><font size='18' color='#ea2e2e'>ENEMY FORCES</font>
 <br/>Detail what friendly intel believe to be the enemy capability.
-<br/>
-<br/><font size='18' color='#ea2e2e'>ENEMY INTENT</font>
-<br/>What the likely enemy reaction will be - what are they going to do?
-<br/>
-<br/><font size='18' color='#ea2e2e'>LOCATION</font>
-<br/>Any particular notes about the AO (terrain, exclusions, etc).
-<br/>
-<br/><font size='18' color='#ea2e2e'>WEATHER</font>
-<br/>If weather is locked describe it (and the forecast) here.
 <br/>
 ",f_param_CasualtiesCap]]];
 
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Friendly Forces",format["
-<br/><font size='18' color='#ea2e2e'>ENEMY CAPABILITY</font>
-<br/>Detail what friendly intel believe to be the enemy capability.
+<br/><font size='18' color='#ea2e2e'>FRIENDLY FORCES</font>
+<br/>The following forces are available for this mission:
 <br/>
-<br/><font size='18' color='#ea2e2e'>ENEMY INTENT</font>
-<br/>What the likely enemy reaction will be - what are they going to do?
+<br/><font color='#72E500'>COMMAND</font>
+<br/>- Platoon Commander
+<br/>- Platoon Sergeant
+<br/>- Platoon Medic
+<br/>- Engineer / Logistics
+<br/>- Strider MRAP
 <br/>
-<br/><font size='18' color='#ea2e2e'>LOCATION</font>
-<br/>Any particular notes about the AO (terrain, exclusions, etc).
+<br/><font color='#72E500'>ALPHA / BRAVO / CHARLIE</font>
+<br/>- Mechanised Rifle Section [2 x Grenadier, 1 x PCML, 2 x Autoriflemen]
+<br/>- FV510 Mora
 <br/>
-<br/><font size='18' color='#ea2e2e'>WEATHER</font>
-<br/>If weather is locked describe it (and the forecast) here.
+<br/><font color='#72E500'>DELTA</font>
+<br/>- MAT Team [2 x MAAWS Mk4 Mod 0]
+<br/>- Strider MRAP
+<br/>
+<br/><font color='#72E500'>ECHO</font>
+<br/>- MMG Team [2 x SPMG]
+<br/>- Strider MRAP
+<br/>
+<br/><font color='#72E500'>FOXTROT</font>
+<br/>- SAM Team [2 x Titan MPRL]
+<br/>- Strider MRAP
+<br/>
+<br/><font color='#72E500'>GOOSE</font>
+<br/>- WY-55 Hellcat
+<br/>
+<br/>(More detailed loadout information can be found on the ORBAT tab)
+<br/>
+<br/><font size='18' color='#ea2e2e'>SUPPORT / LOGISTICS</font>
+<br/>The following Support / Logistics elements are available:
+<br/>
+<br/><font color='#72E500'>Zamak Ammo</font> - Vehicle + Infantry Ammo Resupply
+<br/><font color='#72E500'>Zamak Fuel</font> - Vehicle Refueling
+<br/><font color='#72E500'>Zamak Medical</font> - Infantry Respawn Point
 <br/>
 ",f_param_CasualtiesCap]]];
 
 // The code below creates the execution sub-section of notes.
 _exe = player createDiaryRecord ["diary", ["Execution",format["
-<br/><font size='18' color='#ea2e2e'>COMMANDERS INTENT</font>
+<br/><font size='18' color='#ea2e2e'>EXECUTION</font>
 <br/>The platoon is to deploy to the AO and carry out the mission as directed by the Platoon Commander. OR detail steps if needed.
 <br/>
 <br/><font size='18' color='#ea2e2e'>MOVEMENT PLAN</font>
@@ -92,10 +109,13 @@ _exe = player createDiaryRecord ["diary", ["Execution",format["
 <br/><font size='18' color='#ea2e2e'>SPECIAL TASKS</font>
 <br/>Any secondary objectives.
 <br/>
+<br/><font color='#72E500'>Signals:</font>
+<br/>
 ",f_param_CasualtiesCap]]];
 
+
+/* <br/><font size='18' color='#ea2e2e'>MISSION</font> */
 _mis1 = format["
-<br/><font size='18' color='#ea2e2e'>MISSION</font>
 <br/>Your mission is to X.
 <br/>
 <br/>Ensure Casualty/KIA totals are kept below %3/%2.
@@ -120,8 +140,9 @@ else
 
 _mis = player createDiaryRecord ["diary", ["Mission", misText]];
 
+// <br/><font size='18' color='#ea2e2e'>SITUATION</font>
+
 _test = player createDiaryRecord ["diary", ["Situation",format["
-<br/><font size='18' color='#ea2e2e'>SITUATION</font>
 <br/>Stick to three paragraphs - what has happened, what is going to happen, and a snappy summary.
 <br/>
 ",f_param_CasualtiesCap]]];

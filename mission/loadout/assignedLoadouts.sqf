@@ -16,9 +16,11 @@ if(_side == "guer") then {
 	#include "f_loadout_folau_aaf.sqf"
 };
 
-// Bravo UID List
-_uidList = ["_SP_PLAYER_", "76561198007179126"]; //76561198007179126
+// BIT BELOW NOT WORKING YET
+
+/* // Bravo & GD UID List for Customisation
+_uidList = ["_SP_PLAYER_", "76561198007179126"]; //76561198007179126 - Folau
 
 if ((getPlayerUID player) in _uidList) then {
 	#include "preference.sqf"
-};
+}; */

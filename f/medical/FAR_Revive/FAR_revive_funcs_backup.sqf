@@ -33,7 +33,7 @@ FAR_HandleDamage_EH = {
 		/*if (_amountOfDamage > 1.5) then {
 			systemChat "Critical Damage!";
 		};*/
-		
+		1 fadeSound 0.2;
 		_unit setDamage 0;
 		_unit allowDamage false;
 		_amountOfDamage = 0;
